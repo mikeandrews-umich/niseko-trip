@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RSSC Niseko 2027 · Trip Info</title>
+<meta name="description" content="Everything you need before first chair. RSSC Niseko, Hokkaido, January 3–9, 2027.">
+<meta name="theme-color" content="#0b0b0b">
+<meta property="og:title" content="RSSC Niseko 2027: Powder Pilgrimage">
+<meta property="og:description" content="Schedule, travel, housing, packing list and contacts for the Niseko trip.">
+<meta property="og:image" content="img/hero.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❄️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0b0b; --panel:#151515; --panel-2:#1d1d1d; --line:#2a2a2a;
+    --ink:#f4f1ea; --muted:#a29e96; --maize:#ffcb05; --maize-ink:#111;
+    --r:14px; --pad:clamp(18px,5vw,40px);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:64px;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Archivo,system-ui,-apple-system,"Segoe UI",sans-serif}
+  img{max-width:100%;display:block}
+  a{color:var(--maize)}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--maize);color:#000;padding:8px 12px;border-radius:8px;z-index:99}
+  .skip:focus{left:8px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 var(--pad)}
+
+  /* Hero */
+  .hero{position:relative;background:#000}
+  .hero img{width:100%;aspect-ratio:16/9;object-fit:cover}
+  .intro{padding-top:28px;padding-bottom:8px}
+  .eyebrow{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--maize);margin:0 0 6px}
+  h1{font-size:clamp(34px,8vw,60px);line-height:1;font-weight:900;margin:0 0 10px;text-transform:uppercase;letter-spacing:-.01em}
+  .lede{color:var(--muted);margin:0 0 20px;max-width:56ch}
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 8px}
+  .fact{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:12px}
+  .fact b{display:block;white-space:nowrap;font-size:clamp(17px,5vw,30px);font-weight:900;color:var(--maize);line-height:1.1}
+  .fact span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+
+  /* Sticky section nav */
+  .chips{position:sticky;top:0;z-index:20;background:rgba(11,11,11,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .chips ul{list-style:none;margin:0 auto;padding:10px var(--pad);display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;max-width:1080px}
+  .chips ul::-webkit-scrollbar{display:none}
+  .chips a{display:block;white-space:nowrap;text-decoration:none;color:var(--ink);font-weight:600;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--panel)}
+  .chips a.on{background:var(--maize);color:var(--maize-ink);border-color:var(--maize)}
+
+  section{padding:44px 0 8px}
+  h2{font-size:clamp(26px,6vw,40px);font-weight:900;text-transform:uppercase;margin:0 0 6px;line-height:1.05}
+  h2 em{font-style:normal;color:var(--maize)}
+  .sub{color:var(--muted);margin:0 0 20px}
+  h3{font-size:18px;margin:0 0 4px;font-weight:800}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  .card .body{padding:16px}
+  .grid{display:grid;gap:14px}
+  @media(min-width:700px){.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}}
+  .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:var(--panel-2);color:var(--muted)}
+  .placeholder{border:1px dashed #555;color:var(--muted);border-radius:10px;padding:10px 12px;font-size:14px}
+
+  /* Callout */
+  .callout{display:flex;gap:12px;align-items:flex-start;background:var(--maize);color:var(--maize-ink);border-radius:var(--r);padding:16px;margin:0 0 16px}
+  .callout b{display:block;font-size:18px;font-weight:900;line-height:1.2}
+  .callout p{margin:2px 0 0}
+  .callout .ico{font-size:22px;line-height:1}
+
+  /* Schedule */
+  .legend{display:flex;gap:16px;font-size:13px;color:var(--muted);margin:0 0 16px;font-weight:600}
+  .legend i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px}
+  .legend .inc{background:var(--maize)} .legend .opt{border:1.5px dashed var(--maize)}
+  .days{display:grid;gap:12px}
+  @media(min-width:900px){.days{grid-template-columns:repeat(2,1fr)}}
+  details.day{background:var(--panel);border:1px solid var(--line);border-radius:var(--r)}
+  details.day summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;align-items:center;gap:12px}
+  details.day summary::-webkit-details-marker{display:none}
+  .dnum{font-weight:900;color:var(--maize);font-size:13px;letter-spacing:.08em;min-width:56px}
+  .dname{font-weight:800;flex:1}
+  .dname small{display:block;color:var(--muted);font-weight:500;font-size:13px}
+  .chev{transition:transform .2s;color:var(--muted)}
+  details[open] .chev{transform:rotate(180deg)}
+  .slots{padding:0 16px 16px;display:grid;gap:12px}
+  .slot h4{margin:0 0 6px;font-size:12px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+  .item{padding:8px 10px;border-radius:8px;font-size:15px;margin-bottom:6px}
+  .item.inc{background:var(--maize);color:var(--maize-ink);font-weight:700}
+  .item.opt{border:1.5px dashed rgba(255,203,5,.7)}
+  .item.plain{background:var(--panel-2)}
+
+  /* Steps */
+  ol.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:10px}
+  ol.steps li{counter-increment:s;position:relative;padding:14px 14px 14px 56px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r)}
+  ol.steps li::before{content:counter(s);position:absolute;left:14px;top:14px;width:28px;height:28px;border-radius:50%;background:var(--maize);color:#000;font-weight:900;display:grid;place-items:center;font-size:14px}
+  ol.steps b{display:block}
+  ol.steps span{color:var(--muted);font-size:15px}
+
+  /* Housing */
+  .house img{aspect-ratio:4/5;object-fit:cover;width:100%}
+  .house h3{color:var(--maize)}
+  .house ul{margin:6px 0 0;padding-left:18px;color:var(--muted)}
+  .strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 0 10px;margin-top:14px}
+  .strip figure{flex:0 0 72%;max-width:340px;margin:0;scroll-snap-align:start}
+  .strip img{border-radius:10px;aspect-ratio:4/3;object-fit:cover;width:100%}
+  .strip figcaption{font-size:13px;color:var(--muted);margin-top:6px}
+
+  /* Spots / add-ons */
+  .spot img,.addon img{aspect-ratio:3/2;object-fit:cover;width:100%}
+  .price{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+  .price b{font-size:22px;font-weight:900;color:var(--maize)}
+  .price span{color:var(--muted);font-size:13px}
+  .addon p,.spot p{color:var(--muted);margin:4px 0 0;font-size:15px}
+
+  /* Packing */
+  .pack{display:grid;gap:14px}
+  @media(min-width:800px){.pack{grid-template-columns:repeat(3,1fr)}}
+  .pack .card .body{padding:12px 16px}
+  .pack label{display:flex;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);cursor:pointer;font-size:15px}
+  .pack label:last-child{border-bottom:0}
+  .pack input{appearance:none;-webkit-appearance:none;width:22px;height:22px;border:2px solid #555;border-radius:6px;flex:none;display:grid;place-items:center;margin:0}
+  .pack input:checked{background:var(--maize);border-color:var(--maize)}
+  .pack input:checked::after{content:"✓";color:#000;font-weight:900;font-size:14px}
+  .pack input:checked+span{color:var(--muted);text-decoration:line-through}
+  .progress{height:6px;background:var(--panel-2);border-radius:99px;overflow:hidden;margin:0 0 6px}
+  .progress div{height:100%;background:var(--maize);width:0;transition:width .3s}
+  .ptext{font-size:13px;color:var(--muted);margin:0 0 16px}
+  .linkbtn{background:none;border:0;color:var(--muted);text-decoration:underline;font:inherit;font-size:13px;cursor:pointer;padding:0}
+
+  /* FAQ */
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{list-style:none;cursor:pointer;padding:16px 36px 16px 0;font-weight:700;position:relative;font-size:17px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";position:absolute;right:4px;top:12px;font-size:24px;color:var(--maize);font-weight:400}
+  .faq details[open] summary::after{content:"−"}
+  .faq .a{padding:0 0 16px;color:var(--muted)}
+  .faq .a p{margin:0 0 8px}
+
+  /* Contacts */
+  .contact .role{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--maize);text-transform:uppercase}
+  .contact .name{font-weight:800;font-size:18px;margin:4px 0}
+  .contact a{display:inline-block;margin-right:12px;font-weight:600;padding:6px 0}
+  .emergency{margin-top:14px;background:#2a0f0f;border:1px solid #5a1d1d;border-radius:var(--r);padding:16px}
+  .emergency b{color:#ff8a8a}
+  .emergency a{color:#fff;font-weight:800;font-size:20px;text-decoration:none;margin-right:16px}
+
+  footer{margin-top:56px;padding:28px 0 calc(28px + env(safe-area-inset-bottom));border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+  .totop{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));width:44px;height:44px;border-radius:50%;background:var(--maize);color:#000;display:grid;place-items:center;text-decoration:none;font-weight:900;opacity:0;pointer-events:none;transition:opacity .2s;box-shadow:0 4px 16px rgba(0,0,0,.5)}
+  .totop.show{opacity:1;pointer-events:auto}
+  .map{border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+  .map img{width:100%}
+  .note{font-size:13px;color:var(--muted);margin-top:8px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hero">
+  <img src="img/hero.jpg" alt="Niseko 2027: Powder Pilgrimage. Mt. Yotei at sunset over snowy Hirafu." fetchpriority="high">
+</header>
+
+<div class="wrap intro">
+  <p class="eyebrow">RSSC · Hokkaido, Japan</p>
+  <h1>Niseko trip info</h1>
+  <p class="lede">Everything you need before first chair. Bookmark this page (or add it to your home screen) and check back as we fill in details.</p>
+  <div class="facts">
+    <div class="fact"><b>Jan 3–9</b><span>2027</span></div>
+    <div class="fact"><b id="countdown">—</b><span id="countdown-label">days to go</span></div>
+    <div class="fact"><b>CTS</b><span>Fly into</span></div>
+  </div>
+</div>
+
+<nav class="chips" aria-label="Sections">
+  <ul>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#travel">Travel</a></li>
+    <li><a href="#housing">Housing</a></li>
+    <li><a href="#mountain">Mountain</a></li>
+    <li><a href="#town">Town</a></li>
+    <li><a href="#addons">Add-ons</a></li>
+    <li><a href="#packing">Packing</a></li>
+    <li><a href="#faqs">FAQs</a></li>
+    <li><a href="#contacts">Contacts</a></li>
+  </ul>
+</nav>
+
+<main id="main" class="wrap">
+
+  <!-- ================= SCHEDULE ================= -->
+  <section id="schedule">
+    <h2>Trip at a <em>glance</em></h2>
+    <p class="sub">Tap a day to expand. Full schedule coming soon.</p>
+    <div class="legend"><span><i class="inc"></i>Included</span><span><i class="opt"></i>Optional</span></div>
+    <div class="days" id="days"></div>
+  </section>
+
+  <!-- ================= TRAVEL ================= -->
+  <section id="travel">
+    <h2>Travel + <em>arrival</em></h2>
+    <p class="sub">Book flights into New Chitose Airport (CTS), Sapporo.</p>
+    <div class="callout">
+      <span class="ico">⏰</span>
+      <div><b>Land at CTS by 3:00 PM, Sun Jan 3</b><p>The chartered bus leaves CTS at 4:00 PM for Niseko, with a stop at a supermarket on the way.</p></div>
+    </div>
+    <ol class="steps">
+      <li><b>Book your flight to CTS</b><span>Direct via SFO or YVR · connect via Tokyo (HND/NRT) · or connect via Taipei (TPE) / Seoul (ICN).</span></li>
+      <li><b>Clear customs + meet the group</b><span>Meeting point inside CTS: <em>TBA</em>.</span></li>
+      <li><b>Chartered bus to Niseko at 4 PM</b><span>About 2–2.5 hours with the grocery stop. Grab snacks and breakfast stuff for the house.</span></li>
+      <li><b>Check in + gear pickup</b><span>House assignments and rental pickup details: <em>TBA</em>.</span></li>
+    </ol>
+    <p class="note">Arriving on a different day or flying out of somewhere else? Let the logistics team know (see <a href="#contacts">Contacts</a>).</p>
+  </section>
+
+  <!-- ================= HOUSING ================= -->
+  <section id="housing">
+    <h2>Where we're <em>staying</em></h2>
+    <p class="sub">Three standalone townhomes in Lower Hirafu, an 8–10 min walk (or 2 min shuttle) to the lifts. Between them: a rooftop hot tub, a private onsen, an included rental car, big kitchens, and your own bed.</p>
+    <div class="grid g3">
+      <article class="card house">
+        <img src="img/house-konkuriito.jpg" alt="Konkuriito G, a concrete townhome" loading="lazy">
+        <div class="body"><h3>Konkuriito G</h3><ul><li>Sleeps 6 · 6 twin beds</li><li>2 bathrooms</li></ul></div>
+      </article>
+      <article class="card house">
+        <img src="img/house-mori.jpg" alt="Mori C, a dark-clad townhome in the snow" loading="lazy">
+        <div class="body"><h3>Mori C</h3><ul><li>Sleeps 6 · 6 twin beds</li><li>2 bathrooms</li></ul></div>
+      </article>
+      <article class="card house">
+        <img src="img/house-whiskey.jpg" alt="Whiskey Woods, a three-story modern townhome" loading="lazy">
+        <div class="body"><h3>Whiskey Woods</h3><ul><li>Sleeps 10 · 6 twin beds + tatami room</li><li>5 bathrooms</li></ul></div>
+      </article>
+    </div>
+    <div class="strip" aria-label="Photos inside the houses">
+      <figure><img src="img/int-hottub.jpg" alt="Rooftop hot tub" loading="lazy"><figcaption>Rooftop hot tub</figcaption></figure>
+      <figure><img src="img/int-onsen.jpg" alt="Private indoor onsen bath" loading="lazy"><figcaption>Private onsen</figcaption></figure>
+      <figure><img src="img/int-living.jpg" alt="Living room with big windows" loading="lazy"><figcaption>Living room</figcaption></figure>
+      <figure><img src="img/int-kitchen.jpg" alt="Large kitchen and dining table" loading="lazy"><figcaption>Kitchen</figcaption></figure>
+      <figure><img src="img/int-bedroom.jpg" alt="Twin-bed bedroom" loading="lazy"><figcaption>Twin bedrooms</figcaption></figure>
+    </div>
+    <div class="placeholder">Room assignments: TBA</div>
+  </section>
+
+  <!-- ================= MOUNTAIN ================= -->
+  <section id="mountain">
+    <h2>Niseko <em>United</em></h2>
+    <p class="sub">Four connected resorts on the Ikon Pass: Grand Hirafu, Hanazono, Niseko Village and Annupuri. About 2,191 acres, and roughly 50 ft of snow a season. January is peak.</p>
+    <div class="facts" style="margin-bottom:16px">
+      <div class="fact"><b>50 ft</b><span>Annual snow</span></div>
+      <div class="fact"><b>4</b><span>Resorts on Ikon</span></div>
+      <div class="fact"><b>2,191</b><span>Acres</span></div>
+    </div>
+    <a class="map" href="img/trail-map.jpg" target="_blank" rel="noopener"><img src="img/trail-map.jpg" alt="Niseko United trail map" loading="lazy"></a>
+    <p class="note">Tap the map to open it full size, then pinch to zoom. Worth saving to your phone.</p>
+    <div class="grid g2" style="margin-top:16px">
+      <div class="card"><div class="body"><h3>Backcountry gates</h3><p style="color:var(--muted);margin:4px 0 0">Niseko's gates open terrain beyond the boundary. Only go through with avalanche gear, a partner, and the know-how (or book a guided tour below). Gates close when posted, so respect the rules.</p></div></div>
+      <div class="card"><div class="body"><h3>Spots to hit</h3><p style="color:var(--muted);margin:4px 0 0">Strawberry Fields (Hanazono) for trees, the Pizza Box lift, and Boyoso. Night skiing at Hirafu is included with your pass.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ================= TOWN ================= -->
+  <section id="town">
+    <h2>Around <em>Hirafu</em></h2>
+    <p class="sub">The houses are in Lower Hirafu. Free buses run to Hanazono, Kutchan, Annupuri and Niseko Village.</p>
+    <div class="grid g2">
+      <article class="card spot"><img src="img/spot-onsen.jpg" alt="Yukoro Onsen indoor bath" loading="lazy"><div class="body"><span class="tag">Onsen · ~5 min walk</span><h3 style="margin-top:8px">Yukoro Onsen</h3><p>The closest hot spring to the houses. Perfect after a powder day.</p></div></article>
+      <article class="card spot"><img src="img/spot-lawson.jpg" alt="Lawson convenience store with Mt. Yotei behind" loading="lazy"><div class="body"><span class="tag">Konbini · ~10 min walk</span><h3 style="margin-top:8px">Hirafu Lawson</h3><p>Onigiri, egg sandos, ATM, and everything else at 1 AM.</p></div></article>
+      <article class="card spot"><img src="img/spot-bargyu.jpg" alt="Inside Bar Gyu" loading="lazy"><div class="body"><span class="tag">Bar</span><h3 style="margin-top:8px">Bar Gyu</h3><p>The one with the fridge door entrance.</p></div></article>
+      <article class="card spot"><img src="img/spot-minamina.jpg" alt="Mina Mina music bar entrance in the snow" loading="lazy"><div class="body"><span class="tag">Music bar</span><h3 style="margin-top:8px">Mina Mina</h3><p>Music bar for later in the night.</p></div></article>
+    </div>
+  </section>
+
+  <!-- ================= ADD-ONS ================= -->
+  <section id="addons">
+    <h2>Optional <em>add-ons</em></h2>
+    <p class="sub">Approximate prices in USD (yen in brackets). Dates and sign-up details coming soon.</p>
+    <div class="grid g3">
+      <article class="card addon"><img src="img/addon-yotei.jpg" alt="Mt. Yotei" loading="lazy"><div class="body"><h3>Mt. Yotei backcountry tour</h3><p>Guided hike up a dormant volcano for serious backcountry terrain.</p><div class="price"><b>~$250</b><span>¥40,000</span></div></div></article>
+      <article class="card addon"><img src="img/addon-backcountry.jpg" alt="Skier in deep powder" loading="lazy"><div class="body"><h3>Niseko backcountry tour</h3><p>Untouched powder outside the resort boundary with a certified guide.</p><div class="price"><b>$175</b><span>¥28,000</span></div></div></article>
+      <article class="card addon"><img src="img/addon-rusutsu.jpg" alt="Rusutsu ski resort with Ferris wheel" loading="lazy"><div class="body"><h3>Rusutsu day trip</h3><p>Shuttle + lift ticket to Niseko's quieter neighbor: wide-open trees, shorter lines.</p><div class="price"><b>$125</b><span>¥20,000</span></div></div></article>
+      <article class="card addon"><img src="img/addon-snowmobile.jpg" alt="Snowy terrain" loading="lazy"><div class="body"><h3>Snowmobile tour</h3><p>Guided sled ride through forest trails and open powder fields.</p><div class="price"><b>$115</b><span>¥18,000</span></div></div></article>
+      <article class="card addon"><img src="img/addon-onsen.jpg" alt="Outdoor onsen in snow" loading="lazy"><div class="body"><h3>Onsen tour</h3><p>A guided circuit of Niseko's best volcanic hot springs.</p><div class="price"><b>$40</b><span>¥6,000</span></div></div></article>
+      <article class="card addon"><img src="img/addon-tubing.jpg" alt="Snow tubing at night under colored lights" loading="lazy"><div class="body"><h3>Tubing</h3><p>Bomb down lit-up lanes on an oversized inner tube.</p><div class="price"><b>$30</b><span>¥4,500</span></div></div></article>
+    </div>
+    <div class="placeholder" style="margin-top:14px">How to sign up: TBA</div>
+  </section>
+
+  <!-- ================= PACKING ================= -->
+  <section id="packing">
+    <h2>Packing <em>list</em></h2>
+    <p class="sub">Check things off as you pack. Your checks save on this device.</p>
+    <div class="progress"><div id="pbar"></div></div>
+    <p class="ptext"><span id="ptext">0 packed</span> · <button class="linkbtn" id="preset" type="button">Reset</button></p>
+    <div class="pack" id="pack"></div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section id="faqs" class="faq">
+    <h2><em>FAQs</em></h2>
+    <p class="sub">Don't see your question? Ask in the group chat.</p>
+    <details><summary>Which airport do I fly into?</summary><div class="a"><p>New Chitose Airport (CTS) near Sapporo. Land by 3:00 PM on Sun Jan 3 to catch the 4:00 PM chartered bus to Niseko.</p></div></details>
+    <details><summary>What if I'm arriving late or on a different day?</summary><div class="a"><p>You'll need to get to Niseko on your own. Airport buses and private transfers run from CTS. Tell the logistics team your plans so we know when to expect you.</p></div></details>
+    <details><summary>Do I need a visa?</summary><div class="a"><p>U.S. passport holders don't need a visa for short tourist stays in Japan. Other passports vary, so check the <a href="https://www.mofa.go.jp/j_info/visit/visa/short/novisa.html" target="_blank" rel="noopener">Japan MOFA visa-exemption list</a> early. International students: make sure your U.S. visa/I-20 paperwork is in order for re-entry.</p></div></details>
+    <details><summary>Do I need an Ikon Pass?</summary><div class="a"><p>Niseko United is on the Ikon Pass. Pass and lift-ticket details: <em>TBA</em>.</p></div></details>
+    <details><summary>Ski or snowboard? I'm a beginner.</summary><div class="a"><p>Either works. Optional morning and afternoon lessons will be offered. Sign-up details coming soon.</p></div></details>
+    <details><summary>Money: cash or card?</summary><div class="a"><p>Cards work in most of Hirafu, but bring some yen for small restaurants, buses and onsen. Konbini ATMs (Lawson, 7-Eleven) take foreign cards.</p></div></details>
+    <details><summary>Will my phone charger work?</summary><div class="a"><p>Yes. Japan uses the same Type A plugs as the U.S. (100V). Bring a portable battery; phones die fast in the cold.</p></div></details>
+    <details><summary>What if I don't want to ski every day?</summary><div class="a"><p>Plenty to do: onsen, tubing, the Rusutsu day trip, snowmobiles, or a slow morning in Hirafu. See <a href="#addons">Add-ons</a>.</p></div></details>
+  </section>
+
+  <!-- ================= CONTACTS ================= -->
+  <section id="contacts">
+    <h2><em>Contacts</em></h2>
+    <p class="sub">Who to reach for what.</p>
+    <div class="grid g2" id="contact-grid"></div>
+    <div class="emergency">
+      <p style="margin:0 0 8px"><b>Emergency in Japan</b></p>
+      <a href="tel:119">🚑 119</a><a href="tel:110">🚓 110</a>
+      <p class="note" style="margin-top:8px">119 = ambulance &amp; fire · 110 = police. Then let a trip lead know.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p style="margin:0 0 4px;color:var(--ink);font-weight:800">RSSC Niseko '27: Powder Pilgrimage</p>
+    <p style="margin:0">Niseko, Hokkaido · January 3–9, 2027</p>
+  </div>
+</footer>
+<a href="#" class="totop" id="totop" aria-label="Back to top">↑</a>
+
+<script>
+/* ======================================================================
+   EDIT HERE: schedule, packing list, contacts.
+   Schedule item types: "inc" = included (maize), "opt" = optional (dashed),
+   "plain" = no tag.
+   ====================================================================== */
+const SCHEDULE = [
+  { day: "Day 01", name: "Sunday",    date: "Jan 3" },
+  { day: "Day 02", name: "Monday",    date: "Jan 4" },
+  { day: "Day 03", name: "Tuesday",   date: "Jan 5" },
+  { day: "Day 04", name: "Wednesday", date: "Jan 6" },
+  { day: "Day 05", name: "Thursday",  date: "Jan 7" },
+  { day: "Day 06", name: "Friday",    date: "Jan 8" },
+  { day: "Day 07", name: "Saturday",  date: "Jan 9" },
+].map(d => ({
+  ...d,
+  morning:   d.morning   || [],
+  afternoon: d.afternoon || [],
+  evening:   d.evening   || [],
+}));
+// Example of a filled day:
+// { day:"Day 01", name:"Sunday", date:"Jan 3",
+//   afternoon:[{t:"Arrive CTS",type:"plain"},{t:"Private shuttle to Niseko",type:"inc"}] }
+
+const PACKING = {
+  "For the slopes": ["Helmet","Goggles (+ low-light lens)","Ski/snowboard jacket","Snow pants","Base layers (top + bottom)","Mid layer / fleece","Ski socks (several pairs)","Gloves or mittens","Neck gaiter / balaclava","Sunscreen + lip balm","Hand warmers"],
+  "Around town": ["Warm boots with grip","Puffer jacket","Beanie","Swimsuit (hot tub)","Casual going-out clothes","Slippers / house shoes","Reusable water bottle"],
+  "Travel essentials": ["Passport (valid 6+ months)","Flight confirmation","Ikon Pass / lift ticket info","Credit card (no foreign fee)","Some yen in cash","Phone + charger + battery pack","eSIM or travel data plan","Travel insurance info","Any meds you need"],
+};
+
+const CONTACTS = [
+  { role: "Trip lead",       name: "Name TBA", email: "", phone: "" },
+  { role: "Trip lead",       name: "Name TBA", email: "", phone: "" },
+  { role: "Logistics",       name: "Name TBA", email: "", phone: "" },
+  { role: "Gear + passes",   name: "Name TBA", email: "", phone: "" },
+];
+
+const TRIP_START = new Date("2027-01-03T00:00:00+09:00");
+
+/* ====================================================================== */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+// Schedule
+const slot = (label, items) => `<div class="slot"><h4>${label}</h4>${
+  items.length ? items.map(i => `<div class="item ${i.type||"plain"}">${esc(i.t)}</div>`).join("")
+               : `<div class="placeholder">TBA</div>`}</div>`;
+document.getElementById("days").innerHTML = SCHEDULE.map((d, i) => `
+  <details class="day"${i === 0 ? " open" : ""}>
+    <summary><span class="dnum">${d.day.toUpperCase()}</span>
+      <span class="dname">${d.name}<small>${d.date}</small></span><span class="chev">▾</span></summary>
+    <div class="slots">${slot("Morning", d.morning)}${slot("Afternoon", d.afternoon)}${slot("Evening", d.evening)}</div>
+  </details>`).join("");
+
+// Packing list (saved to localStorage)
+const KEY = "rssc-niseko-pack";
+const saved = new Set(JSON.parse(localStorage.getItem(KEY) || "[]"));
+const pack = document.getElementById("pack");
+pack.innerHTML = Object.entries(PACKING).map(([group, items]) => `
+  <div class="card"><div class="body"><h3 style="margin-bottom:6px">${group}</h3>${
+    items.map(it => { const id = group + "|" + it;
+      return `<label><input type="checkbox" data-id="${esc(id)}"${saved.has(id) ? " checked" : ""}><span>${esc(it)}</span></label>`;
+    }).join("")}</div></div>`).join("");
+const boxes = [...pack.querySelectorAll("input")];
+const updatePack = () => {
+  const n = boxes.filter(b => b.checked).length;
+  document.getElementById("pbar").style.width = (100 * n / boxes.length) + "%";
+  document.getElementById("ptext").textContent = `${n} of ${boxes.length} packed`;
+  localStorage.setItem(KEY, JSON.stringify(boxes.filter(b => b.checked).map(b => b.dataset.id)));
+};
+pack.addEventListener("change", updatePack);
+document.getElementById("preset").onclick = () => { boxes.forEach(b => b.checked = false); updatePack(); };
+updatePack();
+
+// Contacts
+document.getElementById("contact-grid").innerHTML = CONTACTS.map(c => `
+  <div class="card contact"><div class="body">
+    <div class="role">${esc(c.role)}</div><div class="name">${esc(c.name)}</div>
+    ${c.phone ? `<a href="tel:${esc(c.phone)}">Call</a><a href="sms:${esc(c.phone)}">Text</a>` : ""}
+    ${c.email ? `<a href="mailto:${esc(c.email)}">Email</a>` : ""}
+    ${!c.phone && !c.email ? `<span class="note">Contact info TBA</span>` : ""}
+  </div></div>`).join("");
+
+// Countdown
+const days = Math.ceil((TRIP_START - new Date()) / 864e5);
+const cd = document.getElementById("countdown");
+if (days > 0) cd.textContent = days;
+else { cd.textContent = "Now"; document.getElementById("countdown-label").textContent = "we're here"; }
+
+// Highlight current section chip + back-to-top
+const links = [...document.querySelectorAll(".chips a")];
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  links.forEach(a => {
+    const on = a.getAttribute("href") === "#" + e.target.id;
+    a.classList.toggle("on", on);
+    if (on) a.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+  });
+}), { rootMargin: "-45% 0px -50% 0px" });
+document.querySelectorAll("main section").forEach(s => io.observe(s));
+const toTop = document.getElementById("totop");
+addEventListener("scroll", () => toTop.classList.toggle("show", scrollY > 900), { passive: true });
+</script>
+</body>
+</html>
