@@ -5,10 +5,13 @@ One static page: `index.html` plus photos in `img/`. No build step.
 ## Editing
 Open `index.html` and scroll to the `EDIT HERE` block near the bottom:
 
+- `LINKS`: paste the add-ons Google Form URL and the dinner Google Sheet URL (plus deadlines). Buttons say "Link coming soon" until filled.
 - `SCHEDULE`: add items to `morning` / `afternoon` / `evening` for each day.
   `type: "inc"` = included (maize), `"opt"` = optional (dashed), `"plain"` = no tag.
+  Add `link: "dinners"` or `link: "addons"` to an item to show a sign-up link.
+  Set `title` for the day's headline.
   ```js
-  { day:"Day 01", name:"Sunday", date:"Jan 3",
+  { day: 1, name: "Sunday", date: "2027-01-03", title: "Arrival day",
     afternoon:[{t:"Arrive CTS", type:"plain"}, {t:"Private shuttle to Niseko", type:"inc"}] }
   ```
 - `PACKING`: packing list groups and items.
