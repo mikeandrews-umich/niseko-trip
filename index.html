@@ -156,7 +156,7 @@
   .pack input:checked::after{content:"✓";color:#000;font-weight:900;font-size:14px}
   .pack input:checked+span{color:var(--muted);text-decoration:line-through}
   .progress{height:6px;background:var(--panel-2);border-radius:99px;overflow:hidden;margin:0 0 6px}
-  .progress div{height:100%;background:var(--maize);width:0;transition:width .3s}
+  .progress div{height:100%;background:var(--maize);transform:scaleX(0);transform-origin:left;transition:transform .3s}
   .ptext{font-size:13px;color:var(--muted);margin:0 0 16px}
   .linkbtn{background:none;border:0;color:var(--muted);text-decoration:underline;font:inherit;font-size:13px;cursor:pointer;padding:0}
 
@@ -190,9 +190,8 @@
 </header>
 
 <div class="wrap intro">
-  <p class="eyebrow">RSSC · Hokkaido, Japan</p>
   <h1>Niseko trip info</h1>
-  <p class="lede">Everything you need before first chair. Bookmark this page (or add it to your home screen). We'll keep filling it in.</p>
+  <p class="lede">RSSC heads to Hokkaido. Everything you need before first chair. Bookmark this page (or add it to your home screen). We'll keep filling it in.</p>
   <div class="facts">
     <div class="fact"><b>Jan 3–9</b><span>2027</span></div>
     <div class="fact"><b id="countdown">—</b><span id="countdown-label">days to go</span></div>
@@ -524,7 +523,7 @@ $("pack").innerHTML = Object.entries(PACKING).map(([group, items]) => `
 const boxes = [...$("pack").querySelectorAll("input")];
 const updatePack = () => {
   const n = boxes.filter(b => b.checked).length;
-  $("pbar").style.width = (100 * n / boxes.length) + "%";
+  $("pbar").style.transform = `scaleX(${n / boxes.length})`;
   $("ptext").textContent = `${n} of ${boxes.length} packed`;
   localStorage.setItem(KEY, JSON.stringify(boxes.filter(b => b.checked).map(b => b.dataset.id)));
 };
