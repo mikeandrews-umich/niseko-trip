@@ -7,7 +7,8 @@ Open `index.html` and scroll to the `EDIT HERE` block near the bottom:
 
 - `LINKS`: paste the add-ons Google Form URL and the dinner Google Sheet URL (plus deadlines). Buttons say "Link coming soon" until filled.
 - `SCHEDULE`: add items to `morning` / `afternoon` / `evening` for each day.
-  `type: "inc"` = included (maize), `"opt"` = optional (dashed), `"plain"` = no tag.
+  `type: "inc"` = included (solid maize block), `"opt"` = optional (maize outline), `"plain"` = plain line.
+  A day with no items shows a single "Plan drops closer to the trip" line.
   Add `link: "dinners"` or `link: "addons"` to an item to show a sign-up link.
   Set `title` for the day's headline.
   ```js

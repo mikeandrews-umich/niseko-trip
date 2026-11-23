@@ -1,0 +1,4 @@
+# design-process scratch (kept local, not served)
+.impeccable/*
+!.impeccable/config.json
+!.impeccable/design.json

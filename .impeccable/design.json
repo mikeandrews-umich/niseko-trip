@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-23T20:15:00.000Z",
+  "title": "Design System: Niseko 2027 Trip Page",
+  "extensions": {
+    "colorMeta": {
+      "maize-ink": { "role": "primary", "displayName": "Maize Ink", "canonical": "#ffc72c", "approxOklch": "oklch(85.7% 0.165 86.5)", "cssVar": "--ink", "tonalRamp": ["#1c0300", "#3b1b00", "#5d3700", "#815400", "#ab7600", "#cd9d00", "#efc55e", "#ffea93"] },
+      "black-stock": { "role": "neutral", "displayName": "Black Stock", "canonical": "#0e0d0b", "approxOklch": "oklch(15.9% 0.004 84.6)", "cssVar": "--stock", "tonalRamp": ["#0c0b0a", "#252422", "#41403e", "#5f5d5b", "#81807d", "#a6a4a2", "#cbcac8", "#efeeec"] },
+      "bone": { "role": "neutral", "displayName": "Bone", "canonical": "#efe6c8", "approxOklch": "oklch(92.4% 0.041 93.2)", "cssVar": "--bone", "tonalRamp": ["#0f0b02", "#292414", "#45402c", "#645d46", "#888065", "#aca58b", "#d1cbb4", "#f5efda"] },
+      "bone-dim": { "role": "neutral", "displayName": "Bone Dim", "canonical": "#b3aa90", "approxOklch": "oklch(73.9% 0.038 91.2)", "cssVar": "--bone-dim", "tonalRamp": ["#0f0b02", "#292415", "#463f2e", "#655d48", "#888067", "#aca48d", "#d1cab5", "#f5eedc"] },
+      "spent-rule": { "role": "neutral", "displayName": "Spent Rule", "canonical": "#3a362c", "approxOklch": "oklch(33.4% 0.018 88.8)", "cssVar": "--rule", "tonalRamp": ["#0d0b06", "#26241d", "#433f37", "#615d54", "#848074", "#a8a49a", "#cecac0", "#f2eee5"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Cover headline (trip dates) knocked out of the maize slab; overruns its column, never wraps. Uppercase." },
+      "headline": { "displayName": "Headline", "purpose": "Section h2s, uppercase, maize; settle into register once on entry." },
+      "title": { "displayName": "Title", "purpose": "Block, packing-group and day h3s in bone; house names enlarged in maize. Display numerals for prices, steps, day numbers." },
+      "body": { "displayName": "Body", "purpose": "All reading text; tabular figures page-wide; 58-62ch measure for intros." },
+      "label": { "displayName": "Label", "purpose": "Uppercase 13px/700 field and nav labels: index strip, day strip, fact terms, slot times, contact roles. Never a decorative line above a heading." }
+    },
+    "textures": [
+      { "name": "halftone-rule", "value": "radial-gradient(circle, var(--ink) 0 1px, transparent 1.4px) left bottom/6px 3px repeat-x", "cssVar": "--hr", "purpose": "Row separator inside lists." },
+      { "name": "halftone-field", "value": "radial-gradient(circle at center, var(--ink) 0 1.1px, transparent 1.6px) 0 0/7px 7px", "cssVar": "--dots", "purpose": "Tint of maize over stock: progress tracks (6px pitch), optional-item legend swatch." },
+      { "name": "paper-grain", "value": "SVG fractalNoise overlay, opacity .11, mix-blend-mode screen, fixed over the page", "purpose": "Uncoated stock texture." },
+      { "name": "rough-cut-edge", "value": "Seeded jagged SVG path mask, 14px tall, preserveAspectRatio none", "purpose": "Bottom edge of the cover slab and top edge of the footer only." }
+    ],
+    "shadows": [
+      { "name": "ink-keyline", "value": "inset 0 0 0 2px var(--ink)", "purpose": "Printed 2px border on line buttons, hovered primary buttons and optional schedule items. Not elevation." }
+    ],
+    "motion": [
+      { "name": "ease-settle", "value": "cubic-bezier(.16, 1, .3, 1)", "purpose": "Heading registration (700ms, once) and progress fills (350ms)." },
+      { "name": "ink-swap", "value": "background .15s, color .15s", "purpose": "Button hover ink swap; disabled under reduced motion." },
+      { "name": "intro-exit", "value": "transform .9s cubic-bezier(.7, 0, .2, 1)", "purpose": "Intro banner slides up off the page." },
+      { "name": "faq-toggle", "value": "transform .25s", "purpose": "FAQ plus rotates 45 degrees when open." }
+    ],
+    "breakpoints": [
+      { "name": "back-to-top", "value": "760px" },
+      { "name": "houses-two-up", "value": "760px" },
+      { "name": "packing-three-up", "value": "820px" },
+      { "name": "signups-two-up", "value": "860px" },
+      { "name": "rail-and-slab-grid", "value": "900px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid maize ink block; inks swap on hover.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Add-ons sheet <svg viewBox=\"0 0 14 14\" aria-hidden=\"true\"><path d=\"M4 2h8v8M12 2 2 12\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\"/></svg></a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:10px;background:#ffc72c;color:#0e0d0b;font:700 15px/1.6 \"Atkinson Hyperlegible\",system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:14px 20px;border-radius:0;transition:background .15s,color .15s}.ds-btn svg{width:14px;height:14px;flex:none}.ds-btn:hover{background:#0e0d0b;color:#ffc72c;box-shadow:inset 0 0 0 2px #ffc72c}.ds-btn:focus-visible{outline:3px solid #ffc72c;outline-offset:3px}"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Maize keyline on stock; fills with maize on hover.",
+      "html": "<div style=\"background:#0e0d0b;padding:24px\"><a class=\"ds-btn-line\" href=\"#\">Photos and details <svg viewBox=\"0 0 14 14\" aria-hidden=\"true\"><path d=\"M4 2h8v8M12 2 2 12\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\"/></svg></a></div>",
+      "css": ".ds-btn-line{display:inline-flex;align-items:center;gap:10px;background:none;color:#ffc72c;box-shadow:inset 0 0 0 2px #ffc72c;font:700 15px/1.6 \"Atkinson Hyperlegible\",system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:14px 20px;transition:background .15s,color .15s}.ds-btn-line svg{width:14px;height:14px;flex:none}.ds-btn-line:hover{background:#ffc72c;color:#0e0d0b}.ds-btn-line:focus-visible{outline:3px solid #ffc72c;outline-offset:3px}"
+    },
+    {
+      "name": "Printed Index Strip",
+      "kind": "nav",
+      "refersTo": "index-link",
+      "description": "Sticky section index on stock; current section is maize with a 4px underline over the 2px base rule.",
+      "html": "<nav class=\"ds-index\"><ul><li><a href=\"#\">Days</a></li><li><a class=\"on\" href=\"#\">Sign-ups</a></li><li><a href=\"#\">Getting there</a></li><li><a href=\"#\">Houses</a></li></ul></nav>",
+      "css": ".ds-index{background:#0e0d0b;border-bottom:2px solid #ffc72c}.ds-index ul{list-style:none;margin:0;padding:0 20px;display:flex;gap:24px;overflow-x:auto}.ds-index a{display:block;white-space:nowrap;text-decoration:none;color:#b3aa90;font:700 13px \"Atkinson Hyperlegible\",system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;padding:16px 0 13px;border-bottom:4px solid transparent;margin-bottom:-2px}.ds-index a:hover{color:#efe6c8}.ds-index a.on{color:#ffc72c;border-bottom-color:#ffc72c}.ds-index a:focus-visible{outline:3px solid #ffc72c;outline-offset:3px}"
+    },
+    {
+      "name": "Ruled List with Halftone Rule",
+      "kind": "custom",
+      "refersTo": "list-row",
+      "description": "Open list rows separated by a maize halftone-dot rule; display-face price in maize.",
+      "html": "<ul class=\"ds-addons\"><li><div><b>Lift pass upgrade</b><div class=\"d\">All four resorts, six days</div></div><div class=\"p\">¥48,000</div></li><li><div><b>Onsen night</b><div class=\"d\">Bus included</div></div><div class=\"p\">¥3,500</div></li></ul>",
+      "css": ".ds-addons{list-style:none;margin:0;padding:0;background:#0e0d0b;color:#efe6c8;font:17px/1.6 \"Atkinson Hyperlegible\",system-ui,sans-serif}.ds-addons li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 16px;padding:14px 0;background:radial-gradient(circle,#ffc72c 0 1px,transparent 1.4px) left bottom/6px 3px repeat-x}.ds-addons .d{color:#b3aa90;font-size:15px}.ds-addons .p{font-family:\"Big Shoulders Display\",\"Arial Narrow\",sans-serif;font-weight:900;color:#ffc72c;font-size:28px;line-height:1;text-align:right}"
+    },
+    {
+      "name": "Stamp Box",
+      "kind": "card",
+      "refersTo": "stamp-box",
+      "description": "The one must-not-miss fact in a section: 3px maize border, square, stock fill.",
+      "html": "<div class=\"ds-stamp\"><b>Land at CTS by 3 PM, Jan 3</b><p>The chartered bus leaves at 4 PM sharp.</p></div>",
+      "css": ".ds-stamp{border:3px solid #ffc72c;padding:20px 22px;max-width:640px;background:#0e0d0b;color:#efe6c8;font:17px/1.6 \"Atkinson Hyperlegible\",system-ui,sans-serif}.ds-stamp b{display:block;font-family:\"Big Shoulders Display\",\"Arial Narrow\",sans-serif;font-weight:900;font-size:30px;line-height:1.1;color:#ffc72c;margin-bottom:8px}.ds-stamp p{margin:0}"
+    },
+    {
+      "name": "Packing Checkbox",
+      "kind": "input",
+      "refersTo": "checkbox",
+      "description": "Square box with a hand-drawn maize tick; checked item dims with a maize strike-through.",
+      "html": "<div style=\"background:#0e0d0b;padding:16px\"><label class=\"ds-check\"><input type=\"checkbox\" checked><span>Goggles</span></label><label class=\"ds-check\"><input type=\"checkbox\"><span>Swimsuit for onsen</span></label></div>",
+      "css": ".ds-check{display:flex;gap:14px;align-items:flex-start;padding:10px 0;cursor:pointer;color:#efe6c8;font:16px/1.6 \"Atkinson Hyperlegible\",system-ui,sans-serif;background:radial-gradient(circle,#ffc72c 0 1px,transparent 1.4px) left bottom/6px 3px repeat-x}.ds-check input{appearance:none;-webkit-appearance:none;width:22px;height:22px;border:2px solid #b3aa90;flex:none;margin:1px 0 0;position:relative;cursor:pointer;border-radius:0}.ds-check input:hover,.ds-check input:checked{border-color:#ffc72c}.ds-check input:focus-visible{outline:3px solid #ffc72c;outline-offset:3px}.ds-check input:checked::after{content:\"\";position:absolute;left:-3px;top:-6px;width:26px;height:26px;background:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Cpath d='M3 14.5c2.2 1.4 4 3.6 5.6 6.4C11.6 13.7 16 7.4 23.5 2.5' fill='none' stroke='%23ffc72c' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center/contain no-repeat}.ds-check input:checked+span{color:#b3aa90;text-decoration:line-through;text-decoration-color:#ffc72c;text-decoration-thickness:2px}"
+    },
+    {
+      "name": "Schedule Slot",
+      "kind": "custom",
+      "refersTo": "included-item",
+      "description": "Time label plus items: included items are solid maize blocks, optional items carry a 2px maize keyline.",
+      "html": "<div class=\"ds-slot\"><h4>Evening</h4><div class=\"items\"><div class=\"item inc\">Welcome dinner<small>Included</small></div><div class=\"item opt\">Onsen night<small>Sign up</small></div></div></div>",
+      "css": ".ds-slot{display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 16px;padding:12px 0;background:#0e0d0b radial-gradient(circle,#ffc72c 0 1px,transparent 1.4px) left top/6px 3px repeat-x;color:#efe6c8;font:16px/1.6 \"Atkinson Hyperlegible\",system-ui,sans-serif}.ds-slot h4{margin:3px 0 0;font-size:13px;letter-spacing:.14em;color:#b3aa90;text-transform:uppercase}.ds-slot .items{display:grid;gap:8px}.ds-slot .item{padding:9px 14px}.ds-slot .inc{background:#ffc72c;color:#0e0d0b;font-weight:700}.ds-slot .opt{box-shadow:inset 0 0 0 2px #ffc72c}.ds-slot small{display:block;font-weight:400;opacity:.8;font-size:14px}"
+    },
+    {
+      "name": "Ink Slab",
+      "kind": "custom",
+      "refersTo": "ink-slab",
+      "description": "Full-bleed maize band with knocked-out display type and a stock halftone fading in on the right.",
+      "html": "<div class=\"ds-slab\"><div class=\"in\"><p class=\"h\">Jan 3–9</p><dl><div><dt>Fly into</dt><dd>New Chitose (CTS)</dd></div><div><dt>Bus to Niseko</dt><dd>4 PM sharp</dd></div></dl></div></div>",
+      "css": ".ds-slab{background:#ffc72c;color:#0e0d0b;position:relative;overflow:hidden;font:17px/1.6 \"Atkinson Hyperlegible\",system-ui,sans-serif}.ds-slab::after{content:\"\";position:absolute;right:-40px;top:0;bottom:0;width:46%;background:radial-gradient(circle at center,#0e0d0b 0 1.3px,transparent 1.9px) 0 0/8px 8px;-webkit-mask:linear-gradient(90deg,transparent,#000 70%);mask:linear-gradient(90deg,transparent,#000 70%);opacity:.55;pointer-events:none}.ds-slab .in{position:relative;z-index:1;padding:32px 24px}.ds-slab .h{font-family:\"Big Shoulders Display\",\"Arial Narrow\",sans-serif;font-weight:900;text-transform:uppercase;font-size:96px;line-height:.8;margin:0 0 18px;white-space:nowrap}.ds-slab dl{margin:0;border-top:3px solid #0e0d0b;max-width:520px}.ds-slab dl div{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:2px solid #0e0d0b}.ds-slab dt{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.ds-slab dd{margin:0;font-weight:700;font-size:18px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Club Screenprint",
+    "overview": "The page is a two-colour poster the club pulled by hand for the trip: uncoated near-black stock, one maize ink, and bone where the ink has been cleared so text can be read. Every surface is either stock or a solid block of ink; anything in between is a halftone of those two inks, never a third colour or a translucent tint. Paper grain sits over everything at low opacity, and the two ink slabs (the cover band under the hero art and the footer) have seeded rough-cut edges, so the page reads as an object rather than a screen.\n\nStructure comes from printed rules, not boxes. Sections open on a condensed poster headline in maize, and content runs in open columns separated by solid maize ink rules (2-3px) between blocks and a halftone-dot rule between rows inside a list. The density is a run sheet: practical facts set plainly in a highly legible humanist sans, with the display face carrying the stoke in headings, day numerals, prices and step counters.\n\nThe build refuses the dark SaaS landing page: no rounded cards, no pill chips, no glass, no drop shadows, no smooth colour-to-colour gradients.",
+    "keyCharacteristics": [
+      "Two inks on black stock; bone is cleared stock, not a third colour.",
+      "Square corners everywhere (0px).",
+      "Ink rules and halftone-dot rules replace cards and borders.",
+      "Condensed poster display face, uppercase, weight 900; Atkinson Hyperlegible for reading.",
+      "Rough-cut SVG-masked edges on full-bleed ink slabs only.",
+      "Falling bone snow on a canvas behind content."
+    ],
+    "rules": [
+      { "name": "The Two Inks Rule", "body": "Maize and black stock are the only inks. Tints exist only as halftone dot patterns of one ink over the other (7px dot grid, 6px on progress tracks); never as opacity washes, smooth blends or new hues.", "section": "colors" },
+      { "name": "The Knockout Rule", "body": "Text on a maize block is always black stock; text on stock is bone, bone-dim, or maize. Bone never sits on maize.", "section": "colors" },
+      { "name": "The Poster Face Rule", "body": "The display face is always weight 900 and uppercase (numerals excepted), never used for running text.", "section": "typography" },
+      { "name": "The Plain Facts Rule", "body": "Times, prices, dates and deadlines in body copy are set in Atkinson at 700, not in a decorative treatment.", "section": "typography" },
+      { "name": "The Flat Stock Rule", "body": "Nothing floats. If a surface needs to stand out, it becomes a solid ink block or gets an ink rule; it never gets a shadow, blur or glow.", "section": "elevation" },
+      { "name": "The Rule Hierarchy Rule", "body": "Solid ink rule between sections and blocks; halftone-dot rule between rows inside a list. Never a full border box around a list row.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do keep every surface either black stock or solid maize ink; express in-between values as halftone dots.",
+      "Do separate sections and blocks with 2-3px solid maize rules, and rows inside a list with the halftone-dot rule.",
+      "Do set section headlines in Big Shoulders Display 900 uppercase in maize, and all reading text in Atkinson Hyperlegible.",
+      "Do swap inks on button hover (maize fill to stock fill with a maize keyline, or the reverse).",
+      "Do keep corners square (0px) on every element.",
+      "Do keep the snow canvas behind content so flakes never cross text."
+    ],
+    "donts": [
+      "Don't introduce a third hue, a translucent tint, or a smooth colour-to-colour gradient (CSS gradients that draw halftone dots, rules and marks are the world's own tools and are fine).",
+      "Don't use rounded cards, pill chips, glass panels or drop shadows; the page is printed, not layered.",
+      "Don't use offset hard shadows on buttons; hover is an ink swap.",
+      "Don't put a decorative uppercase line above a section headline; headlines stand alone.",
+      "Don't apply the rough-cut edge to inner containers; it belongs to the full-bleed slabs only.",
+      "Don't set bone text on maize."
+    ]
+  }
+}

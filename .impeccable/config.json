@@ -1,0 +1,44 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "buried-raster",
+        "value": "*",
+        "files": [
+          "niseko-site/index.html"
+        ],
+        "createdAt": "2026-11-23T19:42:23.085Z",
+        "reason": "Claude triage: intro banner img starts at opacity:0 only as the first keyframe of a fade-in to opacity:1; the blurred backdrop is shown at brightness .55, clearly visible"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "niseko-site/index.html"
+        ],
+        "createdAt": "2026-11-23T19:42:23.271Z",
+        "reason": "Claude triage: uppercase is used only on short labels and section headings (intro tagline ~30 chars, day/slot labels, h2s); no body passages are uppercase"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-23T20:02:54.182Z",
+        "reason": "Full-width 3px ink rules over open columns are the screenprint direction's replacement for boxes, not card side-tabs"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-23T20:02:54.366Z",
+        "reason": "Full-bleed .slab band; its inner .wrap supplies 20-48px side padding and 28-56px vertical"
+      }
+    ]
+  }
+}
