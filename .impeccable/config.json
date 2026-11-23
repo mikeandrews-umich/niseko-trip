@@ -38,6 +38,15 @@
         ],
         "createdAt": "2026-11-23T20:02:54.366Z",
         "reason": "Full-bleed .slab band; its inner .wrap supplies 20-48px side padding and 28-56px vertical"
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-23T22:30:03.109Z",
+        "reason": "Claude: the intro .stage deliberately crops the full-bleed wave artwork to the viewport; it holds no tooltips or menus"
       }
     ]
   }
