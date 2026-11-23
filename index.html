@@ -20,14 +20,14 @@
     --display:"Big Shoulders Display", "Arial Narrow", sans-serif;
     --text:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
     --pad:clamp(20px,5.5vw,48px); --nav-h:52px;
-    --hr:radial-gradient(circle,var(--ink) 0 1px,transparent 1.4px) left bottom/6px 3px repeat-x;
+    --hr:linear-gradient(var(--rule),var(--rule)) left bottom/100% 1px no-repeat;
     --dots:radial-gradient(circle at center, var(--ink) 0 1.1px, transparent 1.6px) 0 0/7px 7px;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scrollbar-color:var(--ink) var(--stock)}
   body{margin:0;background:var(--stock);color:var(--bone);font:17px/1.6 var(--text);font-variant-numeric:tabular-nums}
   /* paper grain over everything, like uncoated stock */
-  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.11;mix-blend-mode:screen;
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.05;mix-blend-mode:screen;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .95 0 0 0 0 .85 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
   ::selection{background:var(--ink);color:var(--stock)}
   ::-webkit-scrollbar{width:10px;height:10px} ::-webkit-scrollbar-track{background:var(--stock)} ::-webkit-scrollbar-thumb{background:var(--ink)}
@@ -48,8 +48,6 @@
   .slab{background:var(--ink);color:var(--stock);position:relative;overflow:hidden;padding-bottom:10px;
     -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 24' preserveAspectRatio='none'%3E%3Cpath transform='translate(0 24) scale(1 -1)' d='M0,24 L0,7 L10,8 L17,3 L26,7 L33,10 L45,2 L53,8 L72,3 L85,3 L104,2 L113,5 L120,11 L138,2 L151,2 L161,6 L180,4 L189,11 L204,10 L215,3 L227,7 L236,10 L244,11 L251,11 L263,9 L282,7 L302,11 L322,7 L337,5 L348,13 L361,3 L376,10 L397,7 L417,6 L425,3 L447,8 L458,7 L468,9 L487,2 L495,10 L511,7 L528,11 L549,11 L569,3 L577,6 L598,13 L606,2 L621,12 L641,6 L659,12 L676,2 L696,7 L707,11 L716,9 L723,5 L738,4 L751,8 L769,9 L777,4 L797,8 L811,4 L830,10 L844,13 L863,7 L881,5 L891,3 L902,4 L915,12 L928,2 L949,11 L960,6 L975,2 L985,8 L1002,11 L1018,4 L1040,11 L1047,9 L1065,8 L1083,8 L1092,9 L1110,2 L1122,3 L1134,9 L1145,3 L1161,11 L1168,3 L1174,11 L1184,10 L1193,7 L1199,3 L1211,11 L1229,4 L1243,7 L1260,9 L1269,3 L1290,9 L1311,9 L1326,3 L1336,3 L1352,13 L1366,9 L1377,10 L1383,5 L1405,7 L1415,13 L1421,10 L1436,12 L1444,13 L1458,10 L1475,4 L1492,5 L1514,7 L1527,11 L1539,5 L1557,13 L1570,5 L1592,9 L1600,8 L1600,24Z'/%3E%3C/svg%3E") bottom/100% 14px no-repeat,linear-gradient(#000,#000) top/100% calc(100% - 13px) no-repeat;
     mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 24' preserveAspectRatio='none'%3E%3Cpath transform='translate(0 24) scale(1 -1)' d='M0,24 L0,7 L10,8 L17,3 L26,7 L33,10 L45,2 L53,8 L72,3 L85,3 L104,2 L113,5 L120,11 L138,2 L151,2 L161,6 L180,4 L189,11 L204,10 L215,3 L227,7 L236,10 L244,11 L251,11 L263,9 L282,7 L302,11 L322,7 L337,5 L348,13 L361,3 L376,10 L397,7 L417,6 L425,3 L447,8 L458,7 L468,9 L487,2 L495,10 L511,7 L528,11 L549,11 L569,3 L577,6 L598,13 L606,2 L621,12 L641,6 L659,12 L676,2 L696,7 L707,11 L716,9 L723,5 L738,4 L751,8 L769,9 L777,4 L797,8 L811,4 L830,10 L844,13 L863,7 L881,5 L891,3 L902,4 L915,12 L928,2 L949,11 L960,6 L975,2 L985,8 L1002,11 L1018,4 L1040,11 L1047,9 L1065,8 L1083,8 L1092,9 L1110,2 L1122,3 L1134,9 L1145,3 L1161,11 L1168,3 L1174,11 L1184,10 L1193,7 L1199,3 L1211,11 L1229,4 L1243,7 L1260,9 L1269,3 L1290,9 L1311,9 L1326,3 L1336,3 L1352,13 L1366,9 L1377,10 L1383,5 L1405,7 L1415,13 L1421,10 L1436,12 L1444,13 L1458,10 L1475,4 L1492,5 L1514,7 L1527,11 L1539,5 L1557,13 L1570,5 L1592,9 L1600,8 L1600,24Z'/%3E%3C/svg%3E") bottom/100% 14px no-repeat,linear-gradient(#000,#000) top/100% calc(100% - 13px) no-repeat}
-  .slab::after{content:"";position:absolute;right:-40px;top:0;bottom:0;width:46%;background:radial-gradient(circle at center,var(--stock) 0 1.3px,transparent 1.9px) 0 0/8px 8px;
-    -webkit-mask:linear-gradient(90deg,transparent,#000 70%);mask:linear-gradient(90deg,transparent,#000 70%);opacity:.55;pointer-events:none}
   .slab .wrap{position:relative;z-index:1;padding-top:clamp(28px,6vw,56px);padding-bottom:clamp(28px,6vw,52px)}
   h1{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(92px,27vw,232px);line-height:.8;letter-spacing:-.005em;margin:0 0 18px;
     margin-right:calc(-1 * var(--pad));white-space:nowrap}
@@ -64,7 +62,7 @@
   .slab .today-btn.show{display:inline-flex}
 
   /* ---------- Printed index strip ---------- */
-  .index{position:sticky;top:0;z-index:30;background:var(--stock);border-bottom:2px solid var(--ink)}
+  .index{position:sticky;top:0;z-index:30;background:var(--stock);border-bottom:2px solid var(--ink);padding-top:env(safe-area-inset-top)}
   .index ul{list-style:none;margin:0 auto;padding:0 var(--pad);display:flex;gap:clamp(16px,3vw,28px);overflow-x:auto;scrollbar-width:none;max-width:1080px}
   .index ul::-webkit-scrollbar{display:none}
   .index a{display:block;white-space:nowrap;text-decoration:none;color:var(--bone-dim);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:16px 0 13px;border-bottom:4px solid transparent;margin-bottom:-2px}
@@ -73,9 +71,7 @@
 
   /* ---------- Section heads ---------- */
   section{padding:72px 0 8px}
-  h2{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(50px,10vw,96px);line-height:.88;letter-spacing:0;margin:0 0 14px;color:var(--ink)}
-  h2.inked{animation:register .7s cubic-bezier(.16,1,.3,1) both}
-  @keyframes register{from{text-shadow:5px 3px 0 rgba(239,230,200,.55);transform:translate(-3px,-2px)}to{text-shadow:0 0 0 transparent;transform:none}}
+  h2{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(42px,8vw,72px);line-height:.9;letter-spacing:0;margin:0 0 12px;color:var(--ink)}
   .sub{color:var(--bone-dim);margin:0 0 30px;max-width:58ch;font-size:18px}
   h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(28px,5vw,36px);line-height:1;letter-spacing:.01em;margin:0 0 8px;color:var(--bone)}
   .label{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--bone-dim)}
@@ -103,7 +99,7 @@
   .daybar .row::-webkit-scrollbar{display:none}
   .daybar a{flex:none;text-decoration:none;color:var(--bone-dim);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:12px 0 10px}
   .daybar a.on{color:var(--ink)}
-  .daybar .prog{height:4px;margin:0 calc(-1 * var(--pad));background:var(--dots);background-size:6px 6px;opacity:1;position:relative}
+  .daybar .prog{height:3px;margin:0 calc(-1 * var(--pad));background:var(--rule);position:relative}
   .daybar .prog div{position:absolute;inset:0 auto 0 0;width:100%;background:var(--ink);transform:scaleX(0);transform-origin:left}
   .rail{display:none}
   @media(min-width:900px){
@@ -117,11 +113,14 @@
     .rail .done .dot{fill:var(--ink)}
     .rail .on .dot{fill:var(--ink);r:9}
   }
-  .day{padding:30px 0 30px;border-top:2px solid var(--ink)}
-  .soon{margin:0;font-size:17px}
+  .day{padding:26px 0;border-top:1px solid var(--rule)}
+  .day.empty{padding:16px 0}
+  .day.empty .dhead{margin:0}
+  .day.empty .dnum{font-size:clamp(40px,7vw,52px);color:var(--bone-dim)}
+  .dsoon{margin-left:auto;align-self:center;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--bone-dim)}
   .day:first-child{border-top:0}
   .dhead{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:16px}
-  .dnum{font-family:var(--display);font-weight:900;font-size:clamp(64px,12vw,92px);line-height:.78;color:var(--ink)}
+  .dnum{font-family:var(--display);font-weight:900;font-size:clamp(52px,9vw,72px);line-height:.8;color:var(--ink);min-width:1ch}
   .dmeta b{display:block;font-size:19px}
   .dmeta span{color:var(--bone-dim);font-size:15px}
   .today-tag{font-weight:700;font-size:13px;letter-spacing:.12em;color:var(--stock);background:var(--ink);padding:3px 8px;align-self:center}
@@ -189,7 +188,7 @@
   .pack input:checked::after{content:"";position:absolute;left:-3px;top:-6px;width:26px;height:26px;
     background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Cpath d='M3 14.5c2.2 1.4 4 3.6 5.6 6.4C11.6 13.7 16 7.4 23.5 2.5' fill='none' stroke='%23ffc72c' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
   .pack input:checked+span{color:var(--bone-dim);text-decoration:line-through;text-decoration-color:var(--ink);text-decoration-thickness:2px}
-  .progress{height:8px;background:var(--dots);background-size:6px 6px;position:relative;margin:0 0 8px;max-width:520px}
+  .progress{height:6px;background:var(--rule);position:relative;margin:0 0 8px;max-width:520px}
   .progress div{position:absolute;inset:0 auto 0 0;width:100%;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.16,1,.3,1)}
   .ptext{font-size:15px;color:var(--bone-dim);margin:0 0 26px}
   .linkbtn{background:none;border:0;color:var(--bone-dim);text-decoration:underline;text-underline-offset:3px;font:inherit;cursor:pointer;padding:0}
@@ -281,7 +280,6 @@
 
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
-    h2.inked{animation:none}
     .btn{transition:none}
   }
 </style>
@@ -314,7 +312,7 @@
   <div class="slab">
     <div class="wrap">
       <h1>Jan 3–9<small>Niseko, Hokkaido · 2027</small></h1>
-      <p class="lede">The Ross Ski &amp; Snowboard Club is going to the snowiest corner of Japan for a week of deep powder, onsen soaks and late-night ramen. Everything you need for the trip lives on this page.</p>
+      <p class="lede">The Ross Ski &amp; Snowboard Club is going to the snowiest corner of Japan for a week of deep powder, onsen soaks and late-night ramen. Everything you need for the trip is on this page.</p>
       <dl class="facts">
         <div><dt>Fly into</dt><dd>New Chitose (CTS)</dd></div>
         <div><dt>Land by</dt><dd>3 PM, Sun Jan 3</dd></div>
@@ -345,7 +343,7 @@
 
   <section id="schedule">
     <h2>Day by day</h2>
-    <p class="sub">The week at a glance. Details land as we lock them in. Anything in a maize outline is optional and needs a <a href="#signups">sign-up</a>.</p>
+    <p class="sub">The week at a glance. Plans fill in as we lock them. Outlined items are optional and need a <a href="#signups">sign-up</a>.</p>
     <div class="legend"><span><i class="inc"></i>Included</span><span><i class="opt"></i>Optional</span></div>
     <div class="sched">
       <div class="daybar" aria-label="Jump to day"><div class="row" id="daychips"></div><div class="prog"><div id="dayprog"></div></div></div>
@@ -356,7 +354,7 @@
 
   <section id="signups">
     <h2>Sign-ups</h2>
-    <p class="sub">Two lists to get your name on, both in one Google Sheet. First come, first served, and the good stuff goes fast.</p>
+    <p class="sub">Two lists, one Google Sheet. First come, first served.</p>
     <div class="two">
       <div class="block">
         <h3>Add-ons</h3>
@@ -427,7 +425,7 @@
 
   <section id="mountain">
     <h2>The mountain</h2>
-    <p class="sub measure">Cold air off Siberia picks up moisture crossing the Sea of Japan and drops it on Hokkaido as some of the lightest, driest snow anywhere. Around 50 feet of it a season. Niseko United is four resorts and 2,191 acres on one mountain, all on the Ikon Pass, and January is the deepest month.</p>
+    <p class="sub measure">Siberian air crosses the Sea of Japan and drops some of the lightest, driest snow anywhere on Hokkaido, about 50 feet a season. Niseko United is four resorts and 2,191 acres on the Ikon Pass, and January is the deepest month.</p>
     <ul class="list">
       <li><b>The four resorts</b><span class="t">Grand Hirafu (right above the houses), Hanazono, Niseko Village and Annupuri, linked over the top.</span></li>
       <li><b>Backcountry gates</b><span class="t">Niseko's gates open terrain past the boundary. Only go through with avalanche gear, a partner and the know-how, or book a guided tour. When a gate is closed, it's closed.</span></li>
@@ -568,13 +566,13 @@ const slot = (label, items = []) => `<div class="slot"><h4>${label}</h4><div cla
   items.length ? items.map(i => `<div class="item ${i.type || "plain"}">${esc(i.t)}${i.note || i.link ? `<small>${esc(i.note)}${linkHtml(i.link)}</small>` : ""}</div>`).join("")
                : `<div class="tba">To come</div>`}</div></div>`;
 $("days").innerHTML = SCHEDULE.map((d, i) => `
-  <article class="day" id="day-${d.day}">
+  <article class="day${[d.morning, d.afternoon, d.evening].some(x => x && x.length) ? "" : " empty"}" id="day-${d.day}">
     <div class="dhead"><span class="dnum">${d.day}</span>
-      <span class="dmeta"><b>${d.name}</b><span>${fmt(d.date)}</span></span>${i === todayIdx ? '<span class="today-tag">TODAY</span>' : ""}</div>
+      <span class="dmeta"><b>${d.name}</b><span>${fmt(d.date)}</span></span>${[d.morning, d.afternoon, d.evening].some(x => x && x.length) ? "" : '<span class="dsoon">Plan TBA</span>'}${i === todayIdx ? '<span class="today-tag">TODAY</span>' : ""}</div>
     ${d.title ? `<h3 class="dtitle">${esc(d.title)}</h3>` : ""}
     ${[d.morning, d.afternoon, d.evening].some(x => x && x.length)
       ? slot("Morning", d.morning) + slot("Afternoon", d.afternoon) + slot("Evening", d.evening)
-      : `<p class="tba soon">Plan drops closer to the trip. Expect powder.</p>`}
+      : ""}
   </article>`).join("");
 $("daychips").innerHTML = SCHEDULE.map(d => `<a href="#day-${d.day}">Day ${d.day} · ${fmt(d.date)}</a>`).join("");
 
@@ -654,12 +652,6 @@ $("contact-grid").innerHTML = CONTACTS.map(c => `
     ${!c.phone && !c.email ? `<span class="tba">Contact info to come</span>` : ""}
   </div>`).join("");
 
-// Section headings settle into register once, the first time they're seen
-if (!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("inked"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -15% 0px" });
-  document.querySelectorAll("main h2").forEach(h => io.observe(h));
-}
-
 // Index strip + back-to-top
 const links = [...document.querySelectorAll(".index a")];
 const sections = [...document.querySelectorAll("main section")];
@@ -684,6 +676,7 @@ function onScroll() {
 }
 addEventListener("scroll", onScroll, { passive: true });
 addEventListener("resize", () => { document.documentElement.style.setProperty("--nav-h", navH() + "px"); onScroll(); });
+if ("ResizeObserver" in window) new ResizeObserver(() => document.documentElement.style.setProperty("--nav-h", navH() + "px")).observe($("topnav"));
 onScroll();
 
 // Intro: the wave swells in and rocks; swipe up (or scroll, tap, Enter) and the screen wipes away upward.
