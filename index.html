@@ -268,13 +268,13 @@
   <!-- ================= SIGN-UPS ================= -->
   <section id="signups">
     <h2>Sign-<em>ups</em></h2>
-    <p class="sub">Two things to sign up for: optional add-ons and small-group dinners. Spots are first come, first served.</p>
+    <p class="sub">Two things to sign up for: optional add-ons and small-group dinners. Both are tabs in one Google Sheet. Spots are first come, first served.</p>
 
     <div class="grid">
       <div class="card">
         <span class="deadline" id="addons-deadline">Deadline TBA</span>
         <h3>Optional add-ons</h3>
-        <p class="muted" style="margin:0 0 14px">Approximate prices in USD. Pick as many as you want in one form; we'll confirm your spot and how to pay.</p>
+        <p class="muted" style="margin:0 0 14px">Approximate prices in USD. Put your name on as many as you want. We'll confirm your spot and how to pay.</p>
         <ul class="addons">
           <li><b>Mt. Yotei backcountry tour</b><span class="p">~$250</span><span class="d">Guided hike up a dormant volcano for serious backcountry terrain.</span><span class="y">¥40,000</span></li>
           <li><b>Niseko backcountry tour</b><span class="p">$175</span><span class="d">Untouched powder outside the resort boundary with a certified guide.</span><span class="y">¥28,000</span></li>
@@ -284,7 +284,7 @@
           <li><b>Tubing</b><span class="p">$30</span><span class="d">Bomb down lit-up lanes on an oversized inner tube.</span><span class="y">¥4,500</span></li>
           <li><b>Ski / snowboard lessons</b><span class="p">TBA</span><span class="d">Morning or afternoon group lessons for beginners.</span><span class="y"></span></li>
         </ul>
-        <a class="btn ext" id="addons-link" href="#">Sign up for add-ons</a>
+        <a class="btn ext" id="addons-link" href="#">Open add-ons sign-up sheet</a>
       </div>
 
       <div class="card">
@@ -292,7 +292,7 @@
         <h3>Small-group dinners</h3>
         <p class="muted" style="margin:0 0 14px">We've pre-booked tables around Hirafu. Popular spots book out weeks ahead, so these are the easiest way to get a good dinner.</p>
         <ol class="how">
-          <li>Open the sheet and find a night + restaurant with an open seat.</li>
+          <li>Open the Dinners tab and find a night + restaurant with an open green cell.</li>
           <li>Type your name in an empty row. Only one row per person per night.</li>
           <li>Don't delete or move anyone else's name. Message logistics to swap.</li>
         </ol>
@@ -381,7 +381,7 @@
     <p class="sub">Don't see your question? Ask in the group chat.</p>
     <details><summary>Which airport do I fly into?</summary><div class="a"><p>New Chitose Airport (CTS) near Sapporo. Land by 3:00 PM on Sun Jan 3 to catch the 4:00 PM chartered bus to Niseko.</p></div></details>
     <details><summary>What if I'm arriving late or on a different day?</summary><div class="a"><p>You'll need to get to Niseko on your own. Airport buses and private transfers run from CTS. Tell the logistics team your plans so we know when to expect you.</p></div></details>
-    <details><summary>How do I sign up for add-ons and dinners?</summary><div class="a"><p>Add-ons go through one form; dinners through the shared sheet. Both are in <a href="#signups">Sign-ups</a>.</p></div></details>
+    <details><summary>How do I sign up for add-ons and dinners?</summary><div class="a"><p>Both are tabs in one shared Google Sheet, linked from <a href="#signups">Sign-ups</a>. Type your name in an empty green cell.</p></div></details>
     <details><summary>Do I need a visa?</summary><div class="a"><p>U.S. passport holders don't need a visa for short tourist stays in Japan. Other passports vary, so check the <a href="https://www.mofa.go.jp/j_info/visit/visa/short/novisa.html" target="_blank" rel="noopener">Japan MOFA visa-exemption list</a> early. International students: make sure your U.S. visa/I-20 paperwork is in order for re-entry.</p></div></details>
     <details><summary>Do I need an Ikon Pass?</summary><div class="a"><p>Niseko United is on the Ikon Pass. Pass and lift-ticket details: <span class="tba">TBA</span>.</p></div></details>
     <details><summary>Ski or snowboard? I'm a beginner.</summary><div class="a"><p>Either works. Optional group lessons will be offered; sign up in <a href="#signups">Sign-ups</a>.</p></div></details>
@@ -417,9 +417,9 @@
 
 // Sign-up links. Paste the Google Form / Google Sheet URLs here.
 const LINKS = {
-  addonsForm:      "",   // e.g. "https://forms.gle/abc123"
+  addonsForm:      "https://docs.google.com/spreadsheets/d/1W3YAE109jHhaihsQI0TOnQXXZ4iQjjhUdz84Rv3pzrY/edit#gid=1883045167",   // Sign-up sheet, Optional Events tab
   addonsDeadline:  "",   // e.g. "Due Fri, Dec 11"
-  dinnerSheet:     "",   // e.g. "https://docs.google.com/spreadsheets/d/.../edit"
+  dinnerSheet:     "https://docs.google.com/spreadsheets/d/1W3YAE109jHhaihsQI0TOnQXXZ4iQjjhUdz84Rv3pzrY/edit#gid=1105044344",   // Sign-up sheet, Dinners tab
   dinnersDeadline: "",
 };
 
