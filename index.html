@@ -294,7 +294,7 @@
 </head>
 <body>
 <div id="intro" role="button" aria-label="Skip intro" tabindex="0">
-  <div class="sea"><div class="swell"><img alt="" data-src="img/wave.svg" decoding="async"></div></div>
+  <div class="sea"><div class="swell"></div></div>
   <canvas class="spray" aria-hidden="true"></canvas>
   <p class="title" aria-label="Niseko 2027"><span class="w"><span>Niseko</span></span><span class="w"><span>2027</span></span><span class="sub">Powder Pilgrimage · Jan 3–9</span></p>
   <div class="bar"></div>
@@ -685,7 +685,7 @@ onScroll();
 (() => {
   const root = document.documentElement, intro = $("intro");
   if (!root.classList.contains("intro-on")) return;
-  const img = intro.querySelector("img"), cv = intro.querySelector(".spray"), ctx = cv.getContext("2d");
+  const img = new Image(), cv = intro.querySelector(".spray"), ctx = cv.getContext("2d");
   let done = false, started = false, crashing = false, timer, dpr, W, H, drops = [];
   const size = () => { dpr = Math.min(devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
   size(); addEventListener("resize", size);
@@ -732,7 +732,7 @@ onScroll();
     timer = setTimeout(open, 4600);
   };
 
-  img.src = img.dataset.src;
+  img.alt = ""; img.decoding = "async"; intro.querySelector(".swell").append(img); img.src = "img/wave.svg";
   (img.decode ? img.decode() : Promise.reject()).then(go, () => img.complete ? go() : img.addEventListener("load", go, { once: true }));
   setTimeout(() => { if (!started) open(); }, 6000);   // art never arrived: just show the site
   intro.addEventListener("click", open);
