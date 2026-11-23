@@ -16,7 +16,7 @@ One shared trip-info page for the Niseko trip: schedule, sign-ups, travel and ar
 Inspired by the Kellogg ski trip site (kelloggskitrip.com) in structure, but its own identity. It is a club page for friends, not a commercial travel product.
 
 ## Operating Context
-- Hosted on GitHub Pages at mikeandrews-umich.github.io/niseko-trip, from the repo mikeandrews-umich/niseko-trip. Static HTML, CSS and JS in one `index.html`, no build step.
+- Hosted on GitHub Pages at rossjapow.com (custom domain; mikeandrews-umich.github.io/niseko-trip redirects there), from the repo mikeandrews-umich/niseko-trip. Static HTML, CSS and JS in one `index.html`, no build step.
 - Sign-ups live in the "Niseko 2027 Sign-ups" Google Sheet (Dinners and Optional Events tabs). The page links out to it; guests type their name in a cell.
 - Organizers edit the page by changing the `EDIT HERE` data block (LINKS, SCHEDULE, PACKING, CONTACTS).
 
