@@ -12,7 +12,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230e0d0b'/><path d='M16 4v24M5.6 10l20.8 12M5.6 22l20.8-12' stroke='%23ffc72c' stroke-width='3' stroke-linecap='square'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Big+Shoulders+Display:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Big+Shoulders+Display:wght@700;900&family=Bungee&family=Jost:wght@600&family=Libre+Caslon+Text:ital,wght@1,700&display=swap" rel="stylesheet">
 <style>
   /* Two inks on black stock. Maize is the only colour; anything in between is halftone. */
   :root{
@@ -43,8 +43,8 @@
   section{scroll-margin-top:calc(var(--nav-h) + 12px)}
 
   /* ---------- Cover ---------- */
-  .hero img{width:100%;aspect-ratio:16/9;object-fit:cover;max-height:72vh}
-  @media(min-width:900px){.hero img{max-height:56vh}.slab .wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,1fr);column-gap:56px;align-items:end}.slab h1{grid-column:1/-1}}
+  .hero .poster{height:clamp(480px,56.25vw,64vh)}
+  @media(min-width:900px){.slab .wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,1fr);column-gap:56px;align-items:end}.slab h1{grid-column:1/-1}}
   .slab{background:var(--ink);color:var(--stock);position:relative;overflow:hidden;padding-bottom:10px;
     -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 24' preserveAspectRatio='none'%3E%3Cpath transform='translate(0 24) scale(1 -1)' d='M0,24 L0,7 L10,8 L17,3 L26,7 L33,10 L45,2 L53,8 L72,3 L85,3 L104,2 L113,5 L120,11 L138,2 L151,2 L161,6 L180,4 L189,11 L204,10 L215,3 L227,7 L236,10 L244,11 L251,11 L263,9 L282,7 L302,11 L322,7 L337,5 L348,13 L361,3 L376,10 L397,7 L417,6 L425,3 L447,8 L458,7 L468,9 L487,2 L495,10 L511,7 L528,11 L549,11 L569,3 L577,6 L598,13 L606,2 L621,12 L641,6 L659,12 L676,2 L696,7 L707,11 L716,9 L723,5 L738,4 L751,8 L769,9 L777,4 L797,8 L811,4 L830,10 L844,13 L863,7 L881,5 L891,3 L902,4 L915,12 L928,2 L949,11 L960,6 L975,2 L985,8 L1002,11 L1018,4 L1040,11 L1047,9 L1065,8 L1083,8 L1092,9 L1110,2 L1122,3 L1134,9 L1145,3 L1161,11 L1168,3 L1174,11 L1184,10 L1193,7 L1199,3 L1211,11 L1229,4 L1243,7 L1260,9 L1269,3 L1290,9 L1311,9 L1326,3 L1336,3 L1352,13 L1366,9 L1377,10 L1383,5 L1405,7 L1415,13 L1421,10 L1436,12 L1444,13 L1458,10 L1475,4 L1492,5 L1514,7 L1527,11 L1539,5 L1557,13 L1570,5 L1592,9 L1600,8 L1600,24Z'/%3E%3C/svg%3E") bottom/100% 14px no-repeat,linear-gradient(#000,#000) top/100% calc(100% - 13px) no-repeat;
     mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 24' preserveAspectRatio='none'%3E%3Cpath transform='translate(0 24) scale(1 -1)' d='M0,24 L0,7 L10,8 L17,3 L26,7 L33,10 L45,2 L53,8 L72,3 L85,3 L104,2 L113,5 L120,11 L138,2 L151,2 L161,6 L180,4 L189,11 L204,10 L215,3 L227,7 L236,10 L244,11 L251,11 L263,9 L282,7 L302,11 L322,7 L337,5 L348,13 L361,3 L376,10 L397,7 L417,6 L425,3 L447,8 L458,7 L468,9 L487,2 L495,10 L511,7 L528,11 L549,11 L569,3 L577,6 L598,13 L606,2 L621,12 L641,6 L659,12 L676,2 L696,7 L707,11 L716,9 L723,5 L738,4 L751,8 L769,9 L777,4 L797,8 L811,4 L830,10 L844,13 L863,7 L881,5 L891,3 L902,4 L915,12 L928,2 L949,11 L960,6 L975,2 L985,8 L1002,11 L1018,4 L1040,11 L1047,9 L1065,8 L1083,8 L1092,9 L1110,2 L1122,3 L1134,9 L1145,3 L1161,11 L1168,3 L1174,11 L1184,10 L1193,7 L1199,3 L1211,11 L1229,4 L1243,7 L1260,9 L1269,3 L1290,9 L1311,9 L1326,3 L1336,3 L1352,13 L1366,9 L1377,10 L1383,5 L1405,7 L1415,13 L1421,10 L1436,12 L1444,13 L1458,10 L1475,4 L1492,5 L1514,7 L1527,11 L1539,5 L1557,13 L1570,5 L1592,9 L1600,8 L1600,24Z'/%3E%3C/svg%3E") bottom/100% 14px no-repeat,linear-gradient(#000,#000) top/100% calc(100% - 13px) no-repeat}
@@ -229,29 +229,76 @@
   .totop.show{opacity:1;pointer-events:auto}
   @media(max-width:759px){.totop{display:none}}
 
-  /* ---------- Intro banner (kept) ---------- */
+  /* ---------- Poster (intro + top banner), drawn in code after the club's cover art ---------- */
+  .poster{position:relative;overflow:hidden;background:#7d5f3b;color:#fff;container-type:size;isolation:isolate}
+  .poster .scene{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .poster .pc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5cqh;padding:4cqh 8cqw 15cqh;text-shadow:0 2px 18px rgba(30,20,10,.35)}
+  .poster .ptop,.poster .pbot{width:100%;display:flex;justify-content:space-between;align-items:center;gap:2cqw}
+  .poster ul{list-style:none;margin:0;padding:0;font:600 clamp(11px,1.6cqw,26px)/1.4 Jost,"Futura",sans-serif;letter-spacing:.03em;min-width:0}
+  .poster .pr{text-align:right}
+  .poster .wave{width:clamp(84px,15cqw,300px);flex:none;overflow:visible}
+  .poster .wave *{fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .poster .word{width:100%;max-width:150cqh;display:block;overflow:visible}
+  .poster .yr{font:400 clamp(20px,4.6cqw,92px)/1 Bungee,sans-serif;letter-spacing:-.02em}
+  .poster em{font:italic 700 clamp(15px,3.6cqw,72px)/1 "Libre Caslon Text",Georgia,serif;text-transform:uppercase;white-space:nowrap;letter-spacing:-.01em}
+  @container (orientation: portrait){
+    .poster .pc{justify-content:space-between;padding:7cqh 6cqw 17cqh}
+    .poster ul{font-size:3.3cqw}
+    .poster .wave{width:24cqw}
+    .poster .yr{font-size:8cqw}
+    .poster em{font-size:5.1cqw}
+  }
+  /* ambient: always on (unless reduced motion) */
+  .poster .cloud{animation:drift 48s ease-in-out infinite alternate}
+  .poster .cloud.c2{animation-duration:64s;animation-direction:alternate-reverse}
+  .poster .sun{animation:glow 7s ease-in-out infinite alternate;transform-origin:1330px 330px}
+  @keyframes drift{to{transform:translateX(140px)}}
+  @keyframes glow{to{opacity:.6;transform:scale(1.12)}}
+  /* entrance: hidden states only when JS opted in to animation */
+  .poster.anim .l{opacity:0}
+  .poster.anim .wave *{stroke-dasharray:1 1;stroke-dashoffset:1}
+  .poster.anim .wave circle{opacity:0}
+  .poster.anim li,.poster.anim .yr,.poster.anim em{opacity:0}
+  .poster.anim .mtn{transform:translateY(60px)}
+  .poster.anim.play .mtn{animation:rise 1.8s cubic-bezier(.2,.8,.2,1) both}
+  .poster.anim.play .l{transform-box:fill-box;transform-origin:50% 100%;animation:stamp .75s cubic-bezier(.2,1.5,.4,1) both;animation-delay:calc(.45s + var(--i) * .09s)}
+  .poster.anim.play .wave *{animation:draw 1.6s cubic-bezier(.5,0,.2,1) .2s both}
+  .poster.anim.play .wave circle{animation:pop .4s ease 1.5s both}
+  .poster.anim.play .wave{animation:bob 6s ease-in-out 2.2s infinite alternate}
+  .poster.anim.play li{animation:slideIn .6s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(.3s + var(--i) * .1s)}
+  .poster.anim.play .pr li{--from:14px}
+  .poster.anim.play .yr{animation:slideIn .7s cubic-bezier(.2,.8,.2,1) 1.1s both}
+  .poster.anim.play .yr+em+.yr{--from:24px}
+  .poster.anim.play em{animation:tagline 1s cubic-bezier(.2,.8,.2,1) 1.35s both}
+  @keyframes rise{to{transform:none}}
+  @keyframes stamp{from{opacity:0;transform:translateY(-22%) scaleY(1.06)}60%{opacity:1}to{opacity:1;transform:none}}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes pop{from{opacity:0;transform:scale(0)}to{opacity:1;transform:none}}
+  @keyframes bob{from{transform:rotate(-1.5deg) translateY(0)}to{transform:rotate(1.5deg) translateY(-3px)}}
+  @keyframes slideIn{from{opacity:0;transform:translateX(var(--from,-14px))}to{opacity:1;transform:none}}
+  @keyframes tagline{from{opacity:0;letter-spacing:.18em}to{opacity:1;letter-spacing:-.01em}}
+
+  /* ---------- Intro screen ---------- */
   #intro{display:none}
   .intro-on #intro{display:block;position:fixed;inset:0;z-index:100;background:#000;overflow:hidden;cursor:pointer;transition:transform .9s cubic-bezier(.7,0,.2,1)}
   .intro-on body{overflow:hidden}
-  #intro .blur{position:absolute;inset:-40px;background:url(img/hero.jpg) center/cover;filter:blur(28px) brightness(.55);transform:scale(1.1)}
-  #intro .art{position:absolute;inset:0;display:grid;place-items:center}
-  #intro .art img{width:100%;height:100%;object-fit:contain;opacity:0;transform:scale(1.12);animation:introIn 2.4s cubic-bezier(.2,.7,.2,1) .1s forwards}
-  @media(min-aspect-ratio:16/10){#intro .art img{object-fit:cover}}
-  #intro .meta{position:absolute;left:0;right:0;bottom:calc(28px + env(safe-area-inset-bottom));text-align:center;color:var(--bone);font-weight:700;letter-spacing:.14em;font-size:13px;text-transform:uppercase;opacity:0;animation:fadeUp .8s ease 1.2s forwards}
+  #intro .poster{position:absolute;inset:0}
+  #intro .meta{position:absolute;left:0;right:0;bottom:calc(18px + env(safe-area-inset-bottom));text-align:center;color:#fff;font-weight:700;letter-spacing:.14em;font-size:13px;text-transform:uppercase;opacity:0;animation:fadeUp .8s ease 2.2s forwards;z-index:2}
   #intro .meta b{color:var(--ink)}
-  #intro .bar{position:absolute;left:0;top:0;height:4px;background:var(--ink);width:100%;transform:scaleX(0);transform-origin:left;animation:bar 3.2s linear forwards}
+  #intro .bar{position:absolute;left:0;top:0;height:4px;background:var(--ink);width:100%;transform:scaleX(0);transform-origin:left;animation:bar 4.4s linear forwards;z-index:2}
   #intro.out{transform:translateY(-100%)}
-  @keyframes introIn{to{opacity:1;transform:scale(1)}}
   @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:.95;transform:none}}
   @keyframes bar{to{transform:scaleX(1)}}
   #snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
   .intro-on #snow{z-index:101}
-  header,main,footer{position:relative;z-index:2}
+  main,footer,.slab{position:relative;z-index:2}
+  .hero{position:relative}
 
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
     h2.inked{animation:none}
     .btn{transition:none}
+    .poster *{animation:none!important}
   }
 </style>
 <script>
@@ -262,17 +309,101 @@
 </script>
 </head>
 <body>
+<script>
+/* The cover poster, rebuilt in code: sky, Mt. Yotei, tree line, snow, wave, wordmark. */
+(() => {
+  const rr = (w, h, r) => `M${r},0H${w - r}Q${w},0 ${w},${r}V${h - r}Q${w},${h} ${w - r},${h}H${r}Q0,${h} 0,${h - r}V${r}Q0,0 ${r},0Z`;
+  // NISEKO: heavy rounded blocks with spiked counters, 210 x 400 each
+  const CUTS = {
+    N: ["75,410 75,150 105,90 135,150 135,410", "-10,-10 60,-10 60,40 30,70 -10,70"],
+    I: ["-10,80 58,128 58,272 -10,320", "220,80 152,128 152,272 220,320"],
+    S: ["220,100 220,172 84,172 58,136 84,100", "-10,228 -10,300 126,300 152,264 126,228"],
+    E: ["220,92 220,162 86,162 60,127 86,92", "220,238 220,308 86,308 60,273 86,238"],
+    K: ["220,70 104,200 220,330", "84,-10 114,-10 114,140 99,166 84,140", "84,410 114,410 114,260 99,234 84,260"],
+    O: ["68,86 142,86 142,108 122,130 122,270 142,292 142,314 68,314 68,292 88,270 88,130 68,108"],
+  };
+  const word = sfx => {
+    let m = "", g = "";
+    "NISEKO".split("").forEach((c, i) => {
+      const id = `m${c}${i}${sfx}`, x = i * 234;
+      m += `<mask id="${id}" maskUnits="userSpaceOnUse" x="-20" y="-20" width="250" height="440"><rect x="-20" y="-20" width="250" height="440" fill="#fff"/>${CUTS[c].map(p => `<polygon points="${p}" fill="#000"/>`).join("")}</mask>`;
+      g += `<g transform="translate(${x} 0)"><g class="l" style="--i:${i}" mask="url(#${id})"><path d="${rr(210, 400, 34)}" fill="#fff"/></g></g>`;
+    });
+    return `<svg class="word" viewBox="0 0 1380 400" aria-hidden="true"><defs>${m}</defs>${g}</svg>`;
+  };
+  const WAVE = `<svg class="wave" viewBox="0 0 320 180" aria-hidden="true">
+    ${["M18 158C58 150 92 122 112 84C130 50 160 22 198 20C232 18 252 44 244 72C238 92 214 98 204 84C196 72 204 58 216 62",
+       "M60 150C92 136 118 108 132 78C146 50 170 36 196 38C220 40 232 58 226 72",
+       "M100 150C124 132 140 108 150 84C160 62 178 54 196 58",
+       "M118 112C124 130 132 142 144 154", "M132 92C140 118 152 138 170 152", "M146 76C156 104 170 128 192 146", "M162 66C174 94 190 118 214 138",
+       "M170 26c-8-6-6-16 4-16", "M186 20c-6-8-2-16 8-14", "M204 20c-2-10 6-14 12-10", "M222 26c2-10 10-12 16-6", "M236 38c6-6 14-4 16 4",
+       "M30 168c-10-2-12-14-2-18c10-4 18 6 10 12", "M70 170c-10-2-12-14-2-18c10-4 18 6 10 12", "M110 172c-10-2-12-14-2-18c10-4 18 6 10 12",
+       "M150 160C200 158 252 150 306 124C292 142 272 150 254 152", "M180 172C230 170 270 164 300 152"]
+      .map(d => `<path pathLength="1" d="${d}"/>`).join("")}
+    ${[[76,70,3],[64,88,2.5],[262,70,3],[278,92,2.5],[268,112,2]].map(([x,y,r]) => `<circle pathLength="1" cx="${x}" cy="${y}" r="${r}"/>`).join("")}
+  </svg>`;
+  // deterministic tree line
+  let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  let trees = ""; for (let x = -10; x < 1620; x += 6 + rnd() * 10) { const h = 16 + rnd() * 30, y = 690 + Math.sin(x / 170) * 10; trees += `M${x.toFixed(0)},${y.toFixed(0)}l${(h * .32).toFixed(0)},-${h.toFixed(0)}l${(h * .32).toFixed(0)},${h.toFixed(0)}Z`; }
+  const scene = sfx => `<svg class="scene" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky${sfx}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5e4529"/><stop offset=".45" stop-color="#a5804f"/><stop offset=".75" stop-color="#d4b884"/></linearGradient>
+      <radialGradient id="sun${sfx}"><stop offset="0" stop-color="#fbe9bd" stop-opacity=".9"/><stop offset="1" stop-color="#fbe9bd" stop-opacity="0"/></radialGradient>
+      <linearGradient id="yo${sfx}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c837a"/><stop offset=".5" stop-color="#4a5756"/><stop offset="1" stop-color="#2f3b3c"/></linearGradient>
+      <linearGradient id="snow${sfx}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef2f1"/><stop offset="1" stop-color="#c9d6da"/></linearGradient>
+      <linearGradient id="scrim${sfx}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1d0e" stop-opacity=".45"/><stop offset=".45" stop-color="#2a1d0e" stop-opacity="0"/></linearGradient>
+      <filter id="soft${sfx}" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="28"/></filter>
+    </defs>
+    <rect width="1600" height="900" fill="url(#sky${sfx})"/>
+    <circle class="sun" cx="1330" cy="330" r="360" fill="url(#sun${sfx})"/>
+    <g filter="url(#soft${sfx})" opacity=".55">
+      <ellipse class="cloud" cx="500" cy="90" rx="620" ry="110" fill="#4a3620"/>
+      <ellipse class="cloud c2" cx="1200" cy="170" rx="520" ry="80" fill="#5a4329"/>
+    </g>
+    <g transform="translate(0 78)">
+    <g class="mtn">
+      <path d="M960,680C1120,590 1250,545 1380,525C1480,540 1560,570 1700,610V760H960Z" fill="#8a8b7e" opacity=".85"/>
+      <path d="M-120,700C120,640 380,470 640,318L738,312C900,450 1060,600 1330,690V760H-120Z" fill="url(#yo${sfx})"/>
+      <path d="M640,318L738,312C760,340 776,372 770,398L748,372L730,420L708,360L690,410L672,356L652,392L640,350L618,380L626,340Z" fill="#d9dccf" opacity=".55"/>
+      <path d="${trees}" fill="#253031"/>
+    </g>
+    <path d="M-20,712C240,690 520,706 820,690C1080,676 1340,700 1620,686V900H-20Z" fill="url(#snow${sfx})"/>
+    <path d="M-20,740C200,728 380,752 600,736C760,726 900,748 1100,734L1100,760C900,770 700,752 520,768C300,786 120,760 -20,774Z" fill="#d3dee2"/>
+    <path d="M-20,790C300,760 560,800 900,780C1180,764 1400,790 1620,770V900H-20Z" fill="#f4f7f6"/>
+    <path d="M880,786C1060,770 1240,792 1440,776C1520,770 1580,776 1620,780V812C1460,800 1300,820 1120,808C1010,800 940,806 880,812Z" fill="#dbe4e7"/>
+    </g>
+    <rect width="1600" height="900" fill="url(#scrim${sfx})"/>
+  </svg>`;
+  const poster = sfx => `${scene(sfx)}<div class="pc">
+    <div class="ptop">
+      <ul class="pl">${["Annupuri", "Rusutsu", "Hanazono"].map((t, i) => `<li style="--i:${i}">${t.toUpperCase()}</li>`).join("")}</ul>
+      ${WAVE}
+      <ul class="pr">${["Niseko Village", "Mt. Yotei", "Hirafu"].map((t, i) => `<li style="--i:${i}">${t.toUpperCase()}</li>`).join("")}</ul>
+    </div>
+    ${word(sfx)}
+    <div class="pbot"><span class="yr">20</span><em>Powder Pilgrimage</em><span class="yr">27</span></div>
+  </div>`;
+  const motion = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.buildPoster = el => { el.innerHTML = poster(el.dataset.sfx); if (motion) el.classList.add("anim"); };
+})();
+</script>
 <div id="intro" role="button" aria-label="Skip intro" tabindex="0">
-  <div class="blur"></div>
-  <div class="art"><img src="img/hero.jpg" alt="Niseko 2027: Powder Pilgrimage"></div>
+  <div class="poster" data-sfx="i"></div>
   <div class="bar"></div>
   <div class="meta">RSSC · <b>Jan 3–9, 2027</b> · Tap to enter</div>
 </div>
+<script>
+  (() => { const p = document.querySelector("#intro .poster"); if (document.documentElement.classList.contains("intro-on")) { buildPoster(p); void p.offsetWidth; p.classList.add("play"); } })();
+</script>
 <canvas id="snow" aria-hidden="true"></canvas>
 <a class="skip" href="#main">Skip to content</a>
 
 <header>
-  <div class="hero"><img src="img/hero.jpg" alt="Niseko 2027: Powder Pilgrimage. Mt. Yotei at sunset over snowy Hirafu." fetchpriority="high"></div>
+  <div class="hero"><div class="poster" data-sfx="h" role="img" aria-label="Niseko 2027: Powder Pilgrimage. Mt. Yotei at sunset over snowy Hirafu."></div></div>
+  <script>
+    (() => { const p = document.querySelector(".hero .poster"); buildPoster(p);
+      if (!document.documentElement.classList.contains("intro-on")) { void p.offsetWidth; p.classList.add("play"); } })();
+  </script>
   <div class="slab">
     <div class="wrap">
       <h1>Jan 3–9<small>Niseko, Hokkaido · 2027</small></h1>
@@ -657,9 +788,10 @@ onScroll();
     if (done) return; done = true;
     try { sessionStorage.setItem("rssc-intro", "1"); } catch (e) {}
     intro.classList.add("out");
+    document.querySelector(".hero .poster").classList.add("play");
     setTimeout(() => { root.classList.remove("intro-on"); onScroll(); }, 900);
   };
-  const timer = setTimeout(open, 3300);
+  const timer = setTimeout(open, 4500);
   intro.addEventListener("click", () => { clearTimeout(timer); open(); });
   addEventListener("keydown", e => { if (["Enter", " ", "Escape"].includes(e.key)) { clearTimeout(timer); open(); } }, { once: true });
   intro.focus({ preventScroll: true });
