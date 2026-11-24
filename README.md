@@ -5,10 +5,10 @@ One static page: `index.html` plus photos in `img/`. No build step.
 ## Editing
 Open `index.html` and scroll to the `EDIT HERE` block near the bottom:
 
-- `LINKS`: paste the add-ons Google Form URL and the dinner Google Sheet URL (plus deadlines). Buttons say "Link coming soon" until filled.
+- `LINKS`: the add-ons and dinner sign-up sheet URLs, plus deadlines. Buttons say "Link coming soon" while a URL is empty.
 - `SCHEDULE`: add items to `morning` / `afternoon` / `evening` for each day.
   `type: "inc"` = included (solid maize block), `"opt"` = optional (maize outline), `"plain"` = plain line.
-  A day with no items shows a single "Plan drops closer to the trip" line.
+  A day with no items collapses to one line marked "Plan TBA".
   Add `link: "dinners"` or `link: "addons"` to an item to show a sign-up link.
   Set `title` for the day's headline.
   ```js
@@ -27,5 +27,5 @@ python -m http.server 8000
 then open http://localhost:8000.
 
 ## Deploy
-- **Netlify Drop** (fastest): drag this folder onto https://app.netlify.com/drop.
-- **GitHub Pages**: push to a repo → Settings → Pages → deploy from `main` / root.
+GitHub Pages serves `main` at https://rossjapow.com. Commit and push; it updates in about a minute.
+See HANDOFF.md for the full picture (domain, intro animation, open items).

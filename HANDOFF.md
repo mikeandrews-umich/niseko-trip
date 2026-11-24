@@ -1,0 +1,80 @@
+# Handoff: picking this up on another machine
+
+Live site: https://rossjapow.com (GitHub Pages, repo `mikeandrews-umich/niseko-trip`, branch `main`).
+Everything the site needs is in this repo. Nothing lives only on the old machine.
+
+> This file is public (the repo is public and Pages serves it). Keep emails, phone numbers,
+> house addresses and private sheet links out of it.
+
+## Get set up
+
+```
+git clone https://github.com/mikeandrews-umich/niseko-trip.git
+cd niseko-trip
+python -m http.server 8000
+```
+
+Open http://localhost:8000. No build step. To publish, commit and `git push` to `main`;
+Pages redeploys in about a minute.
+
+If you open the folder in Claude Code, point it at this file first ("read HANDOFF.md").
+
+## What's where
+
+| File | What it is |
+|---|---|
+| `index.html` | The whole site: CSS, markup, and JS in one file |
+| `index.html` → `EDIT HERE` block (near the bottom) | Sign-up links and deadlines, schedule, packing list, contacts. Organizers edit here. See README.md |
+| `img/wave.svg` | Great-wave engraving for the intro (compacted, ~1.3 MB, ~480 KB gzipped) |
+| `img/hero.jpg` | Link-preview image (`og:image`) |
+| `img/trail-map.jpg` | Trail map in the Mountain section |
+| `DESIGN.md` | The design system: two-ink screenprint, maize on near-black stock, rules instead of boxes |
+| `PRODUCT.md` | Who the site is for and what it has to do |
+| `CNAME` | `rossjapow.com`. Don't delete it or the custom domain drops |
+| `.impeccable/config.json` | Design-detector exceptions (everything else in `.impeccable/` is gitignored scratch) |
+
+## How the intro works (the part most likely to need tweaking)
+
+- First visit per tab shows a full-screen wave intro (`#intro`); `sessionStorage` key `rssc-intro` skips it after.
+- The wave image is created in JS (`new Image()` → `img/wave.svg`), decoded, then the `.go` class starts the animation.
+- **Performance rule:** only `transform` and `opacity` animate. The SVG has ~2,900 paths, so anything that
+  repaints it every frame (clip-path, filters, big scale changes, canvas effects over it) makes it jerky.
+- Exit: swipe up (pointer events follow the finger; past 18% of the screen or a flick finishes it),
+  tap, scroll wheel, or Enter/Space/Esc/↓. The screen wipes upward with a wavy foam "lip" (`.lip` SVG).
+  It auto-opens after 7 s; if the art never loads, the site shows after 6 s.
+- Portrait phones get a wider wave (`max-aspect-ratio:1/1` media query) and a shorter lip (8vh).
+
+## Other things worth knowing
+
+- The sticky menu (`.index`) has `padding-top: env(safe-area-inset-top)` so page text doesn't show
+  above it under the iPhone status bar. A `ResizeObserver` keeps `--nav-h` in sync.
+- `html { scroll-behavior: smooth }`: in scripts or devtools use `scrollTo({top, behavior: "instant"})`.
+- Sign-ups point at the public sign-up Google Sheet (Optional Events and Dinners tabs). The organizers'
+  private planning workbook must never be linked from the site.
+- No house addresses or phone numbers go on the public page.
+
+## Domain
+
+- Registered at GoDaddy. DNS: four `A` records on `@` → 185.199.108.153 / .109 / .110 / .111,
+  plus `www` CNAME → `mikeandrews-umich.github.io`.
+- HTTPS is enforced; GitHub renews the certificate automatically. `www` and the old
+  github.io URL redirect to https://rossjapow.com.
+- Keep auto-renew on for the domain at GoDaddy.
+- If the certificate ever gets stuck, remove the custom domain in repo Settings → Pages and add it back.
+
+## Open items
+
+- [ ] Check the menu on a real notched iPhone: scroll and confirm no text shows above the menu bar.
+- [ ] Optional: verify the domain in GitHub (profile Settings → Pages → Add a domain) to stop
+      anyone else's repo from claiming it.
+- [ ] Fill in the schedule, deadlines and contacts in the `EDIT HERE` block as plans lock.
+
+## Recent history
+
+```
+454ad2d Serve the site at rossjapow.com
+4c3bb8f Distill the page; keep the menu bar over the iPhone status bar
+707626c Smoother wave intro with a swipe-up wipe
+510885a Wave intro: the great wave swells in and wipes away to enter
+3319f19 Redesign as a two-ink screenprint
+```
