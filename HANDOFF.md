@@ -25,6 +25,7 @@ If you open the folder in Claude Code, point it at this file first ("read HANDOF
 |---|---|
 | `index.html` | The whole site: CSS, markup, and JS in one file |
 | `index.html` → `EDIT HERE` block (near the bottom) | Sign-up links and deadlines, schedule, packing list, contacts. Organizers edit here. See README.md |
+| `js/gsap/` | GSAP 3.15.1 core + ScrollTrigger (minified, from the official download). Loaded just before the `EDIT HERE` script. Same rule as the intro: animate only `transform`/`opacity` |
 | `img/wave.svg` | Great-wave engraving for the intro (compacted, ~1.3 MB, ~480 KB gzipped) |
 | `img/hero.jpg` | Link-preview image (`og:image`) |
 | `img/trail-map.jpg` | Trail map in the Mountain section |
