@@ -37,7 +37,11 @@ If you open the folder in Claude Code, point it at this file first ("read HANDOF
 ## How the intro works (the part most likely to need tweaking)
 
 - First visit per tab shows a full-screen wave intro (`#intro`); `sessionStorage` key `rssc-intro` skips it after.
-- The wave image is created in JS (`new Image()` → `img/wave.svg`), decoded, then the `.go` class starts the animation.
+- The wave image is created in JS (`new Image()` → `img/wave.svg`); once it has decoded and the Fraunces
+  lettering font is in (2.5 s cap), a GSAP timeline plays the entrance: the wave surges in, then the letters of
+  "Niseko 2027" rise one by one (each letter is its own `.c` span). The swell's idle rocking, the 7 s top bar and
+  the exit are GSAP tweens too. CSS only holds the starting state. If GSAP fails to load, the intro is skipped.
+- Title and subtitle are right-aligned on every screen size, so the wave (bottom left) never covers them.
 - **Performance rule:** only `transform` and `opacity` animate. The SVG has ~2,900 paths, so anything that
   repaints it every frame (clip-path, filters, big scale changes, canvas effects over it) makes it jerky.
 - Exit: swipe up (pointer events follow the finger; past 18% of the screen or a flick finishes it),
