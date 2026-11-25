@@ -198,6 +198,7 @@
   ol.legs li{counter-increment:s;position:relative;padding:16px 0 16px 56px;background:var(--hr)}
   ol.legs li::before{content:counter(s);position:absolute;left:0;top:8px;font-family:var(--display);font-weight:900;font-size:46px;line-height:1;color:var(--ink)}
   ol.legs b{display:block;font-size:18px}
+  ol.legs b.inline{display:inline;font-size:inherit;color:var(--bone)}
   ol.legs span{color:var(--bone-dim)}
 
   /* ---------- Houses ---------- */
@@ -435,7 +436,7 @@
     </div>
     <ol class="legs">
       <li><b>Fly to CTS</b><span>Direct from SFO or Vancouver (YVR), or connect through Tokyo (HND or NRT), Taipei (TPE) or Seoul (ICN).</span></li>
-      <li><b>Clear customs, find the group</b><span>Meeting point inside CTS: <span class="tba">TBA</span>.</span></li>
+      <li><b>Clear customs, find the group</b><span>Meet at <b class="inline">Center Plaza, 2F, Domestic Terminal</b> by 3:45 PM. Look for the Ross flag. International arrivals: follow the signs to the Domestic Terminal.</span></li>
       <li><b>Charter bus to Niseko, 4 PM</b><span>About two to two and a half hours with the grocery stop. Grab snacks and breakfast for the house.</span></li>
       <li><b>Check in and pick up gear</b><span>Rentals are from <a href="https://rhythmjapan.com/winter-rentals-services" target="_blank" rel="noopener">Rhythm Japan</a>. House assignments: <span class="tba">TBA</span>.</span></li>
     </ol>
@@ -565,7 +566,7 @@ const SCHEDULE = [
       { t: "Travel day", type: "plain", note: "Fly into New Chitose (CTS), outside Sapporo" },
     ],
     afternoon: [
-      { t: "Land at New Chitose (CTS) by 3 PM", type: "plain", note: "Meeting point inside CTS: TBA", map: "New Chitose Airport" },
+      { t: "Land at New Chitose (CTS) by 3 PM", type: "plain", note: "Meet at Center Plaza, 2F, Domestic Terminal by 3:45 PM. Look for the Ross flag. International arrivals: follow the signs to the Domestic Terminal.", map: "New Chitose Airport" },
       { t: "Charter bus to Niseko", type: "inc", note: "Leaves CTS at 4 PM sharp. Supermarket stop on the way, so stock the house." },
     ],
     evening: [
