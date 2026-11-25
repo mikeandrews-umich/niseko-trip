@@ -15,6 +15,9 @@ Open `index.html` and scroll to the `EDIT HERE` block near the bottom:
   { day: 1, name: "Sunday", date: "2027-01-03", title: "Arrival day",
     afternoon:[{t:"Arrive CTS", type:"plain"}, {t:"Private shuttle to Niseko", type:"inc"}] }
   ```
+- `afterDark` (optional, per day): the night plan shown in a framed "After dark" panel under Evening.
+  `theme` (a chip, leave "" for none), `items` (same shape as slot items, [] for none) and
+  `meetup: { name, note, link }` (the bar to meet at).
 - `PACKING`: packing list groups and items.
 - `CONTACTS`: role, name, email, phone (phone gets Call/Text buttons).
 

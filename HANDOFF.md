@@ -77,7 +77,11 @@ If you open the folder in Claude Code, point it at this file first ("read HANDOF
 - [ ] Check the menu on a real notched iPhone: scroll and confirm no text shows above the menu bar.
 - [ ] Optional: verify the domain in GitHub (profile Settings → Pages → Add a domain) to stop
       anyone else's repo from claiming it.
-- [ ] Fill in the schedule, deadlines and contacts in the `EDIT HERE` block as plans lock.
+- [x] Schedule filled in for all 7 days, with an "After dark" panel on days 1 to 6.
+- [ ] Still TBA in the schedule: welcome dinner time (Izakaya Wa-R, Mon Jan 4), après start times
+      (Blo*Blo Tue Jan 5, Niseko Confidential Wed Jan 6), farewell dinner venue (Fri Jan 8),
+      Hertzzz location (Fri Jan 8), meeting point inside CTS (Sun Jan 3).
+- [ ] Deadlines and contacts in the `EDIT HERE` block.
 
 ## Recent history
 
