@@ -249,9 +249,11 @@
   .intro-on #intro{display:block;position:fixed;inset:0;z-index:100;cursor:pointer;touch-action:none;will-change:transform}
   .intro-on body{overflow:hidden}
   #intro .stage{position:absolute;inset:0;overflow:hidden;background:var(--stock)}
-  #intro .lip{position:absolute;left:0;right:0;top:calc(100% - 1px);height:18vh;pointer-events:none}
+  #intro .lip{position:absolute;left:0;right:0;top:calc(100% - 1px);height:24vh;pointer-events:none}
   #intro .lip svg{display:block;width:100%;height:100%}
-  #intro .sea{position:absolute;left:0;bottom:0;width:min(104vw,152vh);aspect-ratio:1296/822.5;opacity:0;will-change:transform,opacity}
+  /* Always at least full width, so widescreen monitors get no hard edge on the right. When that makes the art taller than
+     the screen, it stays pinned near the top (keeping the crest) and only open water at the bottom is cropped. */
+  #intro .sea{--seaw:max(min(104vw,152vh),101vw);position:absolute;left:0;bottom:min(0px,calc(100vh - var(--seaw) * .6347 - 2vh));width:var(--seaw);aspect-ratio:1296/822.5;opacity:0;will-change:transform,opacity}
   #intro .swell{width:100%;height:100%;transform-origin:30% 100%;will-change:transform}
   #intro .swell img{display:block;width:100%;height:100%}
   /* Intro lettering: Fraunces black italic, the cover art's italic serif voice. Right-aligned, clear of the wave. */
@@ -259,7 +261,7 @@
   #intro .title .w{display:block;font-weight:900;color:var(--ink);font-size:min(12vw,18vh);line-height:.86;letter-spacing:-.02em;padding:0 .08em .02em 0;
     clip-path:inset(-40% -30% 0 -30%)}            /* clips only the bottom: letters rise out of the line */
   #intro .title .c{display:inline-block;transform:translateY(118%)}
-  #intro .title .brush{display:block;width:100%;height:min(3vw,4.4vh);margin:.2em 0 0;opacity:0}
+  #intro .title .brush{display:block;width:100%;height:min(4.2vw,6vh);margin:.15em 0 0;opacity:0}
   #intro .title .sub{display:block;margin-top:.5em;padding-right:.1em;color:var(--bone);font-weight:600;font-size:clamp(19px,2.3vw,30px);line-height:1.15;opacity:0}
   #intro .bar{position:absolute;left:0;top:0;height:4px;background:var(--ink);width:100%;transform:scaleX(0);transform-origin:left}
   #intro .meta{position:absolute;left:0;right:0;bottom:calc(22px + env(safe-area-inset-bottom));text-align:center;color:var(--bone);font-weight:700;letter-spacing:.16em;font-size:13px;text-transform:uppercase;opacity:0}
@@ -267,7 +269,7 @@
   #intro .meta svg{width:12px;height:12px;color:var(--ink);animation:nudge 1.4s ease-in-out infinite}
   #intro .meta b{color:var(--ink)}
   @media (max-aspect-ratio:1/1){
-    #intro .sea{width:178vw;left:-50vw}
+    #intro .sea{width:178vw;left:-50vw;bottom:0}
     #intro .lip{height:12vh}
     #intro .title{right:7vw;top:9vh}
     #intro .title .w{font-size:min(22vw,13vh)}
@@ -297,7 +299,7 @@
 <div id="intro" role="button" aria-label="Enter the site" tabindex="0">
   <div class="stage">
     <div class="sea"><div class="swell"></div></div>
-    <p class="title" aria-label="Niseko 2027, Powder Pilgrimage, January 3 to 9"><span class="w" aria-hidden="true"><span class="c">N</span><span class="c">i</span><span class="c">s</span><span class="c">e</span><span class="c">k</span><span class="c">o</span></span><span class="w" aria-hidden="true"><span class="c">2</span><span class="c">0</span><span class="c">2</span><span class="c">7</span></span><svg class="brush" viewBox="0 0 600 64" preserveAspectRatio="none" aria-hidden="true"><defs><mask id="brush-reveal" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="64"><path class="brush-path" d="M4 34C120 26 260 22 380 28S540 40 598 30" fill="none" stroke="#fff" stroke-width="64" stroke-linecap="round"/></mask></defs><g mask="url(#brush-reveal)"><path fill="#ffc72c" d="M2 38C40 30 110 22 200 19 300 15 400 18 470 24 520 28 560 31 598 26 584 34 548 42 500 45 420 50 330 49 240 47 150 45 70 44 2 38Z"/><path fill="#0e0d0b" d="M120 31C220 27 330 27 430 33 330 30 220 30 120 31ZM90 40C200 38 330 40 470 41 330 42 200 41 90 40ZM300 23C380 22 450 25 520 30 450 26 380 24 300 23Z"/></g></svg><span class="sub" aria-hidden="true">Powder Pilgrimage · Jan 3–9</span></p>
+    <p class="title" aria-label="Niseko 2027, Powder Pilgrimage, January 3 to 9"><span class="w" aria-hidden="true"><span class="c">N</span><span class="c">i</span><span class="c">s</span><span class="c">e</span><span class="c">k</span><span class="c">o</span></span><span class="w" aria-hidden="true"><span class="c">2</span><span class="c">0</span><span class="c">2</span><span class="c">7</span></span><svg class="brush" viewBox="0 0 600 64" preserveAspectRatio="none" aria-hidden="true"><defs><mask id="brush-reveal" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="64"><path class="brush-path" d="M4 34C120 26 260 22 380 28S540 40 598 30" fill="none" stroke="#fff" stroke-width="64" stroke-linecap="round"/></mask></defs><g mask="url(#brush-reveal)"><path fill="#ffc72c" d="M2 36C40 24 110 14 200 10 300 6 400 9 470 16 520 21 560 25 598 18 586 32 552 44 500 50 420 58 330 58 240 55 150 52 70 50 2 36Z"/><path fill="#0e0d0b" d="M120 31C220 27 330 27 430 33 330 30 220 30 120 31ZM90 40C200 38 330 40 470 41 330 42 200 41 90 40ZM300 23C380 22 450 25 520 30 450 26 380 24 300 23Z"/></g></svg><span class="sub" aria-hidden="true">Powder Pilgrimage · Jan 3–9</span></p>
     <div class="bar"></div>
     <div class="meta"><span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 8l5-5 5 5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>RSSC · <b class="cue">Swipe up to drop in</b></span></div>
   </div>
@@ -749,7 +751,7 @@ onScroll();
     const to = (S, at, dur) => tl => tl
       .to(lipF, { morphSVG: S.f, duration: dur }, at).to(lipFoam, { morphSVG: S.foam, duration: dur }, at).to(lipBlue, { morphSVG: S.blue, duration: dur }, at);
     lipTl = gsap.timeline({ paused: true, defaults: { ease: "none" } });
-    to(BUILD, 0, 1)(lipTl); to(BREAK, 1, .6)(lipTl); to(SPILL, 1.6, .4)(lipTl);
+    to(BUILD, 0, 1)(lipTl); to(BREAK, 1, .7)(lipTl); to(SPILL, 1.7, .6)(lipTl);
   }
 
   // Idle: the wave keeps rocking on its swell
@@ -780,9 +782,9 @@ onScroll();
       .to(chars, { yPercent: -60, opacity: 0, duration: .42, stagger: { each: .03, from: "end" }, ease: "power2.in" }, 0)
       .to(sub, { y: -24, opacity: 0, duration: .32, ease: "power2.in" }, 0)
       .to(brushPath, svgFx ? { drawSVG: "100% 100%", duration: .35, ease: "power2.in" } : {}, 0)   // the stroke wipes off to the right
-      .to(lipTl || {}, lipTl ? { progress: 1, duration: 1, ease: "power1.in" } : {}, .02)               // the lip builds, breaks and spills as it sweeps up
-      .to(sea, { y: () => innerHeight * .12, rotation: -2, duration: .9 }, .08)
-      .to(intro, { y: () => -(intro.offsetHeight + lip.offsetHeight), duration: .9 }, .12);
+      .to(lipTl || {}, lipTl ? { progress: 1, duration: 1.15, ease: "power2.out" } : {}, 0)               // the lip builds, breaks and spills as it sweeps up
+      .to(sea, { y: () => innerHeight * .12, rotation: -2, duration: 1.1 }, .08)
+      .to(intro, { y: () => -(intro.offsetHeight + lip.offsetHeight), duration: 1.1 }, .12);
   };
   const go = () => {
     if (started || done) return; started = true;
