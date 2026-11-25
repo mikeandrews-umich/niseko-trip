@@ -211,6 +211,10 @@ There are no cards. Three containers exist:
 ### Schedule Rail (signature)
 One maize line threads the week. Desktop: a sticky SVG rail of day dots (stock fill, 2.5px maize stroke) that fill solid as days pass and grow when active, with labels turning maize. Phone: a sticky day strip of labels over a 3px spent-rule track with a solid maize fill tracking scroll progress. Each day opens with a large maize display numeral; included items are solid maize blocks with stock text, optional items carry a 2px inset maize keyline, and slots are separated by hairlines. A day with no plan yet collapses to one compact line (bone-dim numeral, "Plan TBA" label). A small square maize "today" tag marks the current day.
 
+### The After Dark Exception
+
+The schedule's "After dark" panels are the one place the page leaves its two inks, on purpose (requested to read like a neon night-out sign). Each is a deep indigo block (`#120b26`) with a faint dot grid, framed in glowing hot pink (`#ff5cdb`); the label and theme chip are pink neon, links, optional items and the meetup pin are cyan neon (`#5ce1ff`). Glow is a blurred shadow in the same colour. Corners stay square. The sign flickers on once when it first scrolls into view (opacity only, none under reduced motion). Keep neon inside these panels; never use pink or cyan anywhere else.
+
 ## Do's and Don'ts
 
 ### Do:

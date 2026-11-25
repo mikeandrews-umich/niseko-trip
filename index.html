@@ -150,19 +150,29 @@
   .item.opt{box-shadow:inset 0 0 0 2px var(--ink)}
   .item small{display:block;font-weight:400;opacity:.8;font-size:14px}
   .item a{font-weight:700}
-  /* After dark: a framed night panel on the same grid as the slots. Stock and maize only, square corners like everything else. */
-  .afterdark{display:grid;grid-template-columns:110px minmax(0,1fr);gap:10px 16px;margin-top:14px;padding:16px 18px 18px;
-    box-shadow:inset 0 0 0 1px var(--rule),inset 0 3px 0 var(--ink);background:#080807}
-  .afterdark h4{display:flex;align-items:center;align-self:start;gap:7px;margin:3px 0 0;font-size:13px;letter-spacing:.14em;color:var(--ink);text-transform:uppercase;line-height:1.3}
-  .afterdark h4 svg{width:13px;height:13px;flex:none}
-  .ad-body{display:grid;gap:10px;min-width:0}
-  .ad-theme{justify-self:start;max-width:100%;padding:6px 12px 5px;box-shadow:inset 0 0 0 2px var(--ink);color:var(--ink);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;line-height:1.45;overflow-wrap:anywhere}
+  /* After dark: a neon night panel. The one place the page leaves its two inks: deep indigo stock with a faint dot grid,
+     hot pink and cyan neon that glows (glow = blurred shadow in the same colour). Square corners like everything else. */
+  .afterdark{--neon-pink:#ff5cdb;--neon-cyan:#5ce1ff;--night:#120b26;
+    display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px 16px;margin-top:16px;padding:20px 20px 22px;color:#ede6ff;
+    background:radial-gradient(circle,rgba(237,230,255,.1) 1px,transparent 1.6px) 0 0/14px 14px,var(--night);
+    box-shadow:inset 0 0 0 1.5px var(--neon-pink),0 0 18px rgba(255,92,219,.35),inset 0 0 22px rgba(255,92,219,.12)}
+  .afterdark h4{display:flex;align-items:center;align-self:start;gap:8px;margin:2px 0 0;font-size:14px;letter-spacing:.18em;color:var(--neon-pink);
+    text-transform:uppercase;line-height:1.3;text-shadow:0 0 6px var(--neon-pink),0 0 16px rgba(255,92,219,.7)}
+  .afterdark h4 svg{width:14px;height:14px;flex:none;filter:drop-shadow(0 0 5px var(--neon-pink))}
+  .ad-body{display:grid;gap:12px;min-width:0}
+  .ad-theme{justify-self:start;max-width:100%;padding:6px 13px 5px;color:var(--neon-pink);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;line-height:1.45;overflow-wrap:anywhere;
+    box-shadow:inset 0 0 0 2px var(--neon-pink),0 0 12px rgba(255,92,219,.45),inset 0 0 10px rgba(255,92,219,.2);text-shadow:0 0 8px rgba(255,92,219,.6)}
+  .afterdark .item small{color:#b9b0d6;opacity:1}
+  .afterdark .item a,.ad-meet a{color:var(--neon-cyan);text-shadow:0 0 8px rgba(92,225,255,.55)}
+  .afterdark .item.opt{box-shadow:inset 0 0 0 2px var(--neon-cyan),0 0 12px rgba(92,225,255,.4),inset 0 0 10px rgba(92,225,255,.15)}
+  .afterdark .item.inc{background:var(--neon-pink);color:var(--night);box-shadow:0 0 16px rgba(255,92,219,.55)}
+  .afterdark .item.inc small,.afterdark .item.inc a{color:var(--night);text-shadow:none}
   .ad-meet{display:flex;gap:10px;align-items:flex-start;margin:0;font-size:16px}
-  .ad-meet svg{width:13px;height:17px;flex:none;margin-top:4px;color:var(--ink)}
-  .ad-meet b{color:var(--bone)}
-  .ad-meet small{display:block;font-size:14px;color:var(--bone-dim)}
+  .ad-meet svg{width:13px;height:17px;flex:none;margin-top:4px;color:var(--neon-cyan);filter:drop-shadow(0 0 5px var(--neon-cyan))}
+  .ad-meet b{color:#fff;text-shadow:0 0 10px rgba(92,225,255,.55)}
+  .ad-meet small{display:block;font-size:14px;color:#b9b0d6}
   @media(max-width:520px){
-    .afterdark{grid-template-columns:minmax(0,1fr);padding:14px 14px 16px}
+    .afterdark{grid-template-columns:minmax(0,1fr);padding:16px 16px 18px}
   }
 
   /* ---------- Sign-ups ---------- */
@@ -1083,6 +1093,17 @@ if (window.gsap && window.ScrollTrigger) gsap.matchMedia().add("(prefers-reduced
     })
       .from(head, { y: 48, opacity: 0, duration: .7 })
       .from(rest, { y: 24, opacity: 0, duration: .6, stagger: .08 }, "-=.45");
+  });
+  // After dark: each panel's neon sign stutters on the first time it scrolls into view
+  document.querySelectorAll(".afterdark").forEach(ad => {
+    const sign = ad.querySelectorAll("h4, .ad-theme");
+    gsap.set(sign, { opacity: .12 });
+    gsap.timeline({ scrollTrigger: { trigger: ad, start: "top 80%", once: true }, delay: .25 })
+      .to(sign, { opacity: 1, duration: .04, ease: "none" })
+      .to(sign, { opacity: .2, duration: .06, ease: "none" }, "+=.08")
+      .to(sign, { opacity: 1, duration: .04, ease: "none" }, "+=.05")
+      .to(sign, { opacity: .45, duration: .05, ease: "none" }, "+=.18")
+      .to(sign, { opacity: 1, duration: .25, ease: "power2.out", clearProps: "opacity" }, "+=.04");
   });
 });
 </script>
