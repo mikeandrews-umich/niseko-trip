@@ -25,7 +25,7 @@ If you open the folder in Claude Code, point it at this file first ("read HANDOF
 |---|---|
 | `index.html` | The whole site: CSS, markup, and JS in one file |
 | `index.html` → `EDIT HERE` block (near the bottom) | Sign-up links and deadlines, schedule, packing list, contacts. Organizers edit here. See README.md |
-| `js/gsap/` | GSAP 3.15.1 core + ScrollTrigger (minified, from the official download). Loaded just before the `EDIT HERE` script. Same rule as the intro: animate only `transform`/`opacity` |
+| `js/gsap/` | GSAP 3.15.1 core + ScrollTrigger, MorphSVGPlugin and DrawSVGPlugin (minified, from the official download). Loaded just before the `EDIT HERE` script. Same rule as the intro: animate only `transform`/`opacity` |
 | `img/wave.svg` | Great-wave engraving for the intro (compacted, ~1.3 MB, ~480 KB gzipped) |
 | `index.html` → `.poster` | Top banner: Mt. Yotei as five inline-SVG print layers (sky halftone, sun, mountain, ridge, trees). GSAP prints them in one pass at a time, a few px out of register, then snaps them into register; on scroll the layers drift at different speeds and the sun sets. Waits for the intro to finish (`intro:done` event). The days-to-go figure rolls in like an odometer |
 | `img/hero.jpg` | Link-preview image (`og:image`) only; no longer shown on the page |
@@ -43,6 +43,10 @@ If you open the folder in Claude Code, point it at this file first ("read HANDOF
   "Niseko 2027" rise one by one (each letter is its own `.c` span). The swell's idle rocking, the 7 s top bar and
   the exit are GSAP tweens too. CSS only holds the starting state. If GSAP fails to load, the intro is skipped.
 - Title and subtitle are right-aligned on every screen size, so the wave (bottom left) never covers them.
+- SVG effects: a brushstroke under the title is painted in with DrawSVG (it draws the centre line of a mask over
+  the dry-brush shape). The wipe's foam lip (`.lip`) morphs with MorphSVG: it builds as you drag, then breaks and
+  spills as the screen wipes up. All lip shapes come from one recipe (`lipShape` in the intro script), so they
+  share the same points. Neither touches `img/wave.svg`.
 - **Performance rule:** only `transform` and `opacity` animate. The SVG has ~2,900 paths, so anything that
   repaints it every frame (clip-path, filters, big scale changes, canvas effects over it) makes it jerky.
 - Exit: swipe up (pointer events follow the finger; past 18% of the screen or a flick finishes it),

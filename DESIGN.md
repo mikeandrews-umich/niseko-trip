@@ -28,7 +28,7 @@ typography:
     letterSpacing: "0.01em"
   intro-title:
     fontFamily: "\"Fraunces\", Georgia, serif"
-    fontSize: "min(13vw, 20vh)"
+    fontSize: "min(12vw, 18vh)"
     fontWeight: 900
     fontStyle: "italic"
     lineHeight: 0.86
@@ -149,7 +149,7 @@ One ink, one stock, and the stock showing through.
 - **Display** (900, clamp(92px, 27vw, 232px), 0.8): the cover headline (the trip dates) knocked out of the maize slab, and nowhere else. Deliberately overruns its column into the right gutter and never wraps. A secondary line under it sits at 0.27em.
 - **Headline** (900, clamp(42px, 8vw, 72px), 0.9, uppercase, maize): section h2s.
 - **Title** (900, clamp(28px, 5vw, 36px), 1.0, uppercase, bone): block and packing-group h3s; house names enlarge to clamp(40px, 7vw, 58px) in maize. Display-face numerals at 28-92px set prices, step counters, day numbers and emergency numbers in maize.
-- **Intro title** (Fraunces italic 900, min(13vw, 20vh), 0.86, mixed case, maize; subtitle Fraunces italic 600 in bone): "Niseko 2027" and "Powder Pilgrimage · Jan 3–9" on the wave intro, right-aligned clear of the wave. Echoes the italic serif on the cover art; used nowhere else.
+- **Intro title** (Fraunces italic 900, min(12vw, 18vh), 0.86, mixed case, maize; subtitle Fraunces italic 600 in bone): "Niseko 2027" and "Powder Pilgrimage · Jan 3–9" on the wave intro, right-aligned clear of the wave. Echoes the italic serif on the cover art; used nowhere else.
 - **Body** (400, 17px, 1.6): all reading text; section intros at 18px in bone-dim with a 58-62ch measure; list headings at 18px/700; secondary notes 15px.
 - **Label** (700, 13px, 0.1-0.14em, uppercase): index strip links, day-strip links, fact table terms (14px), slot times, contact roles. Labels name a field or a place; they are never a decorative line above a heading.
 

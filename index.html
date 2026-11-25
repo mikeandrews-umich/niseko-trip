@@ -255,11 +255,12 @@
   #intro .swell{width:100%;height:100%;transform-origin:30% 100%;will-change:transform}
   #intro .swell img{display:block;width:100%;height:100%}
   /* Intro lettering: Fraunces black italic, the cover art's italic serif voice. Right-aligned, clear of the wave. */
-  #intro .title{position:absolute;right:6vw;top:8vh;margin:0;text-align:right;pointer-events:none;font-family:"Fraunces", Georgia, serif;font-style:italic;font-optical-sizing:auto}
-  #intro .title .w{display:block;font-weight:900;color:var(--ink);font-size:min(13vw,20vh);line-height:.86;letter-spacing:-.02em;padding:0 .08em .02em 0;
+  #intro .title{position:absolute;right:6vw;top:5vh;margin:0;text-align:right;pointer-events:none;font-family:"Fraunces", Georgia, serif;font-style:italic;font-optical-sizing:auto}
+  #intro .title .w{display:block;font-weight:900;color:var(--ink);font-size:min(12vw,18vh);line-height:.86;letter-spacing:-.02em;padding:0 .08em .02em 0;
     clip-path:inset(-40% -30% 0 -30%)}            /* clips only the bottom: letters rise out of the line */
   #intro .title .c{display:inline-block;transform:translateY(118%)}
-  #intro .title .sub{display:block;margin-top:.7em;padding-right:.1em;color:var(--bone);font-weight:600;font-size:clamp(19px,2.3vw,30px);line-height:1.15;opacity:0}
+  #intro .title .brush{display:block;width:100%;height:min(3vw,4.4vh);margin:.2em 0 0;opacity:0}
+  #intro .title .sub{display:block;margin-top:.5em;padding-right:.1em;color:var(--bone);font-weight:600;font-size:clamp(19px,2.3vw,30px);line-height:1.15;opacity:0}
   #intro .bar{position:absolute;left:0;top:0;height:4px;background:var(--ink);width:100%;transform:scaleX(0);transform-origin:left}
   #intro .meta{position:absolute;left:0;right:0;bottom:calc(22px + env(safe-area-inset-bottom));text-align:center;color:var(--bone);font-weight:700;letter-spacing:.16em;font-size:13px;text-transform:uppercase;opacity:0}
   #intro .meta span{display:inline-flex;align-items:center;gap:8px;background:var(--stock);padding:7px 14px 6px}
@@ -267,10 +268,11 @@
   #intro .meta b{color:var(--ink)}
   @media (max-aspect-ratio:1/1){
     #intro .sea{width:178vw;left:-50vw}
-    #intro .lip{height:8vh}
+    #intro .lip{height:12vh}
     #intro .title{right:7vw;top:9vh}
     #intro .title .w{font-size:min(22vw,13vh)}
     #intro .title .sub{font-size:clamp(17px,5vw,24px)}
+    #intro .title .brush{height:min(4.6vw,2.6vh)}
   }
   /* The entrance, idle swell and exit are one GSAP timeline in the intro script; CSS only holds the starting state. */
   @keyframes nudge{0%,100%{transform:none}50%{transform:translateY(-3px)}}
@@ -295,14 +297,14 @@
 <div id="intro" role="button" aria-label="Enter the site" tabindex="0">
   <div class="stage">
     <div class="sea"><div class="swell"></div></div>
-    <p class="title" aria-label="Niseko 2027, Powder Pilgrimage, January 3 to 9"><span class="w" aria-hidden="true"><span class="c">N</span><span class="c">i</span><span class="c">s</span><span class="c">e</span><span class="c">k</span><span class="c">o</span></span><span class="w" aria-hidden="true"><span class="c">2</span><span class="c">0</span><span class="c">2</span><span class="c">7</span></span><span class="sub" aria-hidden="true">Powder Pilgrimage · Jan 3–9</span></p>
+    <p class="title" aria-label="Niseko 2027, Powder Pilgrimage, January 3 to 9"><span class="w" aria-hidden="true"><span class="c">N</span><span class="c">i</span><span class="c">s</span><span class="c">e</span><span class="c">k</span><span class="c">o</span></span><span class="w" aria-hidden="true"><span class="c">2</span><span class="c">0</span><span class="c">2</span><span class="c">7</span></span><svg class="brush" viewBox="0 0 600 64" preserveAspectRatio="none" aria-hidden="true"><defs><mask id="brush-reveal" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="64"><path class="brush-path" d="M4 34C120 26 260 22 380 28S540 40 598 30" fill="none" stroke="#fff" stroke-width="64" stroke-linecap="round"/></mask></defs><g mask="url(#brush-reveal)"><path fill="#ffc72c" d="M2 38C40 30 110 22 200 19 300 15 400 18 470 24 520 28 560 31 598 26 584 34 548 42 500 45 420 50 330 49 240 47 150 45 70 44 2 38Z"/><path fill="#0e0d0b" d="M120 31C220 27 330 27 430 33 330 30 220 30 120 31ZM90 40C200 38 330 40 470 41 330 42 200 41 90 40ZM300 23C380 22 450 25 520 30 450 26 380 24 300 23Z"/></g></svg><span class="sub" aria-hidden="true">Powder Pilgrimage · Jan 3–9</span></p>
     <div class="bar"></div>
     <div class="meta"><span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 8l5-5 5 5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>RSSC · <b class="cue">Swipe up to drop in</b></span></div>
   </div>
   <div class="lip" aria-hidden="true"><svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-    <path fill="#0e0d0b" d="M0 0H1200V38C1150 70 1110 92 1060 78 1010 64 1000 30 950 34 890 40 880 96 820 100 760 104 740 60 690 52 640 44 620 80 560 86 500 92 470 46 420 40 360 32 350 88 290 96 230 104 200 58 150 50 100 42 70 74 0 60Z"/>
-    <path fill="none" stroke="#efe6c8" stroke-width="5" vector-effect="non-scaling-stroke" d="M0 60C70 74 100 42 150 50 200 58 230 104 290 96 350 88 360 32 420 40 470 46 500 92 560 86 620 80 640 44 690 52 740 60 760 104 820 100 880 96 890 40 950 34 1000 30 1010 64 1060 78 1110 92 1150 70 1200 38"/>
-    <path fill="none" stroke="#32668c" stroke-width="3" vector-effect="non-scaling-stroke" d="M0 44C70 58 100 26 150 34 200 42 230 88 290 80 350 72 360 16 420 24 470 30 500 76 560 70 620 64 640 28 690 36 740 44 760 88 820 84 880 80 890 24 950 18 1000 14 1010 48 1060 62 1110 76 1150 54 1200 22"/>
+    <path class="lf" fill="#0e0d0b" d="M0 0H1200V38C1150 70 1110 92 1060 78 1010 64 1000 30 950 34 890 40 880 96 820 100 760 104 740 60 690 52 640 44 620 80 560 86 500 92 470 46 420 40 360 32 350 88 290 96 230 104 200 58 150 50 100 42 70 74 0 60Z"/>
+    <path class="lfoam" fill="none" stroke="#efe6c8" stroke-width="5" vector-effect="non-scaling-stroke" d="M0 60C70 74 100 42 150 50 200 58 230 104 290 96 350 88 360 32 420 40 470 46 500 92 560 86 620 80 640 44 690 52 740 60 760 104 820 100 880 96 890 40 950 34 1000 30 1010 64 1060 78 1110 92 1150 70 1200 38"/>
+    <path class="lblue" fill="none" stroke="#32668c" stroke-width="3" vector-effect="non-scaling-stroke" d="M0 44C70 58 100 26 150 34 200 42 230 88 290 80 350 72 360 16 420 24 470 30 500 76 560 70 620 64 640 28 690 36 740 44 760 88 820 84 880 80 890 24 950 18 1000 14 1010 48 1060 62 1110 76 1150 54 1200 22"/>
   </svg></div>
 </div>
 <canvas id="snow" aria-hidden="true"></canvas>
@@ -504,7 +506,9 @@
 <!-- GSAP 3.15.1 (https://gsap.com, standard license). Animate only transform/opacity: see HANDOFF.md. -->
 <script src="js/gsap/gsap.min.js"></script>
 <script src="js/gsap/ScrollTrigger.min.js"></script>
-<script>gsap.registerPlugin(ScrollTrigger);</script>
+<script src="js/gsap/MorphSVGPlugin.min.js"></script>
+<script src="js/gsap/DrawSVGPlugin.min.js"></script>
+<script>gsap.registerPlugin(ScrollTrigger, MorphSVGPlugin, DrawSVGPlugin);</script>
 
 <script>
 /* ======================================================================
@@ -716,6 +720,38 @@ onScroll();
   gsap.set([sub, meta], { opacity: 0, y: 14 });
   gsap.set(bar, { scaleX: 0, transformOrigin: "0 50%" });
 
+  // Brushstroke under the title: DrawSVG paints the mask's centre line, revealing the dry-brush mark
+  const brush = q(".brush"), brushPath = q(".brush-path"), svgFx = window.MorphSVGPlugin && window.DrawSVGPlugin;
+  if (svgFx) gsap.set(brushPath, { drawSVG: "0%" }), gsap.set(brush, { opacity: 1 });
+
+  // Foam lip: the wipe's wavy bottom edge, drawn from one recipe so every state has the same points.
+  // amp = crest height, lean = how far the crests pitch forward (right) and hook over.
+  const lipF = q(".lf"), lipFoam = q(".lfoam"), lipBlue = q(".lblue");
+  const SIZE = [1, .78, 1.12, .9, 1.05, .84];
+  const edge = (amp, lean, base, off = 0) => {
+    const w = 200; let d = "";
+    SIZE.forEach((k, i) => {
+      const a = amp * k, x0 = i * w, xt = x0 + w * (.5 + lean * .28), yb = base - off, yt = base + a - off;
+      d += ` C${x0 + w * .24} ${yb} ${xt - w * (.24 - lean * .1)} ${yt} ${xt} ${yt}` +
+           ` C${xt + w * (.06 - lean * .05)} ${yt - a * (.2 + lean * .55)} ${x0 + w * .84} ${yb} ${x0 + w} ${yb}`;
+    });
+    return d;
+  };
+  const lipShape = (amp, lean, base) => ({
+    f: `M0 0 L0 ${base}${edge(amp, lean, base)} L1200 0 Z`,
+    foam: `M0 ${base}${edge(amp, lean, base)}`,
+    blue: `M0 ${base - 16}${edge(amp * .8, lean, base, 16)}`,
+  });
+  const CALM = lipShape(22, 0, 34), BUILD = lipShape(50, .35, 30), BREAK = lipShape(80, .9, 24), SPILL = lipShape(30, 1.15, 44);
+  let lipTl = null;                                   // paused timeline: calm → build (0.5) → break → spill (1)
+  if (svgFx) {
+    lipF.setAttribute("d", CALM.f); lipFoam.setAttribute("d", CALM.foam); lipBlue.setAttribute("d", CALM.blue);
+    const to = (S, at, dur) => tl => tl
+      .to(lipF, { morphSVG: S.f, duration: dur }, at).to(lipFoam, { morphSVG: S.foam, duration: dur }, at).to(lipBlue, { morphSVG: S.blue, duration: dur }, at);
+    lipTl = gsap.timeline({ paused: true, defaults: { ease: "none" } });
+    to(BUILD, 0, 1)(lipTl); to(BREAK, 1, .6)(lipTl); to(SPILL, 1.6, .4)(lipTl);
+  }
+
   // Idle: the wave keeps rocking on its swell
   const bob = gsap.to(swell, { xPercent: .5, yPercent: -1.4, rotation: .7, duration: 2, ease: "sine.inOut", yoyo: true, repeat: -1, paused: true });
   // Auto-open: the maize rule fills across the top, then the page opens
@@ -727,7 +763,8 @@ onScroll();
     .to(sea, { opacity: 1, duration: .45, ease: "none" }, 0)
     .to(sea, { xPercent: 0, yPercent: 0, rotation: 0, duration: 1.7 }, 0)
     .to(chars, { yPercent: 0, rotation: 0, duration: 1.1, stagger: { each: .055, ease: "sine.in" } }, .5)
-    .to(sub, { opacity: .95, y: 0, duration: .8 }, 1.05)
+    .to(brushPath, svgFx ? { drawSVG: "100%", duration: .75, ease: "power2.inOut" } : {}, 1.05)
+    .to(sub, { opacity: .95, y: 0, duration: .8 }, 1.3)
     .to(meta, { opacity: 1, y: 0, duration: .8 }, 1.4)
     .add(() => bob.play(), 1.5);
 
@@ -742,6 +779,8 @@ onScroll();
       .to([meta, bar], { opacity: 0, duration: .2, ease: "none" }, 0)
       .to(chars, { yPercent: -60, opacity: 0, duration: .42, stagger: { each: .03, from: "end" }, ease: "power2.in" }, 0)
       .to(sub, { y: -24, opacity: 0, duration: .32, ease: "power2.in" }, 0)
+      .to(brushPath, svgFx ? { drawSVG: "100% 100%", duration: .35, ease: "power2.in" } : {}, 0)   // the stroke wipes off to the right
+      .to(lipTl || {}, lipTl ? { progress: 1, duration: 1, ease: "power1.in" } : {}, .02)               // the lip builds, breaks and spills as it sweeps up
       .to(sea, { y: () => innerHeight * .12, rotation: -2, duration: .9 }, .08)
       .to(intro, { y: () => -(intro.offsetHeight + lip.offsetHeight), duration: .9 }, .12);
   };
@@ -762,6 +801,7 @@ onScroll();
     if (y0 === null || done) return;
     dy = Math.min(0, e.clientY - y0);
     setY(dy);
+    if (lipTl) lipTl.progress(Math.min(1, -dy / (innerHeight * .18)) * .5);   // the further you pull, the more it builds
   });
   const release = () => {
     if (y0 === null || done) return;
@@ -770,6 +810,7 @@ onScroll();
     if (Math.abs(dy) < 8) return open();                    // a tap or click
     if (-dy > innerHeight * .18 || v > .5) return open();   // far enough, or a flick
     gsap.to(intro, { y: 0, duration: .45, ease: "expo.out" });
+    if (lipTl) gsap.to(lipTl, { progress: 0, duration: .45, ease: "expo.out" });   // and settles back to calm
     if (started) auto.play();
   };
   intro.addEventListener("pointerup", release);
