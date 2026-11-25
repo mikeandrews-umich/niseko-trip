@@ -53,6 +53,15 @@
         "value": "fraunces",
         "createdAt": "2026-11-25T02:24:49.446Z",
         "reason": "User shipped Fraunces for the intro lettering after the overused-font flag was raised (2026-11-24)"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-25T03:12:57.280Z",
+        "reason": "User asked for the After dark panels to be neon like the Kellogg site (2026-11-24); glow is scoped to .afterdark and recorded in DESIGN.md as the After Dark Exception"
       }
     ]
   }
