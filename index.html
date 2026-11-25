@@ -553,7 +553,7 @@ const LINKS = {
 //   { t: "Title", type: "inc" | "opt" | "plain", note: "optional small text",
 //     link: { href: "...", label: "Sign up" }, map: "Place name, Niseko" }
 // Use link: "dinners" or link: "addons" to point at the sign-up links above.
-// map (optional) adds a "Map" link that searches Google Maps for that text.
+// map (optional) adds a "Map" link: either text to search Google Maps for, or a full https:// Maps link to one place.
 //
 // afterDark (optional, per day):
 //   { theme: "Dress code or theme, optional",
@@ -675,7 +675,7 @@ const SCHEDULE = [
       items: [
         { t: "Last night out", type: "plain", note: "The bus leaves at 9 AM. Pack before you go out." },
       ],
-      meetup: { name: "Hertzzz", note: "Location TBA" },
+      meetup: { name: "Hertzzz", note: "", map: "https://www.google.com/maps?ftid=0x5f0ab1c6ab8403a3:0xa983aa99d0444e05" },
     } },
 
   { day: 7, name: "Saturday", date: "2027-01-09", title: "Sayonara, Niseko",
@@ -730,11 +730,13 @@ const linkHtml = l => {
   if (l === "dinners") l = { href: LINKS.dinnerSheet || "#signups", label: "Pick a table" };
   if (l === "addons")  l = { href: LINKS.addonsForm  || "#signups", label: "Sign up" };
   const ext = /^https?:/.test(l.href);
-  return ` · <a href="${esc(l.href)}"${ext ? ' target="_blank" rel="noopener"' : ""}>${esc(l.label || "Link")}</a>`;
+  return `<a href="${esc(l.href)}"${ext ? ' target="_blank" rel="noopener"' : ""}>${esc(l.label || "Link")}</a>`;
 };
 // map: "Place, Niseko" turns into a Google Maps search link (opens in a new tab)
-const mapHtml = q => q ? ` · <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(q)}" target="_blank" rel="noopener">Map</a>` : "";
-const itemHtml = i => `<div class="item ${i.type || "plain"}">${esc(i.t)}${i.note || i.link || i.map ? `<small>${esc(i.note)}${linkHtml(i.link)}${mapHtml(i.map)}</small>` : ""}</div>`;
+const mapHtml = q => q ? `<a class="map" href="${/^https:\/\//.test(q) ? esc(q) : "https://www.google.com/maps/search/?api=1&amp;query=" + encodeURIComponent(q)}" target="_blank" rel="noopener">Map</a>` : "";
+// The small line under an item: note, link and map, joined with dots (no stray dot when the note is empty)
+const fine = (note, link, map) => { const p = [esc(note), linkHtml(link), mapHtml(map)].filter(Boolean); return p.length ? `<small>${p.join(" · ")}</small>` : ""; };
+const itemHtml = i => `<div class="item ${i.type || "plain"}">${esc(i.t)}${fine(i.note, i.link, i.map)}</div>`;
 const slot = (label, items = []) => `<div class="slot"><h4>${label}</h4><div class="items">${
   items.length ? items.map(itemHtml).join("") : `<div class="tba">To come</div>`}</div></div>`;
 // After dark: the night plan in its own framed panel under the evening slot
@@ -746,7 +748,7 @@ const afterDark = a => {
   return `<div class="afterdark"><h4>${MOON}After dark</h4><div class="ad-body">${
     a.theme ? `<span class="ad-theme">Theme: ${esc(a.theme)}</span>` : ""}${
     a.items && a.items.length ? `<div class="items">${a.items.map(itemHtml).join("")}</div>` : ""}${
-    m ? `<p class="ad-meet">${PIN}<span>Meet at <b>${esc(m.name)}</b>${m.note || m.link || m.map ? `<small>${esc(m.note)}${linkHtml(m.link)}${mapHtml(m.map)}</small>` : ""}</span></p>` : ""}</div></div>`;
+    m ? `<p class="ad-meet">${PIN}<span>Meet at <b>${esc(m.name)}</b>${fine(m.note, m.link, m.map)}</span></p>` : ""}</div></div>`;
 };
 const hasPlan = d => [d.morning, d.afternoon, d.evening].some(x => x && x.length) || !!d.afterDark;
 $("days").innerHTML = SCHEDULE.map((d, i) => `

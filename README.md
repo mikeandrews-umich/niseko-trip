@@ -10,7 +10,7 @@ Open `index.html` and scroll to the `EDIT HERE` block near the bottom:
   `type: "inc"` = included (solid maize block), `"opt"` = optional (maize outline), `"plain"` = plain line.
   A day with no items collapses to one line marked "Plan TBA".
   Add `link: "dinners"` or `link: "addons"` to an item to show a sign-up link.
-  Add `map: "Place name, Niseko"` to an item (or a meetup) to show a "Map" link that searches Google Maps.
+  Add `map: "Place name, Niseko"` to an item (or a meetup) to show a "Map" link that searches Google Maps, or paste a full `https://` Maps link to point at one exact place.
   Set `title` for the day's headline.
   ```js
   { day: 1, name: "Sunday", date: "2027-01-03", title: "Arrival day",

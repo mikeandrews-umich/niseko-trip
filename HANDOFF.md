@@ -80,7 +80,7 @@ If you open the folder in Claude Code, point it at this file first ("read HANDOF
 - [x] Schedule filled in for all 7 days, with an "After dark" panel on days 1 to 6.
 - [ ] Still TBA in the schedule: welcome dinner time (Izakaya Wa-R, Mon Jan 4), après start times
       (Blo*Blo Tue Jan 5, Niseko Confidential Wed Jan 6), farewell dinner venue (Fri Jan 8),
-      Hertzzz location (Fri Jan 8), meeting point inside CTS (Sun Jan 3).
+      meeting point inside CTS (Sun Jan 3).
 - [ ] Deadlines and contacts in the `EDIT HERE` block.
 
 ## Recent history
