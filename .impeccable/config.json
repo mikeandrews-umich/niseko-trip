@@ -47,6 +47,12 @@
         ],
         "createdAt": "2026-11-23T22:30:03.109Z",
         "reason": "Claude: the intro .stage deliberately crops the full-bleed wave artwork to the viewport; it holds no tooltips or menus"
+      },
+      {
+        "rule": "overused-font",
+        "value": "fraunces",
+        "createdAt": "2026-11-25T02:24:49.446Z",
+        "reason": "User shipped Fraunces for the intro lettering after the overused-font flag was raised (2026-11-24)"
       }
     ]
   }
