@@ -551,20 +551,21 @@ const LINKS = {
 
 // Schedule. Each slot is a list of items:
 //   { t: "Title", type: "inc" | "opt" | "plain", note: "optional small text",
-//     link: { href: "...", label: "Sign up" } }
+//     link: { href: "...", label: "Sign up" }, map: "Place name, Niseko" }
 // Use link: "dinners" or link: "addons" to point at the sign-up links above.
+// map (optional) adds a "Map" link that searches Google Maps for that text.
 //
 // afterDark (optional, per day):
 //   { theme: "Dress code or theme, optional",
 //     items: [ ...same item shape as the slots... ],
-//     meetup: { name: "Bar name", note: "Short description", link: { href, label } (optional) } }
+//     meetup: { name: "Bar name", note: "Short description", link: { href, label } (optional), map: "Bar name, Niseko" (optional) } }
 const SCHEDULE = [
   { day: 1, name: "Sunday", date: "2027-01-03", title: "Touchdown in Hokkaido",
     morning: [
       { t: "Travel day", type: "plain", note: "Fly into New Chitose (CTS), outside Sapporo" },
     ],
     afternoon: [
-      { t: "Land at New Chitose (CTS) by 3 PM", type: "plain", note: "Meeting point inside CTS: TBA" },
+      { t: "Land at New Chitose (CTS) by 3 PM", type: "plain", note: "Meeting point inside CTS: TBA", map: "New Chitose Airport" },
       { t: "Charter bus to Niseko", type: "inc", note: "Leaves CTS at 4 PM sharp. Supermarket stop on the way, so stock the house." },
     ],
     evening: [
@@ -576,7 +577,7 @@ const SCHEDULE = [
       items: [
         { t: "House night", type: "plain", note: "Hot tub and snacks at the houses. Rest up for first tracks." },
       ],
-      meetup: { name: "Bar Gyu", note: "You walk in through a fridge door. One drink, then bed." },
+      meetup: { name: "Bar Gyu", note: "You walk in through a fridge door. One drink, then bed.", map: "Bar Gyu+, Niseko" },
     } },
 
   { day: 2, name: "Monday", date: "2027-01-04", title: "First tracks",
@@ -590,12 +591,12 @@ const SCHEDULE = [
       { t: "Onsen tour", type: "opt", note: "$40", link: "addons" },
     ],
     evening: [
-      { t: "Welcome dinner at Izakaya Wa-R", type: "inc", note: "Whole group · Hirafu · time TBA" },
+      { t: "Welcome dinner at Izakaya Wa-R", type: "inc", note: "Whole group · Hirafu · time TBA", map: "Izakaya Wa-R, Niseko" },
     ],
     afterDark: {
       theme: "",
       items: [],
-      meetup: { name: "Tamashii Bar", note: "Live music, DJs and games" },
+      meetup: { name: "Tamashii Bar", note: "Live music, DJs and games", map: "Tamashii Bar, Niseko" },
     } },
 
   { day: 3, name: "Tuesday", date: "2027-01-05", title: "Powder day",
@@ -606,7 +607,7 @@ const SCHEDULE = [
     ],
     afternoon: [
       { t: "Free time", type: "plain" },
-      { t: "Après at Blo*Blo bar", type: "inc", note: "Whole group" },
+      { t: "Après at Blo*Blo bar", type: "inc", note: "Whole group", map: "BLO BLO, Niseko" },
     ],
     evening: [
       { t: "Small-group dinners", type: "opt", note: "$ to $$$", link: "dinners" },
@@ -616,7 +617,7 @@ const SCHEDULE = [
       items: [
         { t: "Karaoke night", type: "plain", note: "Small groups. Book a private room." },
       ],
-      meetup: { name: "Bigfoot Bunker", note: "Late-night food until 2 AM" },
+      meetup: { name: "Bigfoot Bunker", note: "Late-night food until 2 AM", map: "Bigfoot Bunker, Niseko" },
     } },
 
   { day: 4, name: "Wednesday", date: "2027-01-06", title: "Après and night laps",
@@ -625,7 +626,7 @@ const SCHEDULE = [
     ],
     afternoon: [
       { t: "Ski day", type: "plain" },
-      { t: "Après at Niseko Confidential", type: "inc", note: "Whole group" },
+      { t: "Après at Niseko Confidential", type: "inc", note: "Whole group", map: "Niseko Confidential, Niseko" },
     ],
     evening: [
       { t: "Small-group dinners", type: "opt", note: "$ to $$$", link: "dinners" },
@@ -635,7 +636,7 @@ const SCHEDULE = [
       items: [
         { t: "Night skiing", type: "opt", note: "Free with your pass" },
       ],
-      meetup: { name: "Powder Room", note: "The big club night. Big dance floor." },
+      meetup: { name: "Powder Room", note: "The big club night. Big dance floor.", map: "Powder Room, Niseko" },
     } },
 
   { day: 5, name: "Thursday", date: "2027-01-07", title: "Rusutsu run",
@@ -653,9 +654,9 @@ const SCHEDULE = [
     afterDark: {
       theme: "",
       items: [
-        { t: "Onsen night at Yukoro", type: "plain", note: "About 5 min walk from the houses. Bring a small towel." },
+        { t: "Onsen night at Yukoro", type: "plain", note: "About 5 min walk from the houses. Bring a small towel.", map: "Yukoro onsen, Niseko" },
       ],
-      meetup: { name: "The Bar Niseko", note: "Japanese whisky and craft spirits" },
+      meetup: { name: "The Bar Niseko", note: "Japanese whisky and craft spirits", map: "The Bar Niseko, Hirafu" },
     } },
 
   { day: 6, name: "Friday", date: "2027-01-08", title: "Last full day",
@@ -731,7 +732,9 @@ const linkHtml = l => {
   const ext = /^https?:/.test(l.href);
   return ` · <a href="${esc(l.href)}"${ext ? ' target="_blank" rel="noopener"' : ""}>${esc(l.label || "Link")}</a>`;
 };
-const itemHtml = i => `<div class="item ${i.type || "plain"}">${esc(i.t)}${i.note || i.link ? `<small>${esc(i.note)}${linkHtml(i.link)}</small>` : ""}</div>`;
+// map: "Place, Niseko" turns into a Google Maps search link (opens in a new tab)
+const mapHtml = q => q ? ` · <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(q)}" target="_blank" rel="noopener">Map</a>` : "";
+const itemHtml = i => `<div class="item ${i.type || "plain"}">${esc(i.t)}${i.note || i.link || i.map ? `<small>${esc(i.note)}${linkHtml(i.link)}${mapHtml(i.map)}</small>` : ""}</div>`;
 const slot = (label, items = []) => `<div class="slot"><h4>${label}</h4><div class="items">${
   items.length ? items.map(itemHtml).join("") : `<div class="tba">To come</div>`}</div></div>`;
 // After dark: the night plan in its own framed panel under the evening slot
@@ -743,7 +746,7 @@ const afterDark = a => {
   return `<div class="afterdark"><h4>${MOON}After dark</h4><div class="ad-body">${
     a.theme ? `<span class="ad-theme">Theme: ${esc(a.theme)}</span>` : ""}${
     a.items && a.items.length ? `<div class="items">${a.items.map(itemHtml).join("")}</div>` : ""}${
-    m ? `<p class="ad-meet">${PIN}<span>Meet at <b>${esc(m.name)}</b>${m.note || m.link ? `<small>${esc(m.note)}${linkHtml(m.link)}</small>` : ""}</span></p>` : ""}</div></div>`;
+    m ? `<p class="ad-meet">${PIN}<span>Meet at <b>${esc(m.name)}</b>${m.note || m.link || m.map ? `<small>${esc(m.note)}${linkHtml(m.link)}${mapHtml(m.map)}</small>` : ""}</span></p>` : ""}</div></div>`;
 };
 const hasPlan = d => [d.morning, d.afternoon, d.evening].some(x => x && x.length) || !!d.afterDark;
 $("days").innerHTML = SCHEDULE.map((d, i) => `
