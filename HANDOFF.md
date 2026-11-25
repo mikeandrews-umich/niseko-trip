@@ -78,8 +78,7 @@ If you open the folder in Claude Code, point it at this file first ("read HANDOF
 - [ ] Optional: verify the domain in GitHub (profile Settings → Pages → Add a domain) to stop
       anyone else's repo from claiming it.
 - [x] Schedule filled in for all 7 days, with an "After dark" panel on days 1 to 6.
-- [ ] Still TBA in the schedule: après start times
-      (Blo*Blo Tue Jan 5, Niseko Confidential Wed Jan 6), farewell dinner venue (Fri Jan 8),
+- [ ] Still TBA in the schedule: Blo*Blo après start time (Tue Jan 5), farewell dinner venue (Fri Jan 8),
       meeting point inside CTS (Sun Jan 3).
 - [ ] Deadlines and contacts in the `EDIT HERE` block.
 
