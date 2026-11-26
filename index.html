@@ -159,18 +159,18 @@
   .afterdark h4{display:flex;align-items:center;align-self:start;gap:8px;margin:2px 0 0;font-size:14px;letter-spacing:.18em;color:var(--neon-pink);
     text-transform:uppercase;line-height:1.3;text-shadow:0 0 6px var(--neon-pink),0 0 16px rgba(255,92,219,.7)}
   .afterdark h4 svg{width:14px;height:14px;flex:none;filter:drop-shadow(0 0 5px var(--neon-pink))}
-  .ad-body{display:grid;gap:12px;min-width:0}
-  .ad-theme{justify-self:start;max-width:100%;padding:6px 13px 5px;color:var(--neon-pink);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;line-height:1.45;overflow-wrap:anywhere;
+  .night-body{display:grid;gap:12px;min-width:0}
+  .night-theme{justify-self:start;max-width:100%;padding:6px 13px 5px;color:var(--neon-pink);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;line-height:1.45;overflow-wrap:anywhere;
     box-shadow:inset 0 0 0 2px var(--neon-pink),0 0 12px rgba(255,92,219,.45),inset 0 0 10px rgba(255,92,219,.2);text-shadow:0 0 8px rgba(255,92,219,.6)}
   .afterdark .item small{color:#b9b0d6;opacity:1}
-  .afterdark .item a,.ad-meet a{color:var(--neon-cyan);text-shadow:0 0 8px rgba(92,225,255,.55)}
+  .afterdark .item a,.night-meet a{color:var(--neon-cyan);text-shadow:0 0 8px rgba(92,225,255,.55)}
   .afterdark .item.opt{box-shadow:inset 0 0 0 2px var(--neon-cyan),0 0 12px rgba(92,225,255,.4),inset 0 0 10px rgba(92,225,255,.15)}
   .afterdark .item.inc{background:var(--neon-pink);color:var(--night);box-shadow:0 0 16px rgba(255,92,219,.55)}
   .afterdark .item.inc small,.afterdark .item.inc a{color:var(--night);text-shadow:none}
-  .ad-meet{display:flex;gap:10px;align-items:flex-start;margin:0;font-size:16px}
-  .ad-meet svg{width:13px;height:17px;flex:none;margin-top:4px;color:var(--neon-cyan);filter:drop-shadow(0 0 5px var(--neon-cyan))}
-  .ad-meet b{color:#fff;text-shadow:0 0 10px rgba(92,225,255,.55)}
-  .ad-meet small{display:block;font-size:14px;color:#b9b0d6}
+  .night-meet{display:flex;gap:10px;align-items:flex-start;margin:0;font-size:16px}
+  .night-meet svg{width:13px;height:17px;flex:none;margin-top:4px;color:var(--neon-cyan);filter:drop-shadow(0 0 5px var(--neon-cyan))}
+  .night-meet b{color:#fff;text-shadow:0 0 10px rgba(92,225,255,.55)}
+  .night-meet small{display:block;font-size:14px;color:#b9b0d6}
   @media(max-width:520px){
     .afterdark{grid-template-columns:minmax(0,1fr);padding:16px 16px 18px}
   }
@@ -733,10 +733,10 @@ const MOON = `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10.5 1.2A7 7
 const afterDark = a => {
   if (!a) return "";
   const m = a.meetup;
-  return `<div class="afterdark"><h4>${MOON}After dark</h4><div class="ad-body">${
-    a.theme ? `<span class="ad-theme">Theme: ${esc(a.theme)}</span>` : ""}${
+  return `<div class="afterdark"><h4>${MOON}After dark</h4><div class="night-body">${
+    a.theme ? `<span class="night-theme">Theme: ${esc(a.theme)}</span>` : ""}${
     a.items && a.items.length ? `<div class="items">${a.items.map(itemHtml).join("")}</div>` : ""}${
-    m ? `<p class="ad-meet">${PIN}<span>Meet at <b>${esc(m.name)}</b>${fine(m.note, m.link, m.map)}</span></p>` : ""}</div></div>`;
+    m ? `<p class="night-meet">${PIN}<span>Meet at <b>${esc(m.name)}</b>${fine(m.note, m.link, m.map)}</span></p>` : ""}</div></div>`;
 };
 const hasPlan = d => [d.morning, d.afternoon, d.evening].some(x => x && x.length) || !!d.afterDark;
 $("days").innerHTML = SCHEDULE.map((d, i) => `
@@ -1089,7 +1089,7 @@ if (window.gsap && window.ScrollTrigger) gsap.matchMedia().add("(prefers-reduced
   });
   // After dark: each panel's neon sign stutters on the first time it scrolls into view
   document.querySelectorAll(".afterdark").forEach(ad => {
-    const sign = ad.querySelectorAll("h4, .ad-theme");
+    const sign = ad.querySelectorAll("h4, .night-theme");
     gsap.set(sign, { opacity: .12 });
     gsap.timeline({ scrollTrigger: { trigger: ad, start: "top 80%", once: true }, delay: .25 })
       .to(sign, { opacity: 1, duration: .04, ease: "none" })
