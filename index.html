@@ -407,7 +407,7 @@
           <li><b>Snowmobile tour</b><span class="p">$115</span><span class="d">Guided sled ride through forest trails and open powder fields.</span><span class="y">¥18,000</span></li>
           <li><b>Onsen tour</b><span class="p">$40</span><span class="d">A guided loop of the area's best volcanic hot springs.</span><span class="y">¥6,000</span></li>
           <li><b>Tubing</b><span class="p">$30</span><span class="d">Oversized inner tubes, lit-up lanes, no skill required.</span><span class="y">¥4,500</span></li>
-          <li><b>Ski or snowboard lessons</b><span class="p">GoSnow</span><span class="d">Morning or afternoon adult group lessons. Book these directly with GoSnow, not on the sheet. First time on snow? Start here.</span><span class="y"><a href="https://www.gosnowniseko.com/lessons/adult-group-lessons" target="_blank" rel="noopener">Book lessons</a></span></li>
+          <li><b>Ski or snowboard lessons</b><span class="p">GoSnow</span><span class="d">One adult group lesson for everyone, Monday morning. Book it directly with GoSnow, not on the sheet. First time on snow? Start here.</span><span class="y"><a href="https://www.gosnowniseko.com/lessons/adult-group-lessons" target="_blank" rel="noopener">Book lessons</a></span></li>
         </ul>
         <a class="btn" id="addons-link" href="#">Add-ons sheet
           <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4 2h8v8M12 2 2 12" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></a>
@@ -436,7 +436,7 @@
     </div>
     <ol class="legs">
       <li><b>Fly to CTS</b><span>Direct from SFO or Vancouver (YVR), or connect through Tokyo (HND or NRT), Taipei (TPE) or Seoul (ICN).</span></li>
-      <li><b>Clear customs, find the group</b><span>Meet at <b class="inline">Center Plaza, 2F, Domestic Terminal</b> by 3:45 PM. Look for the Ross flag. International arrivals: follow the signs to the Domestic Terminal.</span></li>
+      <li><b>Clear customs, find the group</b><span>Meet at <b class="inline">Center Plaza, 2F, Domestic Terminal</b>, by 3:30 PM. Look for the Ross flag. International arrivals: follow the signs to the Domestic Terminal.</span></li>
       <li><b>Charter bus to Niseko, 4 PM</b><span>About two to two and a half hours with the grocery stop. Grab snacks and breakfast for the house.</span></li>
       <li><b>Check in and pick up gear</b><span>Rentals are from <a href="https://rhythmjapan.com/winter-rentals-services" target="_blank" rel="noopener">Rhythm Japan</a>. House assignments: <span class="tba">TBA</span>.</span></li>
     </ol>
@@ -557,8 +557,7 @@ const LINKS = {
 // map (optional) adds a "Map" link: either text to search Google Maps for, or a full https:// Maps link to one place.
 //
 // afterDark (optional, per day):
-//   { theme: "Dress code or theme, optional",
-//     items: [ ...same item shape as the slots... ],
+//   { items: [ ...same item shape as the slots... ],
 //     meetup: { name: "Bar name", note: "Short description", link: { href, label } (optional), map: "Bar name, Niseko" (optional) } }
 const SCHEDULE = [
   { day: 1, name: "Sunday", date: "2027-01-03", title: "Touchdown in Hokkaido",
@@ -566,7 +565,8 @@ const SCHEDULE = [
       { t: "Travel day", type: "plain", note: "Fly into New Chitose (CTS), outside Sapporo" },
     ],
     afternoon: [
-      { t: "Land at New Chitose (CTS) by 3 PM", type: "plain", note: "Meet at Center Plaza, 2F, Domestic Terminal by 3:45 PM. Look for the Ross flag. International arrivals: follow the signs to the Domestic Terminal.", map: "New Chitose Airport" },
+      { t: "Land at New Chitose (CTS) by 3 PM", type: "plain" },
+      { t: "Meet at Center Plaza, 2F, Domestic Terminal", type: "plain", note: "Be there by 3:30 PM. Look for the Ross flag. International arrivals: follow the signs to the Domestic Terminal.", map: "New Chitose Airport" },
       { t: "Charter bus to Niseko", type: "inc", note: "Leaves CTS at 4 PM sharp. Supermarket stop on the way, so stock the house." },
     ],
     evening: [
@@ -574,9 +574,8 @@ const SCHEDULE = [
       { t: "Small-group dinners", type: "opt", note: "$ to $$$", link: "dinners" },
     ],
     afterDark: {
-      theme: "",
       items: [
-        { t: "House night", type: "plain", note: "Hot tub and snacks at the houses. Rest up for first tracks." },
+        { t: "House night", type: "plain", note: "Hot pot and drinks at the houses. Rest up for first tracks." },
       ],
       meetup: { name: "Bar Gyu", note: "You walk in through a fridge door. One drink, then bed.", map: "Bar Gyu+, Niseko" },
     } },
@@ -584,18 +583,15 @@ const SCHEDULE = [
   { day: 2, name: "Monday", date: "2027-01-04", title: "First tracks",
     morning: [
       { t: "Ski day", type: "plain" },
-      { t: "AM ski or snowboard lesson", type: "opt", note: "Adult group lessons", link: { href: "https://www.gosnowniseko.com/lessons/adult-group-lessons", label: "Book with GoSnow" } },
+      { t: "Group ski or snowboard lesson", type: "opt", note: "One session, everyone together. Book the adult group lesson.", link: { href: "https://www.gosnowniseko.com/lessons/adult-group-lessons", label: "Book with GoSnow" } },
     ],
     afternoon: [
       { t: "Ski day", type: "plain" },
-      { t: "PM ski or snowboard lesson", type: "opt", note: "Adult group lessons", link: { href: "https://www.gosnowniseko.com/lessons/adult-group-lessons", label: "Book with GoSnow" } },
-      { t: "Onsen tour", type: "opt", note: "$40", link: "addons" },
     ],
     evening: [
       { t: "Welcome dinner at Izakaya Wa-R", type: "inc", note: "Whole group · Hirafu · 8:30 PM", map: "Izakaya Wa-R, Niseko" },
     ],
     afterDark: {
-      theme: "",
       items: [],
       meetup: { name: "Tamashii Bar", note: "Live music, DJs and games", map: "Tamashii Bar, Niseko" },
     } },
@@ -611,10 +607,10 @@ const SCHEDULE = [
       { t: "Après at Blo*Blo bar", type: "inc", note: "Whole group", map: "BLO BLO, Niseko" },
     ],
     evening: [
+      { t: "Onsen tour", type: "opt", note: "$40 · right after après", link: "addons" },
       { t: "Small-group dinners", type: "opt", note: "$ to $$$", link: "dinners" },
     ],
     afterDark: {
-      theme: "",
       items: [
         { t: "Karaoke night", type: "plain", note: "Small groups. Book a private room." },
       ],
@@ -633,7 +629,6 @@ const SCHEDULE = [
       { t: "Small-group dinners", type: "opt", note: "$ to $$$", link: "dinners" },
     ],
     afterDark: {
-      theme: "",
       items: [
         { t: "Night skiing", type: "opt", note: "Free with your pass" },
       ],
@@ -653,7 +648,6 @@ const SCHEDULE = [
       { t: "Small-group dinners", type: "opt", note: "$ to $$$", link: "dinners" },
     ],
     afterDark: {
-      theme: "",
       items: [
         { t: "Onsen night at Yukoro", type: "plain", note: "About 5 min walk from the houses. Bring a small towel.", map: "Yukoro onsen, Niseko" },
       ],
@@ -672,7 +666,6 @@ const SCHEDULE = [
       { t: "Farewell dinner", type: "inc", note: "Whole group · venue TBA" },
     ],
     afterDark: {
-      theme: "",
       items: [
         { t: "Last night out", type: "plain", note: "The bus leaves at 9 AM. Pack before you go out." },
       ],
