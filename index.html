@@ -215,6 +215,44 @@
   .list li:last-child{border-bottom:0}
   .list b{display:block;font-size:18px;color:var(--bone)}
   .list .where{color:var(--ink);font-weight:700}
+
+  /* ---------- Around Hirafu: dark map + spot lists ---------- */
+  .spotmap-wrap{margin:8px 0 28px;box-shadow:inset 0 0 0 2px var(--ink)}
+  .spotmap{height:440px;background:var(--stock);position:relative}
+  @media(max-width:700px){.spotmap{height:360px}}
+  .spotmap-msg{position:absolute;inset:0;display:grid;place-items:center;margin:0;color:var(--bone-dim);font-size:14px}
+  .spotmap-bar{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;justify-content:space-between;padding:12px 14px;border-top:2px solid var(--ink)}
+  .pin-legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;font-weight:700;color:var(--bone-dim)}
+  .pin{display:inline-block;width:13px;height:13px;border-radius:50%;vertical-align:-1px;margin-right:7px}
+  .pin.shop{background:var(--ink);box-shadow:0 0 0 2px var(--stock),0 0 0 3px var(--ink)}
+  .pin.drink{background:var(--stock);box-shadow:inset 0 0 0 3px var(--ink)}
+  .pin.see{background:var(--bone);box-shadow:0 0 0 2px var(--stock),0 0 0 3px var(--bone)}
+  .spotmap-views{display:flex;gap:0}
+  .spotmap-views button{font:700 13px var(--text);letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;background:transparent;color:var(--ink);border:2px solid var(--ink);cursor:pointer}
+  .spotmap-views button+button{border-left:0}
+  .spotmap-views button[aria-pressed="true"]{background:var(--ink);color:var(--stock)}
+  .spots{display:grid;gap:8px 48px}
+  @media(min-width:900px){.spots{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  .spots h3{margin-top:10px}
+  .spots .list li{cursor:default}
+  .spot-go{all:unset;display:block;cursor:pointer;font-weight:700;font-size:18px;color:var(--bone)}
+  .spot-go:hover,.spot-go:focus-visible{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+  .spot-go:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+  .list .where .pin{width:10px;height:10px;margin-right:6px}
+  /* Leaflet, re-inked: stock and maize, square corners */
+  .spotmap.leaflet-container{background:#0e0d0b;font:inherit}
+  /* OSM's light tiles, inverted into a night map and pulled toward the warm stock */
+  .spotmap .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) saturate(.25) sepia(.25) brightness(.8) contrast(.95)}
+  .spotmap .leaflet-popup-content-wrapper,.spotmap .leaflet-popup-tip{background:var(--stock);color:var(--bone);border-radius:0;box-shadow:0 0 0 2px var(--ink)}
+  .spotmap .leaflet-popup-content{margin:12px 16px;font-size:14px;line-height:1.45}
+  .spotmap .leaflet-popup-content b{display:block;font-size:16px;color:var(--bone)}
+  .spotmap .leaflet-popup-content span{display:block;color:var(--bone-dim)}
+  .spotmap .leaflet-popup-content a{display:inline-block;margin-top:6px;color:var(--ink);font-weight:700}
+  .spotmap .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim)}
+  .spotmap .leaflet-bar{border:2px solid var(--ink)!important;border-radius:0!important}
+  .spotmap .leaflet-bar a,.spotmap .leaflet-bar a:hover{background:var(--stock);color:var(--ink);border-bottom-color:var(--rule);border-radius:0!important}
+  .spotmap .leaflet-control-attribution{background:var(--stock)!important;color:var(--bone-dim)!important;font-size:11px}
+  .spotmap .leaflet-control-attribution a{color:var(--bone-dim)!important}
   .list span.t{color:var(--bone-dim)}
 
   /* ---------- Packing ---------- */
@@ -478,13 +516,15 @@
 
   <section id="town">
     <h2>Around Hirafu</h2>
-    <p class="sub">Free buses run to Hanazono, Kutchan, Annupuri and Niseko Village. These are close enough to walk.</p>
-    <ul class="list">
-      <li><b>Yukoro Onsen</b><span class="where">Hot spring · about 5 min walk.</span> <span class="t">The closest soak to the houses. Go after the last chair.</span></li>
-      <li><b>Hirafu Lawson</b><span class="where">Convenience store · about 10 min walk.</span> <span class="t">Onigiri, egg sandos, an ATM, and whatever you need at 1 AM.</span></li>
-      <li><b>Bar Gyu</b><span class="where">Bar.</span> <span class="t">You walk in through a fridge door. That's the whole pitch.</span></li>
-      <li><b>Mina Mina</b><span class="where">Music bar.</span> <span class="t">For later in the night.</span></li>
-    </ul>
+    <p class="sub">Free buses run to Hanazono, Kutchan, Annupuri and Niseko Village. Tap a pin or a name for directions.</p>
+    <div class="spotmap-wrap">
+      <div id="spotmap" class="spotmap" role="region" aria-label="Map of the spots listed below"><p class="spotmap-msg">Loading the map…</p></div>
+      <div class="spotmap-bar">
+        <div class="pin-legend"><span><i class="pin shop"></i>Stores, ATMs, buses</span><span><i class="pin drink"></i>Food and drink</span><span><i class="pin see"></i>Soak and see</span></div>
+        <div class="spotmap-views" role="group" aria-label="Map view"><button type="button" data-view="hirafu" aria-pressed="true">Hirafu</button><button type="button" data-view="area" aria-pressed="false">Whole area</button></div>
+      </div>
+    </div>
+    <div class="spots" id="spots"></div>
   </section>
 
   <section id="packing">
@@ -678,6 +718,30 @@ const SCHEDULE = [
     ] },
 ];
 
+// Around Hirafu: spots shown in the lists and on the map.
+//   group: "hirafu" | "kutchan" | "trip"   kind: "shop" (stores, ATMs, buses) | "drink" (food and drink) | "see" (onsen and sights)
+//   lat / lon place the pin (copy them from Google Maps: right-click a spot, click the numbers).
+//   map (optional): text for the Google Maps link; defaults to the name plus "Niseko".
+const SPOTS = [
+  { group: "hirafu", kind: "shop",  name: "Seicomart Hirafu", type: "Convenience store · 6:30 AM to 11 PM", note: "Hokkaido's own chain. Hot food counter, an ATM and currency exchange.", lat: 42.85915, lon: 140.70495, map: "Seicomart Niseko Hirafu" },
+  { group: "hirafu", kind: "shop",  name: "Hirafu Lawson", type: "Convenience store · open 24 hours", note: "Onigiri, egg sandos, an ATM, and whatever you need at 1 AM.", lat: 42.86086, lon: 140.70760, map: "Lawson Niseko Hirafu" },
+  { group: "hirafu", kind: "shop",  name: "7-Eleven", type: "Convenience store · open 24 hours", note: "On the road out toward Kutchan. Its ATM takes foreign cards.", lat: 42.86402, lon: 140.72375, map: "7-Eleven Niseko Hirafu" },
+  { group: "hirafu", kind: "shop",  name: "Sapporo Drug Store", type: "Drugstore · 10 AM to 11 PM", note: "Cold medicine, blister plasters, sunscreen and snacks.", lat: 42.85996, lon: 140.70258, map: "Sapporo Drug Store Niseko Hirafu" },
+  { group: "hirafu", kind: "shop",  name: "Hirafu Welcome Center", type: "Bus stop and tourist info", note: "Where the buses stop, at the bottom of the main lifts.", lat: 42.86260, lon: 140.69864, map: "Hirafu Welcome Center" },
+  { group: "hirafu", kind: "see",   name: "Yukoro Onsen", type: "Hot spring · about 5 min walk", note: "The closest soak to the houses. Go after the last chair.", lat: 42.85658, lon: 140.70881, map: "Yukoro onsen, Niseko" },
+  { group: "hirafu", kind: "drink", name: "Bar Gyu+", type: "Cocktail bar", note: "You walk in through a fridge door. Tuesday's meetup.", lat: 42.85680, lon: 140.70690, map: "Bar Gyu+, Niseko" },
+  { group: "hirafu", kind: "drink", name: "Blo*Blo", type: "Bar", note: "Tuesday's après, 3 PM.", lat: 42.86120, lon: 140.69970, map: "BLO BLO, Niseko" },
+  { group: "hirafu", kind: "drink", name: "Mūsu", type: "Bar and bistro, in Odin Place", note: "Monday's pre-dinner drinks, upstairs with a view of the village.", lat: 42.85892, lon: 140.70475, map: "Musu Bar Bistro, Niseko" },
+  { group: "hirafu", kind: "drink", name: "Mina Mina", type: "Music bar", note: "For later in the night.", lat: 42.86018, lon: 140.70518, map: "Mina Mina, Niseko" },
+  { group: "kutchan", kind: "shop", name: "Lucky", type: "Supermarket · 9 AM to 9 PM", note: "The big grocery run. Stock the house here.", lat: 42.90020, lon: 140.75090, map: "Lucky supermarket Kutchan" },
+  { group: "kutchan", kind: "shop", name: "MaxValu", type: "Supermarket · 8 AM to 11 PM", note: "Open late, with a ¥100 shop and a Tsuruha pharmacy next door.", lat: 42.88902, lon: 140.75041, map: "MaxValu Kutchan" },
+  { group: "kutchan", kind: "shop", name: "Kutchan Post Office", type: "Post office and ATM", note: "Its ATM takes most foreign cards.", lat: 42.90113, lon: 140.75447, map: "Kutchan Post Office" },
+  { group: "kutchan", kind: "see",  name: "Kutchan Station", type: "Train station and town center", note: "The real town, about 20 min by shuttle bus. Cheaper food and local izakaya.", lat: 42.90169, lon: 140.74575, map: "Kutchan Station" },
+  { group: "trip", kind: "see",     name: "Milk Kobo", type: "Dairy farm shop · a short drive", note: "Niseko Takahashi Dairy's shop. Soft serve, cream puffs and drinkable yogurt.", lat: 42.83701, lon: 140.67492, map: "Milk Kobo Niseko" },
+  { group: "trip", kind: "see",     name: "Niseko View Plaza", type: "Roadside station", note: "Local produce market, with Mt. Yotei right there on a clear day.", lat: 42.79939, lon: 140.70270, map: "Michi no Eki Niseko View Plaza" },
+  { group: "trip", kind: "see",     name: "Hanazono 308", type: "Hanazono base lodge", note: "Café and shop at the bottom of Hanazono. A free shuttle runs from Hirafu.", lat: 42.89316, lon: 140.69995, map: "Hanazono 308 Niseko" },
+];
+
 const PACKING = {
   "On the mountain": ["Helmet","Goggles, plus a low-light lens","Ski or snowboard jacket","Snow pants","Base layers, top and bottom","Fleece or mid layer","Ski socks, a few pairs","Gloves or mittens","Neck gaiter or balaclava","Sunscreen and lip balm","Hand warmers"],
   "Around town": ["Warm boots with grip","Puffer jacket","Beanie","Swimsuit","Something to go out in","Slippers for the house","Water bottle"],
@@ -824,6 +888,54 @@ $("contact-grid").innerHTML = CONTACTS.map(c => `
     ${c.email ? `<a href="mailto:${esc(c.email)}">Email</a>` : ""}
     ${!c.phone && !c.email ? `<span class="tba">Contact info to come</span>` : ""}
   </div>`).join("");
+
+// Around Hirafu: spot lists, then the dark map (Leaflet + OpenStreetMap tiles, inked dark in CSS), loaded only when you get near it
+const gmaps = sp => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(sp.map || sp.name + ", Niseko");
+const SPOT_GROUPS = [["hirafu", "In Hirafu"], ["kutchan", "Kutchan town"], ["trip", "Worth a trip"]];
+$("spots").innerHTML = SPOT_GROUPS.map(([g, label]) => `<div><h3>${label}</h3><ul class="list">${
+  SPOTS.map((sp, i) => sp.group !== g ? "" : `<li><button type="button" class="spot-go" data-i="${i}">${esc(sp.name)}</button><span class="where"><i class="pin ${sp.kind}"></i>${esc(sp.type)}.</span> <span class="t">${esc(sp.note)} <a href="${gmaps(sp)}" target="_blank" rel="noopener">Google Maps</a></span></li>`).join("")
+}</ul></div>`).join("");
+(() => {
+  const el = $("spotmap"), views = [...document.querySelectorAll(".spotmap-views button")];
+  let map = null, markers = [], wantView = "hirafu", focusI = null;
+  const PIN = { shop: { fillColor: "#ffc72c", color: "#0e0d0b" }, drink: { fillColor: "#0e0d0b", color: "#ffc72c" }, see: { fillColor: "#efe6c8", color: "#0e0d0b" } };
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const boundsFor = v => L.latLngBounds(SPOTS.filter(sp => v === "area" || sp.group === "hirafu").map(sp => [sp.lat, sp.lon]));
+  const show = v => {
+    wantView = v; views.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.view === v)));
+    if (map) map.flyToBounds(boundsFor(v), { padding: [28, 28], maxZoom: 17, duration: still ? 0 : .8 });
+  };
+  const focus = i => {
+    focusI = i;
+    if (!map) { el.scrollIntoView({ behavior: still ? "auto" : "smooth", block: "center" }); return; }
+    map.flyTo([SPOTS[i].lat, SPOTS[i].lon], Math.max(map.getZoom(), 16), { duration: still ? 0 : .7 });
+    markers[i].openPopup();
+    el.scrollIntoView({ behavior: still ? "auto" : "smooth", block: "center" });
+  };
+  views.forEach(b => b.addEventListener("click", () => show(b.dataset.view)));
+  $("spots").addEventListener("click", e => { const b = e.target.closest(".spot-go"); if (b) focus(+b.dataset.i); });
+  const init = () => {
+    el.innerHTML = "";
+    map = L.map(el, { scrollWheelZoom: false, zoomSnap: .5 }).fitBounds(boundsFor(wantView), { padding: [28, 28], maxZoom: 17 });
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {          // standard OSM tiles, inked dark in CSS (.spotmap .leaflet-tile-pane)
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+    markers = SPOTS.map(sp => L.circleMarker([sp.lat, sp.lon], { radius: 8, weight: 3, fillOpacity: 1, ...PIN[sp.kind] })
+      .bindPopup(`<b>${esc(sp.name)}</b><span>${esc(sp.type)}</span><a href="${gmaps(sp)}" target="_blank" rel="noopener">Open in Google Maps</a>`)
+      .addTo(map));
+    if (focusI !== null) focus(focusI);
+    setTimeout(() => map.invalidateSize(), 400);   // the section may still be sliding in
+  };
+  const load = () => new Promise((ok, fail) => {
+    if (window.L) return ok();
+    const css = document.createElement("link"); css.rel = "stylesheet"; css.href = "js/leaflet/leaflet.css"; document.head.append(css);
+    const js = document.createElement("script"); js.src = "js/leaflet/leaflet.js"; js.onload = ok; js.onerror = fail; document.head.append(js);
+  });
+  const start = () => load().then(init).catch(() => { el.innerHTML = '<p class="spotmap-msg">The map could not load. The Google Maps links below still work.</p>'; });
+  if ("IntersectionObserver" in window) new IntersectionObserver((es, io) => { if (es.some(e => e.isIntersecting)) { io.disconnect(); start(); } }, { rootMargin: "600px 0px" }).observe(el);
+  else start();
+})();
 
 // Index strip + back-to-top
 const links = [...document.querySelectorAll(".index a")];
