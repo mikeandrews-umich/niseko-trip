@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Niseko 2027 · Ross Ski &amp; Snowboard Club</title>
-<meta name="description" content="RSSC goes to Niseko, Hokkaido, January 3–9, 2027. Schedule, sign-ups, flights, houses, packing list and contacts.">
+<meta name="description" content="RSSC goes to Niseko, Hokkaido, January 3–9, 2027. Schedule, sign-ups, flights, houses, the town map and the packing list.">
 <meta name="theme-color" content="#0e0d0b">
 <meta property="og:title" content="Niseko 2027: Powder Pilgrimage">
 <meta property="og:description" content="Ross Ski & Snowboard Club in Niseko, Jan 3–9, 2027. Everything you need for the trip.">
@@ -224,13 +224,15 @@
   .spotmap-bar{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;justify-content:space-between;padding:12px 14px;border-top:2px solid var(--ink)}
   .pin-legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;font-weight:700;color:var(--bone-dim)}
   .pin{display:inline-block;width:13px;height:13px;border-radius:50%;vertical-align:-1px;margin-right:7px}
-  .pin.shop{background:var(--ink);box-shadow:0 0 0 2px var(--stock),0 0 0 3px var(--ink)}
+  .pin.plan{background:var(--ink);box-shadow:0 0 0 2px var(--stock),0 0 0 3px var(--ink)}
   .pin.drink{background:var(--stock);box-shadow:inset 0 0 0 3px var(--ink)}
-  .pin.see{background:var(--bone);box-shadow:0 0 0 2px var(--stock),0 0 0 3px var(--bone)}
+  .pin.shop{background:var(--bone);box-shadow:0 0 0 2px var(--stock),0 0 0 3px var(--bone)}
+  .pin.see{background:var(--stock);box-shadow:inset 0 0 0 3px var(--bone)}
   .spotmap-views{display:flex;gap:0}
   .spotmap-views button{font:700 13px var(--text);letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;background:transparent;color:var(--ink);border:2px solid var(--ink);cursor:pointer}
   .spotmap-views button+button{border-left:0}
   .spotmap-views button[aria-pressed="true"]{background:var(--ink);color:var(--stock)}
+  .getting-around{margin:0 0 30px}
   .spots{display:grid;gap:8px 48px}
   @media(min-width:900px){.spots{grid-template-columns:repeat(3,minmax(0,1fr))}}
   .spots h3{margin-top:10px}
@@ -457,7 +459,7 @@
         <ol class="how">
           <li>Open the Dinners tab and find a night with an open green cell.</li>
           <li>Type your name in it. One dinner per person per night.</li>
-          <li>Don't delete or move anyone else. Want to swap? Message logistics.</li>
+          <li>Don't delete or move anyone else. Want to swap? Ask in the WhatsApp group.</li>
         </ol>
         <a class="btn" id="dinners-link" href="#">Dinner sheet
           <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4 2h8v8M12 2 2 12" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></a>
@@ -478,7 +480,7 @@
       <li><b>Charter bus to Niseko, 4 PM</b><span>About two to two and a half hours with the grocery stop. Grab snacks and breakfast for the house.</span></li>
       <li><b>Check in and pick up gear</b><span>Rentals are from <a href="https://rhythmjapan.com/winter-rentals-services" target="_blank" rel="noopener">Rhythm Japan</a>. House assignments: <span class="tba">TBA</span>.</span></li>
     </ol>
-    <p class="note">Landing on another day or flying in from somewhere else? Tell the logistics team so we know when to expect you (see <a href="#contacts">Contacts</a>).</p>
+    <p class="note">Landing on another day or flying in from somewhere else? Let the trip lead know on WhatsApp so we know when to expect you.</p>
   </section>
 
   <section id="housing">
@@ -516,11 +518,19 @@
 
   <section id="town">
     <h2>Around Hirafu</h2>
-    <p class="sub">Free buses run to Hanazono, Kutchan, Annupuri and Niseko Village. Tap a pin or a name for directions.</p>
+    <p class="sub">How to get around, then food, shops and things to see. Tap a pin or a name for directions.</p>
+    <h3>Getting around</h3>
+    <ul class="list getting-around">
+      <li><b>Hirafu Free Shuttle</b><span class="where">Free for everyone · daily.</span> <span class="t">Loops around Hirafu from the Hirafu Welcome Center, including up to the gondola. Ride as often as you like. <a href="https://hirafufreebus.com/top#january" target="_blank" rel="noopener">Routes and January timetable</a></span></li>
+      <li><b>Niseko United Shuttle</b><span class="where">With your Ikon Pass or lift ticket.</span> <span class="t">Runs between Hirafu, Hanazono, Niseko Village and Annupuri. Show your lift pass to board.</span></li>
+      <li><b>Taxis and Uber</b><span class="where">Don't count on them.</span> <span class="t">Uber barely operates here and taxis are few, especially late at night. Walk, or take the shuttle.</span></li>
+      <li><b>Day trips</b><span class="where">Rent a car, or take the bus or train.</span> <span class="t">Buses run to Kutchan, and trains leave from Kutchan Station. Renting a car? You need an International Driving Permit (from AAA in the U.S.) plus your license, and you have to get it before you leave home.</span></li>
+    </ul>
+    <h3>On the map</h3>
     <div class="spotmap-wrap">
       <div id="spotmap" class="spotmap" role="region" aria-label="Map of the spots listed below"><p class="spotmap-msg">Loading the map…</p></div>
       <div class="spotmap-bar">
-        <div class="pin-legend"><span><i class="pin shop"></i>Stores, ATMs, buses</span><span><i class="pin drink"></i>Food and drink</span><span><i class="pin see"></i>Soak and see</span></div>
+        <div class="pin-legend"><span><i class="pin plan"></i>On the trip plan</span><span><i class="pin drink"></i>Food and drink</span><span><i class="pin shop"></i>Stores, ATMs, buses</span><span><i class="pin see"></i>Soak and see</span></div>
         <div class="spotmap-views" role="group" aria-label="Map view"><button type="button" data-view="hirafu" aria-pressed="true">Hirafu</button><button type="button" data-view="area" aria-pressed="false">Whole area</button></div>
       </div>
     </div>
@@ -540,10 +550,10 @@
     <p class="sub">Not here? Ask in the group chat.</p>
     <div class="faq">
       <details><summary>Which airport do I fly into?</summary><div class="a"><p>New Chitose (CTS), outside Sapporo. Land by 3 PM on Sunday Jan 3 to make the 4 PM charter bus.</p></div></details>
-      <details><summary>I'm landing late or on another day. Now what?</summary><div class="a"><p>You'll get to Niseko on your own. Airport buses and private transfers run from CTS. Tell the logistics team your plan so we know when you're arriving.</p></div></details>
+      <details><summary>I'm landing late or on another day. Now what?</summary><div class="a"><p>You'll get to Niseko on your own. Airport buses and private transfers run from CTS. Tell the trip lead on WhatsApp so we know when you're arriving.</p></div></details>
       <details><summary>How do I sign up for add-ons and dinners?</summary><div class="a"><p>Both are tabs in one Google Sheet, linked under <a href="#signups">Sign-ups</a>. Type your name in an open green cell.</p></div></details>
       <details><summary>Do I need a visa?</summary><div class="a"><p>U.S. passport holders don't need one for a short tourist trip. Other passports vary, so check <a href="https://www.mofa.go.jp/j_info/visit/visa/short/novisa.html" target="_blank" rel="noopener">Japan's visa-exemption list</a> early. International students: make sure your U.S. visa and I-20 are in order for getting back in.</p></div></details>
-      <details><summary>Do I need an Ikon Pass?</summary><div class="a"><p>Niseko United is on the Ikon Pass. Pass and lift-ticket details: <span class="tba">TBA</span>.</p></div></details>
+      <details><summary>Ikon Pass or lift tickets?</summary><div class="a"><p>Skiing most days? Get the Ikon Pass: Niseko United (all four resorts) is on it. Only skiing a day or two? Buy daily lift tickets online from <a href="https://www.niseko.ne.jp/en/online-liftpass/" target="_blank" rel="noopener">Niseko United</a> and skip the ticket-window line. Either way, your lift pass also gets you on the Niseko United Shuttle between the resorts.</p></div></details>
       <details><summary>I've never skied. Is that OK?</summary><div class="a"><p>Yes. Ski or board, either works. Book group lessons directly with <a href="https://www.gosnowniseko.com/lessons/adult-group-lessons" target="_blank" rel="noopener">GoSnow</a>, and Niseko's beginner runs are wide and soft.</p></div></details>
       <details><summary>Cash or card?</summary><div class="a"><p>Cards work most places in Hirafu, but bring yen for small restaurants, buses and onsen. ATMs at Lawson and 7-Eleven take foreign cards.</p></div></details>
       <details><summary>Will my charger work?</summary><div class="a"><p>Yes. Japan uses the same plugs as the U.S. Bring a battery pack, because phones die fast in the cold.</p></div></details>
@@ -552,12 +562,11 @@
 
   <section id="contacts">
     <h2>Contacts</h2>
-    <p class="sub">Who to message for what.</p>
-    <div class="people" id="contact-grid"></div>
+    <p class="sub">Questions, plan changes or a problem on the trip? Message the trip WhatsApp group. The trip lead answers there.</p>
     <div class="emergency">
       <b>Emergency in Japan</b>
       <div class="nums"><a href="tel:119">119<span>Ambulance, fire</span></a><a href="tel:110">110<span>Police</span></a></div>
-      <p>Then tell a trip lead.</p>
+      <p>Then message the trip lead on WhatsApp.</p>
     </div>
   </section>
 </main>
@@ -714,32 +723,51 @@ const SCHEDULE = [
       { t: "Flights out of CTS", type: "plain" },
     ],
     evening: [
-      { t: "Home, or onward through Japan", type: "plain", note: "Staying longer? Tell logistics your plans." },
+      { t: "Home, or onward through Japan", type: "plain", note: "Staying longer? Tell the trip lead on WhatsApp." },
     ] },
 ];
 
 // Around Hirafu: spots shown in the lists and on the map.
-//   group: "hirafu" | "kutchan" | "trip"   kind: "shop" (stores, ATMs, buses) | "drink" (food and drink) | "see" (onsen and sights)
-//   lat / lon place the pin (copy them from Google Maps: right-click a spot, click the numbers).
-//   map (optional): text for the Google Maps link; defaults to the name plus "Niseko".
+//   group: "plan" | "dinners" | "hirafu" | "kutchan" | "trip"
+//   kind (pin colour): "plan" (on the trip plan) | "drink" (food and drink) | "shop" (stores, ATMs, buses) | "see" (onsen and sights)
+//   lat / lon place the pin (copy them from Google Maps: right-click a spot, click the numbers). Leave them out to list a spot without a pin.
+//   map (optional): text for the Google Maps link, or a full https:// Maps link; defaults to the name plus "Niseko".
 const SPOTS = [
+  // Included meals, après and after-dark meetups (keep in step with SCHEDULE)
+  { group: "plan", kind: "plan", name: "Mūsu", type: "Optional · pre-dinner drinks, Mon 7:30 PM", note: "Upstairs in Odin Place, a short walk from the welcome dinner.", lat: 42.85892, lon: 140.70475, map: "Musu Bar Bistro, Niseko" },
+  { group: "plan", kind: "plan", name: "Izakaya Wa-R", type: "Included · welcome dinner, Mon 8:30 PM", note: "Whole group. Hokkaido seafood and izakaya classics.", lat: 42.85816, lon: 140.70554, map: "Izakaya Wa-R, Niseko" },
+  { group: "plan", kind: "plan", name: "Tamashii", type: "After dark · Mon", note: "Live music, DJs and games.", lat: 42.85921, lon: 140.70589, map: "Tamashii Bar, Niseko" },
+  { group: "plan", kind: "plan", name: "Blo*Blo", type: "Included · après, Tue 3 PM", note: "Whole group.", lat: 42.86120, lon: 140.69970, map: "BLO BLO, Niseko" },
+  { group: "plan", kind: "plan", name: "Bar Gyu+", type: "After dark · Tue", note: "You walk in through a fridge door.", lat: 42.85680, lon: 140.70690, map: "Bar Gyu+, Niseko" },
+  { group: "plan", kind: "plan", name: "Niseko Confidential", type: "Included · après, Wed 4 PM", note: "Whole group. Use the Google Maps link to find it.", map: "Niseko Confidential, Niseko" },
+  { group: "plan", kind: "plan", name: "Powder Room", type: "After dark · Wed", note: "The big club night. Big dance floor.", lat: 42.85606, lon: 140.70761, map: "Powder Room, Niseko" },
+  { group: "plan", kind: "plan", name: "The Bar Niseko", type: "After dark · Thu", note: "Japanese whisky and craft spirits, upstairs from Niseko Pizza.", lat: 42.85831, lon: 140.70456, map: "The Bar Niseko, Hirafu" },
+  { group: "plan", kind: "plan", name: "Yakiniku Yoteizan", type: "Included · farewell dinner, Fri 7:45 PM", note: "Whole group. Wagyu yakiniku and jingisukan (grilled lamb).", lat: 42.85950, lon: 140.70306, map: "Yakiniku Yoteizan, Niseko" },
+  { group: "plan", kind: "plan", name: "Hertzzz", type: "After dark · Fri", note: "Last night out. Use the Google Maps link for the exact spot.", map: "https://www.google.com/maps?ftid=0x5f0ab1c6ab8403a3:0xa983aa99d0444e05" },
+  // Small-group dinners (from the Dinners tab of the sign-up sheet)
+  { group: "dinners", kind: "plan", name: "Dashido Niseko", type: "Hot pot · $$ · Sun 1/3, 8:30 PM", note: "Crab hot pot.", lat: 42.85842, lon: 140.70723, map: "Dashido Niseko" },
+  { group: "dinners", kind: "plan", name: "AFURI Setsu Niseko", type: "Ramen · $ · Tue 1/5, 6 PM and Thu 1/7, 6:30 PM", note: "Yuzu ramen and dumplings, across from Lawson.", lat: 42.86133, lon: 140.70741, map: "AFURI Setsu Niseko" },
+  { group: "dinners", kind: "plan", name: "Yakiniku RyuMai", type: "BBQ · $$ · Tue 1/5, 6:30 PM", note: "Japanese barbecue you grill at the table.", lat: 42.86022, lon: 140.70502, map: "Yakiniku RyuMai Niseko" },
+  { group: "dinners", kind: "plan", name: "Kanpai", type: "Hot pot · $$$ · Tue 1/5, 6:30 PM", note: "All you can eat and drink. Toward the edge of the village.", lat: 42.86355, lon: 140.72319, map: "Kanpai Niseko Hirafu" },
+  { group: "dinners", kind: "plan", name: "Izakaya JAM Bar Niseko", type: "Seafood and steak izakaya · $$ · Wed 1/6, 6:30 PM", note: "Pick a table on the Dinners tab.", lat: 42.86081, lon: 140.70399, map: "JAM Bar Niseko" },
+  { group: "dinners", kind: "plan", name: "Sanroku Kitchen REN", type: "Japanese · $$ · Wed 1/6, 6:45 PM", note: "Pick a table on the Dinners tab.", map: "Sanroku Kitchen REN Niseko" },
+  // Everything else
   { group: "hirafu", kind: "shop",  name: "Seicomart Hirafu", type: "Convenience store · 6:30 AM to 11 PM", note: "Hokkaido's own chain. Hot food counter, an ATM and currency exchange.", lat: 42.85915, lon: 140.70495, map: "Seicomart Niseko Hirafu" },
   { group: "hirafu", kind: "shop",  name: "Hirafu Lawson", type: "Convenience store · open 24 hours", note: "Onigiri, egg sandos, an ATM, and whatever you need at 1 AM.", lat: 42.86086, lon: 140.70760, map: "Lawson Niseko Hirafu" },
   { group: "hirafu", kind: "shop",  name: "7-Eleven", type: "Convenience store · open 24 hours", note: "On the road out toward Kutchan. Its ATM takes foreign cards.", lat: 42.86402, lon: 140.72375, map: "7-Eleven Niseko Hirafu" },
   { group: "hirafu", kind: "shop",  name: "Sapporo Drug Store", type: "Drugstore · 10 AM to 11 PM", note: "Cold medicine, blister plasters, sunscreen and snacks.", lat: 42.85996, lon: 140.70258, map: "Sapporo Drug Store Niseko Hirafu" },
   { group: "hirafu", kind: "shop",  name: "Hirafu Welcome Center", type: "Bus stop and tourist info", note: "Where the buses stop, at the bottom of the main lifts.", lat: 42.86260, lon: 140.69864, map: "Hirafu Welcome Center" },
   { group: "hirafu", kind: "see",   name: "Yukoro Onsen", type: "Hot spring · about 5 min walk", note: "The closest soak to the houses. Go after the last chair.", lat: 42.85658, lon: 140.70881, map: "Yukoro onsen, Niseko" },
-  { group: "hirafu", kind: "drink", name: "Bar Gyu+", type: "Cocktail bar", note: "You walk in through a fridge door. Tuesday's meetup.", lat: 42.85680, lon: 140.70690, map: "Bar Gyu+, Niseko" },
-  { group: "hirafu", kind: "drink", name: "Blo*Blo", type: "Bar", note: "Tuesday's après, 3 PM.", lat: 42.86120, lon: 140.69970, map: "BLO BLO, Niseko" },
-  { group: "hirafu", kind: "drink", name: "Mūsu", type: "Bar and bistro, in Odin Place", note: "Monday's pre-dinner drinks, upstairs with a view of the village.", lat: 42.85892, lon: 140.70475, map: "Musu Bar Bistro, Niseko" },
   { group: "hirafu", kind: "drink", name: "Mina Mina", type: "Music bar", note: "For later in the night.", lat: 42.86018, lon: 140.70518, map: "Mina Mina, Niseko" },
+  { group: "hirafu", kind: "drink", name: "Bang Bang", type: "Izakaya", note: "Charcoal-grilled yakitori and Hokkaido seafood. A Hirafu favorite, so book ahead.", lat: 42.86009, lon: 140.70197, map: "Bang Bang Niseko Hirafu" },
+  { group: "hirafu", kind: "drink", name: "Niseko Pizza", type: "Pizza", note: "Long-running Hirafu pizza spot, with The Bar Niseko upstairs.", lat: 42.85825, lon: 140.70456, map: "Niseko Pizza Hirafu" },
   { group: "kutchan", kind: "shop", name: "Lucky", type: "Supermarket · 9 AM to 9 PM", note: "The big grocery run. Stock the house here.", lat: 42.90020, lon: 140.75090, map: "Lucky supermarket Kutchan" },
   { group: "kutchan", kind: "shop", name: "MaxValu", type: "Supermarket · 8 AM to 11 PM", note: "Open late, with a ¥100 shop and a Tsuruha pharmacy next door.", lat: 42.88902, lon: 140.75041, map: "MaxValu Kutchan" },
   { group: "kutchan", kind: "shop", name: "Kutchan Post Office", type: "Post office and ATM", note: "Its ATM takes most foreign cards.", lat: 42.90113, lon: 140.75447, map: "Kutchan Post Office" },
-  { group: "kutchan", kind: "see",  name: "Kutchan Station", type: "Train station and town center", note: "The real town, about 20 min by shuttle bus. Cheaper food and local izakaya.", lat: 42.90169, lon: 140.74575, map: "Kutchan Station" },
+  { group: "kutchan", kind: "see",  name: "Kutchan Station", type: "Train station and town center", note: "The real town, about 20 min by bus. Cheaper food and local izakaya.", lat: 42.90169, lon: 140.74575, map: "Kutchan Station" },
   { group: "trip", kind: "see",     name: "Milk Kobo", type: "Dairy farm shop · a short drive", note: "Niseko Takahashi Dairy's shop. Soft serve, cream puffs and drinkable yogurt.", lat: 42.83701, lon: 140.67492, map: "Milk Kobo Niseko" },
   { group: "trip", kind: "see",     name: "Niseko View Plaza", type: "Roadside station", note: "Local produce market, with Mt. Yotei right there on a clear day.", lat: 42.79939, lon: 140.70270, map: "Michi no Eki Niseko View Plaza" },
-  { group: "trip", kind: "see",     name: "Hanazono 308", type: "Hanazono base lodge", note: "Café and shop at the bottom of Hanazono. A free shuttle runs from Hirafu.", lat: 42.89316, lon: 140.69995, map: "Hanazono 308 Niseko" },
+  { group: "trip", kind: "see",     name: "Hanazono 308", type: "Hanazono base lodge", note: "Café and shop at the bottom of Hanazono. The Niseko United Shuttle runs there from Hirafu.", lat: 42.89316, lon: 140.69995, map: "Hanazono 308 Niseko" },
 ];
 
 const PACKING = {
@@ -747,13 +775,6 @@ const PACKING = {
   "Around town": ["Warm boots with grip","Puffer jacket","Beanie","Swimsuit","Something to go out in","Slippers for the house","Water bottle"],
   "Travel": ["Passport, valid 6+ months","Flight confirmation","Ikon Pass or lift ticket info","Card with no foreign fees","Some yen in cash","Phone, charger, battery pack","eSIM or travel data plan","Travel insurance info","Any meds you need"],
 };
-
-const CONTACTS = [
-  { role: "Trip lead",     name: "Name TBA", email: "", phone: "" },
-  { role: "Trip lead",     name: "Name TBA", email: "", phone: "" },
-  { role: "Logistics",     name: "Name TBA", email: "", phone: "" },
-  { role: "Gear + passes", name: "Name TBA", email: "", phone: "" },
-];
 
 /* ====================================================================== */
 const $ = id => document.getElementById(id);
@@ -880,33 +901,27 @@ $("pack").addEventListener("change", updatePack);
 $("preset").onclick = () => { boxes.forEach(b => b.checked = false); updatePack(); };
 updatePack();
 
-// Contacts
-$("contact-grid").innerHTML = CONTACTS.map(c => `
-  <div>
-    <div class="label">${esc(c.role)}</div><div class="name">${esc(c.name)}</div>
-    ${c.phone ? `<a href="tel:${esc(c.phone)}">Call</a><a href="sms:${esc(c.phone)}">Text</a>` : ""}
-    ${c.email ? `<a href="mailto:${esc(c.email)}">Email</a>` : ""}
-    ${!c.phone && !c.email ? `<span class="tba">Contact info to come</span>` : ""}
-  </div>`).join("");
-
 // Around Hirafu: spot lists, then the dark map (Leaflet + OpenStreetMap tiles, inked dark in CSS), loaded only when you get near it
-const gmaps = sp => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(sp.map || sp.name + ", Niseko");
-const SPOT_GROUPS = [["hirafu", "In Hirafu"], ["kutchan", "Kutchan town"], ["trip", "Worth a trip"]];
+const gmaps = sp => /^https:\/\//.test(sp.map || "") ? sp.map : "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(sp.map || sp.name + ", Niseko");
+const SPOT_GROUPS = [["plan", "Trip meals, après and nights"], ["dinners", "Small-group dinners"], ["hirafu", "In Hirafu"], ["kutchan", "Kutchan town"], ["trip", "Worth a trip"]];
 $("spots").innerHTML = SPOT_GROUPS.map(([g, label]) => `<div><h3>${label}</h3><ul class="list">${
   SPOTS.map((sp, i) => sp.group !== g ? "" : `<li><button type="button" class="spot-go" data-i="${i}">${esc(sp.name)}</button><span class="where"><i class="pin ${sp.kind}"></i>${esc(sp.type)}.</span> <span class="t">${esc(sp.note)} <a href="${gmaps(sp)}" target="_blank" rel="noopener">Google Maps</a></span></li>`).join("")
 }</ul></div>`).join("");
 (() => {
   const el = $("spotmap"), views = [...document.querySelectorAll(".spotmap-views button")];
   let map = null, markers = [], wantView = "hirafu", focusI = null;
-  const PIN = { shop: { fillColor: "#ffc72c", color: "#0e0d0b" }, drink: { fillColor: "#0e0d0b", color: "#ffc72c" }, see: { fillColor: "#efe6c8", color: "#0e0d0b" } };
+  const PIN = { plan: { fillColor: "#ffc72c", color: "#0e0d0b" }, drink: { fillColor: "#0e0d0b", color: "#ffc72c" }, shop: { fillColor: "#efe6c8", color: "#0e0d0b" }, see: { fillColor: "#0e0d0b", color: "#efe6c8" } };
+  const pinned = SPOTS.filter(sp => sp.lat != null);
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const boundsFor = v => L.latLngBounds(SPOTS.filter(sp => v === "area" || sp.group === "hirafu").map(sp => [sp.lat, sp.lon]));
+  // "Hirafu" frames the walkable village (everything west of the 7-Eleven); "Whole area" adds Kutchan and the day trips
+  const boundsFor = v => L.latLngBounds(pinned.filter(sp => v === "area" || (["plan", "dinners", "hirafu"].includes(sp.group) && sp.lon < 140.715)).map(sp => [sp.lat, sp.lon]));
   const show = v => {
     wantView = v; views.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.view === v)));
     if (map) map.flyToBounds(boundsFor(v), { padding: [28, 28], maxZoom: 17, duration: still ? 0 : .8 });
   };
   const focus = i => {
     focusI = i;
+    if (SPOTS[i].lat == null) { window.open(gmaps(SPOTS[i]), "_blank", "noopener"); return; }   // no pin: go straight to Google Maps
     if (!map) { el.scrollIntoView({ behavior: still ? "auto" : "smooth", block: "center" }); return; }
     map.flyTo([SPOTS[i].lat, SPOTS[i].lon], Math.max(map.getZoom(), 16), { duration: still ? 0 : .7 });
     markers[i].openPopup();
@@ -921,7 +936,7 @@ $("spots").innerHTML = SPOT_GROUPS.map(([g, label]) => `<div><h3>${label}</h3><u
       maxZoom: 19,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
-    markers = SPOTS.map(sp => L.circleMarker([sp.lat, sp.lon], { radius: 8, weight: 3, fillOpacity: 1, ...PIN[sp.kind] })
+    markers = SPOTS.map(sp => sp.lat == null ? null : L.circleMarker([sp.lat, sp.lon], { radius: sp.kind === "plan" ? 9 : 8, weight: 3, fillOpacity: 1, ...PIN[sp.kind] })
       .bindPopup(`<b>${esc(sp.name)}</b><span>${esc(sp.type)}</span><a href="${gmaps(sp)}" target="_blank" rel="noopener">Open in Google Maps</a>`)
       .addTo(map));
     if (focusI !== null) focus(focusI);
@@ -1129,8 +1144,8 @@ onScroll();
   requestAnimationFrame(tick);
 })();
 
-// Banner (GSAP): Yotei pulls onto the page one ink pass at a time. Each layer lands a few pixels
-// out of register, then the whole print snaps into register. Scrolling moves the layers at different
+// Banner (GSAP): Yotei pulls onto the page one ink pass at a time, each layer rising into place
+// while the crop marks turn. Scrolling moves the layers at different
 // speeds, and the sun sinks behind the ridge. The days-to-go figure rolls in like an odometer.
 (() => {
   const root = document.documentElement, poster = document.querySelector(".poster");
@@ -1143,9 +1158,9 @@ onScroll();
   // Starting state, set before the prep class comes off so nothing flashes
   gsap.set(sky, { opacity: 0 });
   gsap.set(sun, { y: 110, opacity: 0 });
-  gsap.set(yotei, { x: -12, y: 80, opacity: 0 });
-  gsap.set(ridge, { x: 14, y: 90, opacity: 0 });
-  gsap.set(trees, { x: -9, y: 100, opacity: 0 });
+  gsap.set(yotei, { y: 80, opacity: 0 });
+  gsap.set(ridge, { y: 90, opacity: 0 });
+  gsap.set(trees, { y: 100, opacity: 0 });
   gsap.set(regs, { opacity: 0, scale: .4 });
   gsap.set(chars, { yPercent: 118, rotation: 9, transformOrigin: "0% 100%" });
   gsap.set(sub, { opacity: 0, y: 12 });
@@ -1166,7 +1181,6 @@ onScroll();
     .to(yotei, { y: 0, opacity: 1 }, .3)
     .to(ridge, { y: 0, opacity: 1 }, .45)
     .to(trees, { y: 0, opacity: 1 }, .6)
-    .to([yotei, ridge, trees], { x: 0, duration: .32, ease: "power4.inOut" }, 1.4)        // registration
     .to(regs, { rotation: 90, duration: .32, ease: "power4.inOut" }, 1.4)
     .to(chars, { yPercent: 0, rotation: 0, duration: 1, stagger: { each: .045, ease: "sine.in" } }, 1.0)
     .to(sub, { opacity: .95, y: 0, duration: .7 }, 1.5);

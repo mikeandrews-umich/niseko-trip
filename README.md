@@ -19,11 +19,10 @@ Open `index.html` and scroll to the `EDIT HERE` block near the bottom:
 - `afterDark` (optional, per day): the night plan shown in a framed "After dark" panel under Evening.
   `theme` (a chip, leave "" for none), `items` (same shape as slot items, [] for none) and
   `meetup: { name, note, link }` (the bar to meet at).
-- `SPOTS`: the "Around Hirafu" lists and map pins. Each spot has a `group` (hirafu, kutchan or trip), a `kind`
-  (shop, drink or see, which sets the pin colour), `name`, `type`, `note`, and `lat` / `lon` for the pin.
+- `SPOTS`: the "Around Hirafu" lists and map pins. Each spot has a `group` (plan, dinners, hirafu, kutchan or trip), a `kind`
+  (plan, drink, shop or see, which sets the pin colour), `name`, `type`, `note`, and `lat` / `lon` for the pin.
   To get coordinates, right-click the place in Google Maps and click the numbers at the top of the menu.
 - `PACKING`: packing list groups and items.
-- `CONTACTS`: role, name, email, phone (phone gets Call/Text buttons).
 
 Anything still marked "TBA" in the HTML (meeting point, room assignments, add-on sign-up) is plain text you can edit in place.
 

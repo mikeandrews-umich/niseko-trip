@@ -24,11 +24,11 @@ If you open the folder in Claude Code, point it at this file first ("read HANDOF
 | File | What it is |
 |---|---|
 | `index.html` | The whole site: CSS, markup, and JS in one file |
-| `index.html` → `EDIT HERE` block (near the bottom) | Sign-up links and deadlines, schedule, packing list, contacts. Organizers edit here. See README.md |
+| `index.html` → `EDIT HERE` block (near the bottom) | Sign-up links and deadlines, schedule, town spots and map pins, packing list. Organizers edit here. See README.md |
 | `js/gsap/` | GSAP 3.15.1 core + ScrollTrigger, MorphSVGPlugin and DrawSVGPlugin (minified, from the official download). Loaded just before the `EDIT HERE` script. Same rule as the intro: animate only `transform`/`opacity` |
 | `js/leaflet/` | Leaflet 1.9.4 (checked against its published checksums) for the "Around Hirafu" map. Loaded only when you scroll near the map. Tiles are standard OpenStreetMap tiles, darkened with a CSS filter on `.leaflet-tile-pane`. No API key. Pins come from `SPOTS` in the `EDIT HERE` block |
 | `img/wave.svg` | Great-wave engraving for the intro (compacted, ~1.3 MB, ~480 KB gzipped) |
-| `index.html` → `.poster` | Top banner: Mt. Yotei as five inline-SVG print layers (sky halftone, sun, mountain, ridge, trees). GSAP prints them in one pass at a time, a few px out of register, then snaps them into register; on scroll the layers drift at different speeds and the sun sets. Waits for the intro to finish (`intro:done` event). The days-to-go figure rolls in like an odometer |
+| `index.html` → `.poster` | Top banner: Mt. Yotei as five inline-SVG print layers (sky halftone, sun, mountain, ridge, trees). GSAP prints them in one pass at a time, each rising into place (no sideways movement); on scroll the layers drift at different speeds and the sun sets. Waits for the intro to finish (`intro:done` event). The days-to-go figure rolls in like an odometer |
 | `img/hero.jpg` | Link-preview image (`og:image`) only; no longer shown on the page |
 | `img/trail-map.jpg` | Trail map in the Mountain section |
 | `DESIGN.md` | The design system: two-ink screenprint, maize on near-black stock, rules instead of boxes |
@@ -80,7 +80,8 @@ If you open the folder in Claude Code, point it at this file first ("read HANDOF
       anyone else's repo from claiming it.
 - [x] Schedule filled in for all 7 days, with an "After dark" panel on days 1 to 6.
 - [x] Schedule TBAs all filled in (last one: Blo*Blo après at 3 PM, Tue Jan 5).
-- [ ] Deadlines and contacts in the `EDIT HERE` block.
+- [ ] Sign-up deadlines in the `EDIT HERE` block.
+- Contacts point to the trip WhatsApp group on purpose: no names, emails or phone numbers on the public page.
 
 ## Recent history
 
